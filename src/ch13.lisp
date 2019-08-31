@@ -45,6 +45,10 @@
 (defun eval-special-form (form)
   (cond ((eq (car form) 'quote) (cadr form))
 	((eq (car form) 'cond) (evcon (cdr form)))
+	((eq (car form) 'defun) (set-symbol-function (cadr form)
+			       `(lambda ,(caddr form) ,@(caddr form))))
+	((eq (car form) 'defmacro) (set-symbol-function (cadr form)
+			       `(macro ,(caddr form) ,@(caddr form))))
 	((eq (car form) 'setq) (dummy (cdr form)))
 	))
 
@@ -66,7 +70,27 @@
    ((null forms) nil)
    ((null (cdr forms)) (eval (car forms)))
    (t (eval (car forms)) (evprogn (cdr forms)))))
-  
+
+;;
+;; function-symbol-p
+;;
+(defun function-symbol-p (s)
+  (let ((fb (and (symbolp s) (symbol-function s))))
+    (and fb (eq (car fb) 'lambda))))
+
+;;
+;; function-macro-p
+;;
+(defun macro-symbol-p (s)
+  (let ((fb (and (symbolp s) (symbol-function s))))
+    (and fb (eq (car fb) 'macro))))
+
+;;
+;; macro-function
+;;
+(defun macro-function (s)
+  (and (macro-symbol-p s) (symbol-function s)))
+
 ;;
 ;; stubs
 ;;
