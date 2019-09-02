@@ -26,3 +26,19 @@
 ;;
 (defmacro nil!! (var)
   `(setq ,var nil))
+
+;;
+;; ' or quote
+;;
+(defmacro nif (expr pos zero neg)
+  `(case (truncate (signum ,expr))
+	 (1 ,pos)
+	 (0 ,zero)
+	 (-1 ,neg)))
+
+(defmacro nnif (expr pos zero neg)
+  (list 'case
+	(list 'truncate (list 'signum expr))
+	(list 1 pos)
+	(list 0 zero)
+	(list -1 neg)))
