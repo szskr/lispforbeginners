@@ -1,5 +1,4 @@
 # lispforbeginners
-
-Studing notes and codes for lisp beginners.
+Studying notes and codes by a lisp beginner
 
 
