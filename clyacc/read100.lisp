@@ -1,8 +1,12 @@
 ;;
-;; PART01
+;; Read100.lisp
 ;;
 
 (declaim (inline memq))
+
+(defun memq (item list)
+  "MEMBER :TEST #'EQ"
+  (member item list :test #'eq))
 
 (deftype index () '(unsigned-byte 14))
 (deftype signed-index () '(signed-byte 15))
@@ -34,3 +38,6 @@
   (declare (type production p1 p2))
   (< (production-id p1) (production-id p2)))
 
+;;;
+;;; Experiments
+;;; 
