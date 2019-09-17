@@ -11,6 +11,7 @@
   (list 'setq var nil))
 
 ;;
+;; Sec. `7.2
 ;;
 (setq a1 (equal '(a b c) `(a b c)))
 (setq a2 (equal '(a b c) (list 'a 'b 'c)))
@@ -28,7 +29,10 @@
   `(setq ,var nil))
 
 ;;
+;; Sec. 7.3
+;;
 ;; ' or quote
+;; Fig 7.1
 ;;
 (defmacro nif (expr pos zero neg)
   `(case (truncate (signum ,expr))
@@ -42,3 +46,13 @@
 	(list 1 pos)
 	(list 0 zero)
 	(list -1 neg)))
+
+(mapcar #'(lambda (x)
+	    (nif x 'p 'z 'n))
+	'(0 2.5 -8))
+;;
+;; ,@
+;;
+(setq b '(1 2 3))
+`(a ,b c)
+`(a ,@b c)
