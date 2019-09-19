@@ -52,7 +52,17 @@
 ;;; defstruct form is processed (see *package*). If the argument is provided and is nil,
 ;;; no constructor function is defined.
 ;;;
-(defstruct (person10)
+
+(defstruct (person10
+  (:constructor))
   name
+  nick-name
+  age
+  hobbies)
+
+(defstruct (person11
+  (:constructor make-person11 (name age hobbies)))
+  name
+  nick-name
   age
   hobbies)
