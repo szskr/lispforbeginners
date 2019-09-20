@@ -1,10 +1,30 @@
 ;;
-;; try 100.lisp
+;; Preparation for analyzing yacc.lisp:
+;;;     PART 1:PRODUCTION
 ;;
 
+(defun y100 () (load "./y100.lisp"))
+#-CMU
+(defun required-argument () (error "A required argument was not supplied"))
+
+#-CMU
+(declaim (inline memq))
+
+#-CMU
+(defun memq (item list)
+  "MEMBER :TEST #'EQ"
+  (member item list :test #'eq))
+
+(deftype index () '(unsigned-byte 14))
+(deftype signed-index () '(signed-byte 15))
+
+;;;
+;;; Productions
+;;;
+
 (defstruct (production
-	    (:constructor make-production (symbol derives
-						  &key action action-form))
+             (:constructor make-production (symbol derives
+                                            &key action action-form))
              (:print-function print-production))
   (id nil :type (or null index))
   (symbol (required-argument) :type symbol)
@@ -30,30 +50,6 @@
   (< (production-id p1) (production-id p2)))
 
 ;;;
-;;; Experiments
-;;; 
-
-
-(declaim (inline memq))
-
-(defun memq (item list)
-  "MEMBER :TEST #'EQ"
-  (member item list :test #'eq))
-
-(deftype index () '(unsigned-byte 14))
-(deftype signed-index () '(signed-byte 15))
-
-(defstruct prod
-  (id nil :type (or null index))
-  (symbol (required-argument) :type symbol)
-  (derives (required-argument) :type list))
-  ;;(action #'list :type function)
- ;; (action-form nil))
-
-(defstruct (person
-  (:print-function print-person))
-  name
-  age)
-
-(defun print-person ()
-  (print "person() created"))
+;;; Experiments y100
+;;;
+(setq *p0* (make-production 'p0 '(S E)))
