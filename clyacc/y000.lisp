@@ -39,8 +39,8 @@
   age
   hobbies)
 
-(setq *KenT* (make-person00 :name "Ken Thompson" :age 67 :hobbies '(programming unix)))
-(setq *Dennis* (make-person01 :name "Dennis Richie" :age 100 :hobbies '(programming C)))
+(setq *ken00* (make-person00 :name "Ken Thompson" :age 77 :hobbies '(programming unix)))
+(setq *ken01* (make-person01 :name "Ken Thompson" :age 77 :hobbies '(programming unix)))
 
 ;;;
 ;;; Option :constructor
@@ -60,9 +60,36 @@
   age
   hobbies)
 
+(setq *ken10* (make-person10 :name "Ken Thompson"
+			     :nick-name "ken" :age 77 :hobbies '(programming unix)))
+
 (defstruct (person11
-  (:constructor make-person11 (name age hobbies)))
+  (:constructor make-person11 (name age hobbies nick-name)))
   name
   nick-name
   age
   hobbies)
+
+(setq *ken11* (make-person11 "Ken Thompson" 77 '(programming unix) "ken"))
+
+(defstruct (person12
+	    (:constructor make-person12 (&key name
+					      (nick-name name)
+					      (age 77)
+					      (hobbies '(programming unix)))))
+  name
+  nick-name
+  age
+  hobbies)
+
+(setq *ken10* (make-person10 :name "Ken Thompson"
+			     :nick-name "ken"
+			     :age 77
+			     :hobbies '(programming unix)))
+(setq *ken11* (make-person11 "Ken Thompson" 77 '(programming unix) "ken"))
+(setq *ken12* (make-person12 :name "Ken Thompson"))
+(setq *ken12.1* (make-person12 :name "Ken Thompson"
+			       :nick-name "Ken"))
+
+
+
