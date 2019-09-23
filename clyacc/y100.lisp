@@ -2,19 +2,13 @@
 ;; Preparation for analyzing yacc.lisp:
 ;;;     PART 1:PRODUCTION
 ;;
-
 (defun y100 () (load "./y100.lisp"))
-#-CMU
+
 (defun required-argument () (error "A required argument was not supplied"))
-
-#-CMU
 (declaim (inline memq))
-
-#-CMU
 (defun memq (item list)
   "MEMBER :TEST #'EQ"
   (member item list :test #'eq))
-
 (deftype index () '(unsigned-byte 14))
 (deftype signed-index () '(signed-byte 15))
 
@@ -52,4 +46,9 @@
 ;;;
 ;;; Experiments y100
 ;;;
+(defun stub () ())
 (setq *p0* (make-production 'p0 '(S E)))
+(defmacro p-p0 () (print-production *p0* *standard-output* ()))
+
+(setq *p1* (make-production 'p1  '(S E) :action #'stub))
+(defmacro p-p1 () (print-production *p1* *standard-output* ()))
