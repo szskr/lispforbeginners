@@ -91,5 +91,20 @@
 (setq *ken12.1* (make-person12 :name "Ken Thompson"
 			       :nick-name "Ken"))
 
+;;;
+;;; % notation
+;;;
+(defstruct (person20 (:constructor %make-person20))
+  name
+  nick-name
+  age
+  hobbies)
 
+(defun make-person20 (&key name nick-name age hobbies)
+  (%make-person20 :name name :nick-name nick-name
+		  :age age :hobbies hobbies))
 
+(setq *ken20* (make-person20 :name "Ken Thompson"
+			     :nick-name "Ken"
+			     :age 77
+			     :hobbies '(programming unix)))
