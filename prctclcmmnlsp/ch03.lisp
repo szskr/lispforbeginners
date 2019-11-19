@@ -2,6 +2,8 @@
 ;; Practical Common Lisp
 ;;
 
+;; Chapter 03: Practical: A Simple Database
+
 (defvar *db* nil)
 
 (defun make-cd (title artist rating ripped)
@@ -13,6 +15,11 @@
   (dolist (cd *db*)
     (format t "~{~a:~10t~a~%~}~%" cd)))
 
+(defun prompt-read0 (prompt)
+  (format *query-io* "~a: " prompt)
+  (force-output *query-io*)
+  (read-line *query-io*))
+
 (defun prompt-read (prompt)
   (format *query-io* "~a: " prompt)
   (force-output *query-io*)
@@ -22,8 +29,12 @@
   (make-cd
    (prompt-read "Title")
    (prompt-read "Artist")
-   (prompt-read "Rating")
-   (prompt-read "Ripped [y/n]")))
+   (or (parse-integer (prompt-read "Rating") :junk-allowed t) 0)
+   (y-or-n-p "Ripped [y/n]")))
+
+(defun add-cds ()
+  (loop (add-record (prompt-for-cd))
+	(if (not (y-or-n-p "Anoter? [y/n]: ")) (return))))
 
 (defun remove-odd (l)
   (remove-if-not #'evenp l))
