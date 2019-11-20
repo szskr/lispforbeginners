@@ -62,3 +62,15 @@
   (remove-if-not selector-fn *db*))
 
 (defun foo (&key a b c) (list a b c))
+(defun foo2 (&key a (b 20) (c 30 c-p))
+  (list a b c c-p))
+
+(defun where (&key title artist rating (ripped nil ripped-p))
+  #'(lambda (cd)
+      (and
+       (if title    (equal (getf cd :title) title) t)
+       (if artist   (equal (getf cd :artist) artist) t)
+       (if rating   (equal (getf cd :rating) rating) t)
+       (if ripped-p (equal (getf cd :ripped) ripped) t))))
+
+
