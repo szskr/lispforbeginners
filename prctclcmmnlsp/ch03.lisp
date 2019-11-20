@@ -5,7 +5,7 @@
 (defvar *db* nil)
 
 (defun make-cd (title artist rating ripped)
-  (list :title title :artist artist rating rating :ripped ripped))
+  (list :title title :artist artist :rating rating :ripped ripped))
 
 (defun add-record(cd) (push cd *db*))
 
@@ -73,4 +73,22 @@
        (if rating   (equal (getf cd :rating) rating) t)
        (if ripped-p (equal (getf cd :ripped) ripped) t))))
 
+(defun update (selector-fn &key title artist rating (ripped nil ripped-p))
+  (setf *db*
+	(mapcar
+	 #'(lambda (row)
+	     (when (funcall selector-fn row)
+	       (if title (setf (getf row :title) title))
+	       (if artist (setf (getf row :artist) artist))
+	       (if rating (setf (getf row :rating) rating))
+	       (if ripped-p (setf (getf row :ripped) ripped)))
+	     row) *db*)))
 
+(defun delete-rows (selector-fn)
+  (setf *db* (remove-if selector-fn *db*)))
+
+;;
+;; Into Macro
+;;
+(defmacro backwards (expr)
+  (reverse expr))
