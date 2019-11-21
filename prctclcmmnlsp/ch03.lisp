@@ -65,7 +65,7 @@
 (defun foo2 (&key a (b 20) (c 30 c-p))
   (list a b c c-p))
 
-(defun where (&key title artist rating (ripped nil ripped-p))
+(defun where0 (&key title artist rating (ripped nil ripped-p))
   #'(lambda (cd)
       (and
        (if title    (equal (getf cd :title) title) t)
@@ -92,3 +92,16 @@
 ;;
 (defmacro backwards (expr)
   (reverse expr))
+
+(defmacro echo (expr)   ;; Need some work. Not what I want yet.
+  `,expr)
+
+(defun make-comparison-expr (field value)
+  `(equal (getf cd ,field) ,value))
+
+(defun make-comparison-list (fields)
+  (loop while fields
+	collecting (make-comparison-expr (pop fields) (pop fields))))
+
+(defmacro where (&rest clauses)
+  `#'(lambda (cd) (and ,@(make-comparison-list clauses))))
