@@ -26,3 +26,8 @@
 	(format t "~%")))
 
 (plot #'exp 0 4 1/2)
+
+(append '(I have a book.) '(You have a pen.))
+(apply #'append '((I have a book.) (You have a Pen.)))
+
+(plot #'(lambda (x) (* 2 x)) 0 10 1)
