@@ -4,7 +4,11 @@
 (defun l ()
   (load "./ch03.lisp")
   (load "./ch04.lisp")
-  (load "./ch05.lisp"))
+  (load "./ch05.lisp")
+  (load "./ch08.lisp"))
+
+(defun ch08 ()
+  (load "./ch08.lisp"))
 
 (defun ch05 ()
   (load "./ch05.lisp"))
