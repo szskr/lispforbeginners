@@ -93,7 +93,7 @@
 (defmacro backwards (expr)
   (reverse expr))
 
-(defmacro echo (expr)   ;; Need some work. Not what I want yet.
+(defmacro echo-03 (expr)   ;; Need some work. Not what I want yet.
   `,expr)
 
 (defun make-comparison-expr (field value)
