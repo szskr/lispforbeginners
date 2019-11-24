@@ -17,3 +17,10 @@
 
 (if (equal (first '(1 2 3)) 1)
     (format t "The function first picks up the first element of the given list"))
+
+(defmacro do-primes ((var start end) &body body)
+  (let ((ending-value-name (gensym)))
+    `(do ((,var (next-prime ,start) (next-prime (1+ ,var)))
+	  (,ending-value-name ,end))
+	 ((> ,var ,ending-value-name))
+	 ,@body)))
