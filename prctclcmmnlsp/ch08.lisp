@@ -1,5 +1,5 @@
 ;;
-;; Chapter 08: Practical: Macros: Defining Your Own
+;; Chapter 08: Macros: Defining Your Own
 ;;
 
 (defun primep (number)

@@ -2,11 +2,13 @@
 ;;; Little tools
 ;;;
 (defun l ()
-  (load "./ch03.lisp")
-  (load "./ch04.lisp")
-  (load "./ch05.lisp")
-  (load "./ch07.lisp")
-  (load "./ch08.lisp"))
+  (let ((files '("./ch03.lisp" "./ch04.lisp"
+	       "./ch05.lisp" "./ch07.lisp"
+	       "./ch08.lisp" "./ch09.lisp")))
+    (mapcar #'load files)))
+
+(defun ch09 ()
+  (load "./ch09.lisp"))
 
 (defun ch08 ()
   (load "./ch08.lisp"))
