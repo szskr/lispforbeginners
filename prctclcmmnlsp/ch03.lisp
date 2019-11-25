@@ -96,7 +96,7 @@
 (defmacro echo-03 (expr)   ;; Need some work. Not what I want yet.
   `,expr)
 
-(defun make-comparison-expr (field value)
+(defmacro make-comparison-expr (field value)
   `(equal (getf cd ,field) ,value))
 
 (defun make-comparison-list (fields)
