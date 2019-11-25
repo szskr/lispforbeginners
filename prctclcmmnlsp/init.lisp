@@ -2,7 +2,7 @@
 ;;; Little tools
 ;;;
 (defun l ()
-  (let ((files '("./ch03.lisp" "./ch04.lisp"
+  (let ((files '("./ch03.lisp" "./ch4.lisp"
 	       "./ch05.lisp" "./ch07.lisp"
 	       "./ch08.lisp" "./ch09.lisp")))
     (mapcar #'load files)))
