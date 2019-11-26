@@ -39,3 +39,11 @@
 		   ,@(loop for f in forms collect `(unless ,f (setf ,result nil)))
 		   ,result)))
 
+;;
+;; experiments, ideas
+;;
+(defmacro f1 ()
+  `(progn (defun foo()
+	    (format t "I am foo from f1"))
+	  (foo)))
+
