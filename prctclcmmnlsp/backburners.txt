@@ -1,0 +1,21 @@
+###
+###  Back burners
+###
+
+;;
+;; Chapter 09:
+;;  A macro to generate a function and then call it.
+;;
+(defmacro f1 ()
+  `(progn (defun foo()
+	    (format t "I am foo from f1"))
+	  (foo)))
+
+;;
+;; Need to work on this make-ld MACRO
+;;
+(defmacro make-ld (ch)
+  `(defun ,ch ()
+     (load "./,ch")))　;; No, this does not work!
+
+
