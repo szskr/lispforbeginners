@@ -8,3 +8,7 @@
 
 *package*     ;; The current package
 (format t "The current package is ~a " *package*)
+
+;;
+;; Notes
+;;
