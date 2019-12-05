@@ -5,11 +5,15 @@
   (let ((files '("./ch03.lisp" "./ch04.lisp"
 	       "./ch05.lisp" "./ch07.lisp"
 	       "./ch08.lisp" "./ch09.lisp"
+	       "./ch17.lisp"
 	       "./ch21.lisp")))
     (mapcar #'load files)))
 
 (defun ch21 ()
   (load "./ch21.lisp"))
+
+(defun ch17 ()
+  (load "./ch17.lisp"))
 
 (defun ch09 ()
   (load "./ch09.lisp"))
