@@ -28,3 +28,11 @@
 ;;
 ;;   CIRCLE and TRIANGLE are classes.
 ;;
+
+;;
+;; Experiments
+;;
+(defclass bank-account ()
+  (amount))
+
+(defclass checking-account (bank-account) ())
