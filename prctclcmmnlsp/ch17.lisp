@@ -30,9 +30,36 @@
 ;;
 
 ;;
-;; Experiments
+;; Experiments (p.193-195)
 ;;
 (defclass bank-account ()
-  (amount))
+  (balance))
 
 (defclass checking-account (bank-account) ())
+
+(defgeneric withdraw (account amount)
+  (:documentation "Withdraw the specified amount from the account.
+Signal an error if the current balance is less than amount."))
+
+(defmethod withdraw ((account bank-account) amount)
+  (when (< (balance account) amount)
+    (error "Account overdrqwn."))
+  (setf (slot-value account 'balance) (- (balance account) amount)))
+
+(defmethod withdraw ((account checking-account) amount)
+  (let ((overdraft (- amount (balance account))))
+    (when (plusp overdraft)
+      (withdraw (overdraft-account account) overdraft)
+      (setf (slot-value account 'balance) (+ (balance account) overdraft)))
+  (call-next-method)))
+
+(defun balance (account)
+  (slot-value account 'balance))
+
+(defun overdraft-account (account)
+  *ba*)
+
+(setf *ba* (make-instance 'bank-account))
+(setf *ca* (make-instance 'checking-account))
+(setf (slot-value *ba* 'balance) 1000)
+(setf (slot-value *ca* 'balance) 100)
