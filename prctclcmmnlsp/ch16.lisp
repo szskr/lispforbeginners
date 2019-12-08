@@ -12,17 +12,6 @@
 ;; Methods indicatee what kinds of arguments they can handle by SPECIALIZING the rquired
 ;; parameters defined by the generic function.
 ;;
-;;   (defgeneric draw (shape)
-;;     (:documentation "Draw the given shape on the screen"))
-;;
-;;   (defmethod draw ((shape circle))
-;;     (format t "Draw Circle"))
-;;
-;;   (defmethod draw ((shape triangle))
-;;     (format t "Draw TRIANGLE.."))
-;;
-;;   CIRCLE and TRIANGLE are classes.
-;;
 
 ;;
 ;;  Defgeneric and Defmethod (p.193-195)
