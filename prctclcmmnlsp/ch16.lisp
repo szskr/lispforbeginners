@@ -64,4 +64,10 @@ Signal an error if the current balance is less than amount."))
 ;; Method Combination (p.196-p.197)
 ;; The Standard Method Combination
 ;;
+(defclass ch16-class ()
+  (var16))
 
+(defclass ch16sct01 (ch16-class) ())
+
+(defgeneric explain (chapter section)
+  (:documentation "Experiments"))
