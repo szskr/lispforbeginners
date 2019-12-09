@@ -69,8 +69,28 @@ Signal an error if the current balance is less than amount."))
 
 (defclass ch16sct01 (ch16) ())
 
-(defgeneric explain (chapter section)
+(defgeneric ch16-hello (cls)
   (:documentation "Experiments"))
 
 (setf *ch16* (make-instance 'ch16))
 (setf *ch16sct01* (make-instance 'ch16sct01))
+
+(defmethod ch16-hello :before  ((cls ch16))
+  (format t "ch16-hello: :before :GenericTop~%"))
+
+
+(defmethod ch16-hello :after  ((cls ch16))
+  (format t "ch16-hello: :after :GenericTop~%"))
+
+(defmethod ch16-hello :around  ((cls ch16))
+  (format t "ch16-hello: :around :GenericTop~%")
+  (call-next-method))
+  
+(defmethod ch16-hello ((cls ch16))
+  (format t "ch16-hello: Generic TopClass~%"))
+
+(defmethod ch16-hello ((cls ch16sct01))
+  (format t "ch16-hello: ch16sct01~%")
+  (call-next-method))
+
+
