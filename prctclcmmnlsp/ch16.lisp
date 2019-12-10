@@ -78,7 +78,6 @@ Signal an error if the current balance is less than amount."))
 (defmethod ch16-hello :before  ((cls ch16))
   (format t "ch16-hello: :before :GenericTop~%"))
 
-
 (defmethod ch16-hello :after  ((cls ch16))
   (format t "ch16-hello: :after :GenericTop~%"))
 
@@ -93,4 +92,35 @@ Signal an error if the current balance is less than amount."))
   (format t "ch16-hello: ch16sct01~%")
   (call-next-method))
 
+;;
+;; Other Method Combinations
+;;  1) Nine other buit-n methid known as SIMPLE built-in method combinations
+;;  2) Custome method: fairly esoteric feature and beyond the scope of this book
+;;
 
+;;
+;;Multimethods
+;;
+(defclass x-inum () ())
+(defclass y-inum () ())
+(defclass x-rnum () ())
+(defclass y-rnum () ())
+
+(defgeneric multiply (x y)
+  (:documentation
+   "Produce a product by given x and y"))
+
+(defmethod multiply ((x x-inum) (y y-inum))
+  (format t "x-Inum times y-Inum is ~a ~a~%" x y))
+
+(defmethod multiply ((x x-inum) (y y-rnum))
+  (format t "x-Inum times y-Rnum is ~a ~a~%" x y))
+
+(setf *xi* (make-instance 'x-inum))
+(setf *yi* (make-instance 'y-inum))
+(setf *xr* (make-instance 'x-rnum))
+(setf *yr* (make-instance 'y-rnum))
+
+
+(multiply *xi* *yi*)
+(multiply *xi* *yr*)
