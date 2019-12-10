@@ -16,18 +16,18 @@
 ;;
 ;;  Defgeneric and Defmethod (p.193-195)
 ;;
-(defclass bank-account ()
+(defclass bnk-account ()
   (balance))
 
-(defclass checking-account (bank-account) ())
-(defclass saving-account (bank-account) ())
+(defclass checking-account (bnk-account) ())
+(defclass saving-account (bnk-account) ())
 (defclass proxy-account () ())
 
 (defgeneric withdraw (account amount)
   (:documentation "Withdraw the specified amount from the account.
 Signal an error if the current balance is less than amount."))
 
-(defmethod withdraw ((account bank-account) amount)
+(defmethod withdraw ((account bnk-account) amount)
   (when (< (balance account) amount)
     (error "Account overdrqwn."))
   (setf (slot-value account 'balance) (- (balance account) amount)))
@@ -51,7 +51,7 @@ Signal an error if the current balance is less than amount."))
 (defun proxied-account (proxy)
   *ba*)
 
-(setf *ba* (make-instance 'bank-account))
+(setf *ba* (make-instance 'bnk-account))
 (setf *ca* (make-instance 'checking-account))
 (setf *sa* (make-instance 'saving-account))
 (setf *pa* (make-instance 'proxy-account))
@@ -120,7 +120,6 @@ Signal an error if the current balance is less than amount."))
 (setf *yi* (make-instance 'y-inum))
 (setf *xr* (make-instance 'x-rnum))
 (setf *yr* (make-instance 'y-rnum))
-
 
 (multiply *xi* *yi*)
 (multiply *xi* *yr*)
