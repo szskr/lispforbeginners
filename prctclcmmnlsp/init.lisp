@@ -9,6 +9,8 @@
 	       "./ch21.lisp")))
     (mapcar #'load files)))
 
+(defun help () )
+  
 (defun ch21 ()
   (load "./ch21.lisp"))
 
