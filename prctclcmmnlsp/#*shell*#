@@ -2270,4 +2270,209 @@ Break 1 [77]>
 
 ;; Loaded file ./ch05.lisp
 T
+[79]> T
 [79]> 
+T
+T[79]> 
+
+[80]> [79]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable [79]> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of [79]>.
+STORE-VALUE    :R2      Input a new value for [79]>.
+ABORT          :R3      Abort main loop
+Break 1 [81]> 
+[82]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+;; Loaded file ./ch05.lisp
+T
+[83]> (foo-3 1 2 3 4 5)
+[83]> (foo-3 1 2 3 4 5)
+
+*** - FOO-3: keyword arguments in (1 2 3 4 5) should occur pairwise
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [84]> 
+[85]> (foo-4 1 2 3 4 5)
+[85]> (foo-4 1 2 3 4 5)
+(1 2 (3 4 5))
+[86]> (foo-4 1 2)
+[86]> (foo-4 1 2)
+(1 2 NIL)
+[87]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+
+*** - EVAL/APPLY: Too few arguments (1 instead of at least 2) given to FOO-4
+The following restarts are available:
+SKIP           :R1      skip (FORMAT T (foo-4 1)           = ~a~% ...)
+RETRY          :R2      retry (FORMAT T (foo-4 1)           = ~a~% ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+ABORT          :R4      Abort main loop
+Break 1 [88]> 
+[89]> (ch04)
+(ch04)
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+T
+[90]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 1 2)         = (1 2 NIL)
+(foo-4 1 2 3)       = (1 2 (3))
+(foo-4 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[91]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)           = (1 10 11)
+(foo-4 :b 2)           = (0 2 2)
+(foo-4 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[92]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)           = (1 10 11)
+(foo-4 :b 2)           = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[93]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[94]> (/ 113 (+ 113 20))
+[94]> (/ 113 (+ 113 20))
+113/133
+[95]> (/ 113.0 (+ 113.0 20.0))
+[95]> (/ 113.0 (+ 113.0 20.0))
+0.84962404
+[96]> 
