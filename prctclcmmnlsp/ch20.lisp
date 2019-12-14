@@ -2,11 +2,14 @@
 ;; Chapter 20: The Special Operators
 ;;
 
+;;;
+;;; flet and labels
+;;;
 (defun global_fun ()
   (format t "global_fun() called~%")
   ;;
   ;; local functions defined in flet:
-
+  ;;
   (format t "going to call function in the flet():~%")
   (flet ((f1 ()
 	     (format t "f1(): called.~%"))
@@ -25,3 +28,4 @@
 	  (lf2)))
 
 (global_fun)
+
