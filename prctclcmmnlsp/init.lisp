@@ -6,6 +6,7 @@
 	       "./ch05.lisp" "./ch07.lisp"
 	       "./ch08.lisp" "./ch09.lisp"
 	       "./ch16.lisp" "./ch17.lisp"
+	       "./ch19.lisp" "./ch20.lisp"
 	       "./ch21.lisp")))
     (mapcar #'load files)))
 
@@ -13,6 +14,12 @@
   
 (defun ch21 ()
   (load "./ch21.lisp"))
+
+(defun ch20 ()
+  (load "./ch20.lisp"))
+
+(defun ch19 ()
+  (load "./ch19.lisp"))
 
 (defun ch17 ()
   (load "./ch17.lisp"))

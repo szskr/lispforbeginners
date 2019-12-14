@@ -1,0 +1,4283 @@
+seizosakurai@sixam ~ %
+
+seizosakurai@sixam ~ % bash
+bash
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+bash-3.2$ . .profile
+. .profile
+bash-3.2$ 
+
+bash-3.2$ 
+
+bash-3.2$ pwd
+pwd
+/Users/seizosakurai
+bash-3.2$ cd
+cd
+bash-3.2$ cd
+cd
+bash-3.2$ cd workspaces/lispforbeginners/
+cd workspaces/lispforbeginners/
+bash-3.2$ cd prctclcmmnlsp/
+cd prctclcmmnlsp/
+bash-3.2$ ls
+ls
+#ch21.lisp#		ch04.lisp		ch07.lisp~		ch16.lisp		ch21.lisp~
+backburners.txt		ch04.lisp~		ch08.lisp		ch16.lisp~		init.lisp
+backburners.txt~	ch05.lisp		ch08.lisp~		ch17.lisp
+ch03.lisp		ch05.lisp~		ch09.lisp		ch17.lisp~
+ch03.lisp~		ch07.lisp		ch09.lisp~		ch21.lisp
+bash-3.2$ clisp
+clisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (load "./init.lisp")
+[1]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[2]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+;; Loaded file ./ch16.lisp
+T
+[3]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+;; Loaded file ./ch16.lisp
+T
+[4]> (make-instance 'ch16-class)
+[4]> (make-instance 'ch16-class)
+#<CH16-CLASS #x00000002002325A1>
+[5]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - EVAL: undefined function DEFLCASS
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'DEFLCASS).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'DEFLCASS).
+SKIP           :R4      skip (DEFLCASS CH16SCT01 # ...)
+RETRY          R5      retry (DEFLCASS CH16SCT01 # ...)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R7      Abort main loop
+Break 1 [6]> RETRY          R5      retry (DEFLCASS CH16SCT01 # ...)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R7      Abort main loop
+Break 1 [6]> 
+RETRY          R5      retry (DEFLCASS CH16SCT01 # ...)
+
+*** - EVAL: undefined function DEFLCASS
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'DEFLCASS).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'DEFLCASS).
+SKIP           :R4      skip (DEFLCASS CH16SCT01 # ...)
+RETRY          :R5      retry (DEFLCASS CH16SCT01 # ...)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R7      Abort main loop
+Break 1 [7]> 
+[8]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - EVAL: undefined function DEFLCASS
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'DEFLCASS).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'DEFLCASS).
+SKIP           :R4      skip (DEFLCASS CH16SCT01 # ...)
+RETRY          :R5      retry (DEFLCASS CH16SCT01 # ...)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R      Abort main loop
+Break 1 [9]> ABORT          :R      Abort main loop
+Break 1 [9]> 
+ABORT          :R      Abort main loop
+Break 1 [9]> 
+[10]> Break 1 [9]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [11]> 
+[12]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+;; Loaded file ./ch16.lisp
+T
+[13]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+;; Loaded file ./ch16.lisp
+T
+[14]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - EVAL: undefined function MAKE-CLASS
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'MAKE-CLASS).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'MAKE-CLASS).
+SKIP           :R4      skip (SETF *CH16SCT01-INS* #)
+RETRY          :R5      retry (SETF *CH16SCT01-INS* #)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R7      Abort main loop
+Break 1 [15]> ABORT          :R7      Abort main loop
+Break 1 [15]> 
+ABORT          :R7      Abort main loop
+Break 1 [15]> 
+[16]> Break 1 [15]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [17]> 
+[18]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - FIND-CLASS: CH16SCT01-CLASS does not name a class
+The following restarts are available:
+SKIP           :R1      skip (SETF *CH16SCT01-INS* #)
+RETRY          :R2      retry (SETF *CH16SCT01-INS* #)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [19]> The following restarts are available:
+SKIP           :R1      skip (SETF *CH16SCT01-INS* #)
+RETRY          :R2      retry (SETF *CH16SCT01-INS* #)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [19]> 
+The following restarts are available:
+
+*** - SYSTEM::READ-EVAL-PRINT: variable THE has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of THE.
+STORE-VALUE    :R2      Input a new value for THE.
+ABORT          :R3      Abort debug loop
+SKIP           :R4      skip (SETF *CH16SCT01-INS* #)
+RETRY          :R5      retry (SETF *CH16SCT01-INS* #)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R7      Abort main loop
+Break 2 [20]> 
+Break 1 [19]> 
+[21]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+;; Loaded file ./ch16.lisp
+T
+[22]> *ch16*
+*ch16*
+
+*** - SYSTEM::READ-EVAL-PRINT: variable *CH16* has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *CH16*.
+STORE-VALUE    :R2      Input a new value for *CH16*.
+ABORT          :R3      Abort main loop
+Break 1 [23]> 
+[24]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+;; Loaded file ./ch16.lisp
+T
+[25]> *ch16*
+*ch16*
+#<CH16 #x0000000200243229>
+[26]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - DEFMETHOD CH16-HELLO: Invalid specializer 'CH16 in lambda list ((CLS 'CH16))
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD CH16-HELLO # ...)
+RETRY          :R2      retry (DEFMETHOD CH16-HELLO # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [27]> 
+[28]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - DEFMETHOD CH16-HELLO: Invalid specializer 'CH16 in lambda list ((CLS 'CH16))
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD CH16-HELLO # ...)
+RETRY          :R2      retry (DEFMETHOD CH16-HELLO # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [29]> 
+[30]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - #<STANDARD-METHOD (#<BUILT-IN-CLASS T> #<STANDARD-CLASS CH16>)> has 2, but #<STANDARD-GENERIC-FUNCTION CH16-HELLO> has 1
+      required parameter
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD CH16-HELLO # ...)
+RETRY          :R2      retry (DEFMETHOD CH16-HELLO # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [31]> 
+[32]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+*** - DEFMETHOD CH16-HELLO: Invalid specializer 'CH16 in lambda list ((CLS 'CH16))
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD CH16-HELLO # ...)
+RETRY          :R2      retry (DEFMETHOD CH16-HELLO # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [33]>
+
+[34]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+;; Loaded file ./ch16.lisp
+T
+[35]> (ch16-hello *h16*)
+[35]> (ch16-hello *h16*)
+
+*** - SYSTEM::READ-EVAL-PRINT: variable *H16* has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *H16*.
+STORE-VALUE    :R2      Input a new value for *H16*.
+ABORT          :R3      Abort main loop
+Break 1 [36]> 
+[37]> (ch16-hello *ch16*)
+[37]> (ch16-hello *ch16*)
+ch16-hello: top
+NIL
+[38]> (ch16-hello *ch16sct01*)
+[38]> (ch16-hello *ch16sct01*)
+ch16-hello: top
+NIL
+[39]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION CH16-HELLO> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[40]> (ch16-hello *ch16sct01*)
+[40]> (ch16-hello *ch16sct01*)
+ch16-hello: ch16sct01
+NIL
+[41]> (ch16-hello *ch16sct01*)
+[41]> (ch16-hello *ch16sct01*)
+ch16-hello: ch16sct01
+NIL
+[42]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION CH16-HELLO> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01 :VERSION 1>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[43]> (ch16-hello *ch16sct01*)
+[43]> (ch16-hello *ch16sct01*)
+ch16-hello: ch16sct01          : Hello!ch16-hello: TopMethod
+NIL
+[44]> (ch16-hello *ch16sct01*)
+[44]> (ch16-hello *ch16sct01*)
+ch16-hello: ch16sct01          : Hello!ch16-hello: TopMethod
+NIL
+[45]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION CH16-HELLO> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01 :VERSION 1>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[46]> (ch16-hello *ch16sct01*)
+[46]> (ch16-hello *ch16sct01*)
+ch16-hello: ch16sct01
+ch16-hello: TopMethod
+NIL
+[47]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION CH16-HELLO> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01 :VERSION 1>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[48]> (ch16-hello *ch16*)
+[48]> (ch16-hello *ch16*)
+ch16-hello: :before :GenericTop
+ch16-hello: Generic TopClass
+NIL
+[49]> (ch16-hello *ch16sct01*)
+[49]> (ch16-hello *ch16sct01*)
+ch16-hello: :before :GenericTop
+ch16-hello: ch16sct01
+ch16-hello: Generic TopClass
+NIL
+[50]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION CH16-HELLO> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01 :VERSION 1>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[51]> (ch16-hello *ch16*)
+[51]> (ch16-hello *ch16*)
+ch16-hello: :before :GenericTop
+ch16-hello: Generic TopClass
+ch16-hello: :after :GenericTop
+NIL
+[52]> (ch16-hello *ch16sct01*)
+[52]> (ch16-hello *ch16sct01*)
+ch16-hello: :before :GenericTop
+ch16-hello: ch16sct01
+ch16-hello: Generic TopClass
+ch16-hello: :after :GenericTop
+NIL
+[53]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION CH16-HELLO> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01 :VERSION 1>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[54]> (ch16-hello *ch16*)
+[54]> (ch16-hello *ch16*)
+ch16-hello: :around :GenericTop
+NIL
+[55]> (ch16-hello *ch16sct01*)
+[55]> (ch16-hello *ch16sct01*)
+ch16-hello: :around :GenericTop
+NIL
+[56]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION CH16-HELLO> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01 :VERSION 1>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[57]> (ch16-hello *ch16*)
+[57]> (ch16-hello *ch16*)
+ch16-hello: :around :GenericTop
+ch16-hello: :before :GenericTop
+ch16-hello: Generic TopClass
+ch16-hello: :after :GenericTop
+NIL
+[58]> (ch16-hello *ch16sct01*)
+[58]> (ch16-hello *ch16sct01*)
+ch16-hello: :around :GenericTop
+ch16-hello: :before :GenericTop
+ch16-hello: ch16sct01
+ch16-hello: Generic TopClass
+ch16-hello: :after :GenericTop
+NIL
+[59]> 
+
+Bye.
+bash-3.2$ pwd
+pwd
+/Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp
+bash-3.2$ clisp
+clisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (load "./init.lisp")
+[1]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[2]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+;; Loaded file ./ch16.lisp
+T
+[3]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+** - Continuable Error
+DEFUN/DEFMACRO(WITH-GENSYMS): #<PACKAGE EXT> is locked
+If you continue (by typing 'continue'): Ignore the lock and proceed
+The following restarts are also available:
+SKIP           :R1      skip (DEFMACRO WITH-GENSYMS # ...)
+RETRY          :R2      retry (DEFMACRO WITH-GENSYMS # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp
+ABORT          :R4      Abort main loop
+Break 1 [4]> 
+WARNING: DEFUN/DEFMACRO: redefining macro WITH-GENSYMS in
+         /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp, was defined in
+         /opt/local/var/macports/build/_opt_local_var_macports_sources_rsync.macports.org_release_tarballs_ports_lang_clisp/clisp/work/clisp-2.49/src/pprint.fas
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[5]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+*** - FIND-CLASS: SNARE-DRUM does not name a class
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD BEAT # ...)
+RETRY          :R2      retry (DEFMETHOD BEAT # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [6]> 
+[7]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+*** - FIND-CLASS: WOODEN-STICK does not name a class
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD BEAT # ...)
+RETRY          :R2      retry (DEFMETHOD BEAT # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [8]> 
+[9]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[10]> (multiply)
+[10]> (multiply)
+
+*** - EVAL: undefined function MULTIPLY
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'MULTIPLY).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'MULTIPLY).
+ABORT          :R4      Abort main loop
+Break 1 [11]> 
+[12]> Break 1 [11]> 
+[12]> 
+Break 1 [11]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [13]> 
+[14]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+;; Loaded file ./ch16.lisp
+T
+[15]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-NUM> #<STANDARD-CLASS Y-NUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+;; Loaded file ./ch16.lisp
+T
+[16]> (multiply *x1* *y1*)
+[16]> (multiply *x1* *y1*)
+x times y is #<X-NUM #x00000002002A29E1> #<Y-NUM #x00000002002A2EC9> 
+NIL
+[17]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-NUM> #<STANDARD-CLASS Y-NUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x times y is #<X-NUM #x000000020025E001> #<Y-NUM #x000000020025E2C1> 
+;; Loaded file ./ch16.lisp
+T
+[18]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+*** - READ: input stream #<INPUT BUFFERED FILE-STREAM CHARACTER #P"./ch16.lisp" @119> ends within an object. Last opening
+      parenthesis probably in line 106.
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [19]> 
+[20]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+*** - READ: input stream #<INPUT BUFFERED FILE-STREAM CHARACTER #P"./ch16.lisp" @119> ends within an object. Last opening
+      parenthesis probably in line 106.
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [21]> 
+[22]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+x times y is #<X-INUM #x000000020026F201> #<Y-INUM #x000000020026FD49> 
+;; Loaded file ./ch16.lisp
+T
+[23]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+*** - FIND-CLASS: Y-RNUM does not name a class
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD MULTIPLY # ...)
+RETRY          :R2      retry (DEFMETHOD MULTIPLY # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [24]> 
+[25]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+*** - FIND-CLASS: Y-RNUM does not name a class
+The following restarts are available:
+SKIP           :R1      skip (DEFMETHOD MULTIPLY # ...)
+RETRY          :R2      retry (DEFMETHOD MULTIPLY # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R4      Abort main loop
+Break 1 [26]> 
+[27]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-inum times y-inum is #<X-INUM #x000000020028E9E9> #<Y-INUM #x000000020028ECF9> 
+;; Loaded file ./ch16.lisp
+T
+[28]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x000000020024FF51> #<Y-INUM #x0000000200250211> 
+*** - NO-APPLICABLE-METHOD: When calling #<STANDARD-GENERIC-FUNCTION MULTIPLY> with arguments
+      (#<X-RNUM #x00000002002504D1> #<Y-RNUM #x0000000200250791>), no method is applicable.
+The following restarts are available:
+RETRY          :R1      try calling MULTIPLY again
+RETURN         :R2      specify return values
+SKIP           :R3      skip (MULTIPLY *XR* *YR*)
+RETRY          :R4      retry (MULTIPLY *XR* *YR*)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch16.lisp
+ABORT          :R      Abort main loop
+Break 1 [29]> 
+[30]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x0000000200294AA9> #<Y-INUM #x0000000200294D69> x-Inum times y-Rnum is #<X-INUM #x0000000200294AA9> #<Y-RNUM #x00000002002952E9> 
+;; Loaded file ./ch16.lisp
+T
+[31]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x0000000200257231> #<Y-INUM #x00000002002574F1>
+ x-Inum times y-Rnum is #<X-INUM #x0000000200257231> #<Y-RNUM #x0000000200257A71>
+ 
+;; Loaded file ./ch16.lisp
+T
+[32]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BANK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x0000000200292791> #<Y-INUM #x0000000200292A51>
+x-Inum times y-Rnum is #<X-INUM #x0000000200292791> #<Y-RNUM #x0000000200292FD1>
+;; Loaded file ./ch16.lisp
+T
+[33]> (ch16)
+(ch16)
+;; Loading file ./ch16.lisp ...
+WARNING: DEFCLASS: Class CHECKING-ACCOUNT (or one of its ancestors) is being redefined, instances are obsolete
+WARNING: DEFCLASS: Class SAVING-ACCOUNT (or one of its ancestors) is being redefined, instances are obsolete
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT :VERSION 1> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x000000020026CF01> #<Y-INUM #x000000020026D1C1>
+x-Inum times y-Rnum is #<X-INUM #x000000020026CF01> #<Y-RNUM #x000000020026D741>
+;; Loaded file ./ch16.lisp
+T
+[34]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT :VERSION 1> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x00000002002791A9> #<Y-INUM #x0000000200279469>
+x-Inum times y-Rnum is #<X-INUM #x00000002002791A9> #<Y-RNUM #x00000002002799E9>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[35]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+WARNING: DEFCLASS: Class BANK-ACCOUNT (or one of its ancestors) is being redefined, instances are obsolete
+;; Loaded file ./ch17.lisp
+T
+[36]> 
+Bye.
+bash-3.2$ pwd
+pwd
+/Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp
+bash-3.2$ clisp
+clisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (load "./init.lisp")
+[1]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[2]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+** - Continuable Error
+DEFUN/DEFMACRO(WITH-GENSYMS): #<PACKAGE EXT> is locked
+If you continue (by typing 'continue'): Ignore the lock and proceed
+The following restarts are also available:
+SKIP           :R1      skip (DEFMACRO WITH-GENSYMS # ...)
+RETRY          :R2      retry (DEFMACRO WITH-GENSYMS # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp
+ABORT          :R4      Abort main loop
+Break 1 [3]> 
+WARNING: DEFUN/DEFMACRO: redefining macro WITH-GENSYMS in
+         /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp, was defined in
+         /opt/local/var/macports/build/_opt_local_var_macports_sources_rsync.macports.org_release_tarballs_ports_lang_clisp/clisp/work/clisp-2.49/src/pprint.fas
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+x-Inum times y-Inum is #<X-INUM #x00000002002726C9> #<Y-INUM #x0000000200272BB1>
+x-Inum times y-Rnum is #<X-INUM #x00000002002726C9> #<Y-RNUM #x0000000200273581>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[4]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x000000020029F2A1> #<Y-INUM #x000000020029F561>
+x-Inum times y-Rnum is #<X-INUM #x0000000200237011> #<Y-RNUM #x0000000200237059>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[5]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+T
+[6]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+WARNING: DEFCLASS: Class CHECKING-ACCOUNT (or one of its ancestors) is being redefined, instances are obsolete
+;; Loaded file ./ch17.lisp
+T
+[7]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+T
+[8]> *account*
+*account*
+#<BANK-ACCOUNT #x0000000200268F79>
+[9]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+T
+[10]> *account*
+*account*
+#<BANK-ACCOUNT-0 #x00000002002720D1>
+[11]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+T
+[12]> *account*
+*account*
+#<BANK-ACCOUNT-0 #x00000002002720D1>
+[13]> (slot-value *account-0* 'balance)
+[13]> (slot-value *account-0* 'balance)
+1000
+[14]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+;; Loaded file ./ch17.lisp
+T
+[15]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+customer-name = John Doe
+balance       = 1000
+;; Loaded file ./ch17.lisp
+T
+[16]> (ch17(
+(ch17(
+)
+)
+
+*** - READ: input stream #<INPUT CONCATENATED-STREAM> ends within an object
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [17]> 
+[18]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+*** - EVAL: variable *ACCONT-0* has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *ACCONT-0*.
+STORE-VALUE    :R2      Input a new value for *ACCONT-0*.
+SKIP           :R3      skip (FORMAT T account = ~a~% ...)
+RETRY          :R4      retry (FORMAT T account = ~a~% ...)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [19]> 
+[20]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x00000002002ADED1>
+customer-name = John Doe
+balance       = 1000
+;; Loaded file ./ch17.lisp
+T
+[21]> 
+Bye.
+bash-3.2$ expense
+expense
+12/01   01290   00000   00000   01290
+12/02   02158   00000   00000   02158
+12/03   00220   00000   00000   00220
+12/04   01400   00000   00000   001400`
+12/05   00000   00000   00000   00000
+12/06   15800   00000   00000   15800
+12/07   01230   00000   00000   01230
+12/08   02239   00000   00000   02239
+12/09   08500   00000   00000   08500
+12/10   01451   00000   00000   01451
+12/11   00000   00000   00000   00000
+12/12   00000   00000   00000   00000
+12/13   00000   00000   00000   00000
+
+合計    34288   00000   00000   34288(02857) days=12 
+bash-3.2$ pwd
+pwd
+/Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp
+bash-3.2$ clisp
+clisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (load "./init.lisp")
+[1]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[2]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+** - Continuable Error
+DEFUN/DEFMACRO(WITH-GENSYMS): #<PACKAGE EXT> is locked
+If you continue (by typing 'continue'): Ignore the lock and proceed
+The following restarts are also available:
+SKIP           :R1      skip (DEFMACRO WITH-GENSYMS # ...)
+RETRY          :R2      retry (DEFMACRO WITH-GENSYMS # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp
+ABORT          :R4      Abort main loop
+Break 1 [3]> 
+WARNING: DEFUN/DEFMACRO: redefining macro WITH-GENSYMS in
+         /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp, was defined in
+         /opt/local/var/macports/build/_opt_local_var_macports_sources_rsync.macports.org_release_tarballs_ports_lang_clisp/clisp/work/clisp-2.49/src/pprint.fas
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+x-Inum times y-Inum is #<X-INUM #x0000000200272719> #<Y-INUM #x0000000200272C01>
+x-Inum times y-Rnum is #<X-INUM #x0000000200272719> #<Y-RNUM #x00000002002735D1>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x0000000200286F99>
+customer-name = John Doe
+balance       = 1000
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[4]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method
+         #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)>
+         in #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in
+         #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has
+         already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x0000000200237CB1> #<Y-INUM #x0000000200237CC9>
+x-Inum times y-Rnum is #<X-INUM #x0000000200237CB1> #<Y-RNUM #x0000000200237CF9>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x0000000200246A79>
+customer-name = John Doe
+balance       = 1000
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[5]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x0000000200254619>
+customer-name = John Doe
+balance       = 1000
+;; Loaded file ./ch17.lisp
+T
+[6]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x000000020025DAB9>
+customer-name = John Doe
+balance       = 1000
+;; Loaded file ./ch17.lisp
+T
+[7]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x0000000200268519>
+customer-name = John Doe
+balance       = 1000
+;; Loaded file ./ch17.lisp
+T
+[8]> *account-1*
+*account-1*
+#<BANK-ACCOUNT-1 #x000000020026B3B1>
+[9]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x0000000200274051>
+customer-name = John Doe
+balance       = 1000
+account = #<BANK-ACCOUNT-1 #x0000000200276DF9>
+customer-name = John Doe
+
+*** - SLOT-VALUE: The class #<STANDARD-CLASS BANK-ACCOUNT-1> has no slot named BALANCE
+The following restarts are available:
+SKIP           :R1      skip (FORMAT T balance       = ~a~% ...)
+RETRY          :R2      retry (FORMAT T balance       = ~a~% ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R4      Abort main loop
+Break 1 [10]> 
+[11]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account = #<BANK-ACCOUNT-0 #x000000020028B8B9>
+customer-name = John Doe
+balance       = 1000
+WARNING: DEFCLASS: Class BANK-ACCOUNT-1 (or one of its ancestors) is being redefined, instances are obsolete
+account = #<BANK-ACCOUNT-1 #x0000000200295761>
+customer-name = John Doe
+balance       = 100
+;; Loaded file ./ch17.lisp
+T
+[12]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020029E6A1>
+customer-name = John Doe
+balance       = 1000
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A1449>
+customer-name = John Doe
+balance       = 100
+;; Loaded file ./ch17.lisp
+T
+[13]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002AA389>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002AD421>
+customer-name = John Doe
+balance       = 100
+;; Loaded file ./ch17.lisp
+T
+[14]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002B6361>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002B93F9>
+customer-name = John Doe
+balance       = 100
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002B93F9>
+customer-name = John Doe
+balance       = 100
+;; Loaded file ./ch17.lisp
+T
+[15]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200241A09>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200244AA1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200246239>
+customer-name = John Doe
+balance       = 10
+;; Loaded file ./ch17.lisp
+T
+[16]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020024F179>
+customer-name = John Doe
+balance       = 1000
+
+WARNING: DEFCLASS: Class BANK-ACCOUNT-1 (or one of its ancestors) is being redefined, instances are obsolete
+account-1 = #<BANK-ACCOUNT-1 #x0000000200255DB1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200257549>
+customer-name = John Doe
+balance       = 10
+;; Loaded file ./ch17.lisp
+T
+[17]> (make-instance 'bank-account-1)
+[17]> (make-instance 'bank-account-1)
+No customer-name specified!
+#<BANK-ACCOUNT-1 #x00000002002595C1>
+[18]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200261331>
+customer-name = John Doe
+balance       = 1000
+
+WARNING: DEFCLASS: Class BANK-ACCOUNT-1 (or one of its ancestors) is being redefined, instances are obsolete
+account-1 = #<BANK-ACCOUNT-1 #x0000000200267CE9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200269481>
+customer-name = John Doe
+balance       = 10
+;; Loaded file ./ch17.lisp
+T
+[19]>  (make-instance 'bank-account-1)
+[19]>  (make-instance 'bank-account-1)
+#<BANK-ACCOUNT-1 #x000000020026B4F9>
+[20]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002731B9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200276251>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002779E9>
+customer-name = John Doe
+balance       = 10
+
+
+*** - DEFCLASS BANK-ACCOUNT-2: invalid option (ACCOUNT-NUMBER :INITFORM (INCF *ACCOUNT-NUMBERS*))
+The following restarts are available:
+SKIP           :R1      skip (DEFCLASS BANK-ACCOUNT-2 NIL ...)
+RETRY          :R2      retry (DEFCLASS BANK-ACCOUNT-2 NIL ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R4      Abort main loop
+Break 1 [21]> 
+[22]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002891A1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020028C239>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020028D9D1>
+customer-name = John Doe
+balance       = 10
+
+
+*** - DEFCLASS BANK-ACCOUNT-2: invalid option (ACCOUNT-NUMBER :INITFORM (INCF *ACCOUNT-NUMBERS*))
+The following restarts are available:
+SKIP           :R1      skip (DEFCLASS BANK-ACCOUNT-2 NIL ...)
+RETRY          :R2      retry (DEFCLASS BANK-ACCOUNT-2 NIL ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R4      Abort main loop
+Break 1 [23]> 
+[24]> (incf a)
+[24]> (incf a)
+
+*** - SETQ: variable A has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of A.
+STORE-VALUE    :R2      Input a new value for A.
+ABORT          :R3      Abort main loop
+Break 1 [25]> 
+[26]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002A64A1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A9539>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002AACD1>
+customer-name = John Doe
+balance       = 10
+
+;; Loaded file ./ch17.lisp
+T
+[27]> (make-instance 'bank-account-2)
+[27]> (make-instance 'bank-account-2)
+
+*** - Must supply a customer name!
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [28]> 
+[29]> *account-numbers*
+*account-numbers*
+0
+[30]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002BE6A9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020023AF61>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020023C6F9>
+customer-name = John Doe
+balance       = 10
+
+
+*** - FIND-CLASS: ACCOUNT-2 does not name a class
+The following restarts are available:
+SKIP           :R1      skip (DEFPARAMETER *ACCOUNT-2* #)
+RETRY          :R2      retry (DEFPARAMETER *ACCOUNT-2* #)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R4      Abort main loop
+Break 1 [31]> 
+[32]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020024EF01>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200251F99>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200253731>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200256F71>
+customer-name = John Doe
+balance       = 100
+
+;; Loaded file ./ch17.lisp
+T
+[33]> *account-numbers*
+*account-numbers*
+1
+[34]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002614C1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200264559>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200265CF1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200269531>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 2
+;; Loaded file ./ch17.lisp
+T
+[35]> *account-numbers*
+*account-numbers*
+2
+[36]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200273839>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002768D1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200278069>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020027B8A9>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 3
+;; Loaded file ./ch17.lisp
+T
+[37]> *account-numbers*
+*account-numbers*
+3
+[38]> (setf *account-numbers* 0)
+[38]> (setf *account-numbers* 0)
+0
+[39]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200286781>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200289819>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020028AFB1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020028E7F1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 1
+;; Loaded file ./ch17.lisp
+T
+[40]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200297F71>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020029B009>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020029C7A1>
+customer-name = John Doe
+balance       = 10
+
+
+*** - Must supply a customer name!
+The following restarts are available:
+SKIP           :R1      skip (MAKE-INSTANCE 'BANK-ACCOUNT-2)
+RETRY          :R2      retry (MAKE-INSTANCE 'BANK-ACCOUNT-2)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R4      Abort main loop
+Break 1 [41]> 
+[42]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020023D6C9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200240761>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200241EF9>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200245739>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 2
+;; Loaded file ./ch17.lisp
+T
+[45]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020024EEB9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200251F51>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002536E9>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200256F29>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 3
+account-3 = #<BANK-ACCOUNT-2 #x000000020025B111>
+
+*** - EVAL: variable *ACCOUNT-3* has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *ACCOUNT-3*.
+STORE-VALUE    :R2      Input a new value for *ACCOUNT-3*.
+SKIP           :R3      skip (FORMAT T customer-name = ~a~% ...)
+RETRY          :R4      retry (FORMAT T customer-name = ~a~% ...)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [46]> 
+[47]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020026CCD1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020026FD69>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200271501>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200274D41>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 5
+
+*** - EVAL: variable *ACCOUNT-3 has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of *ACCOUNT-3.
+STORE-VALUE    :R2      Input a new value for *ACCOUNT-3.
+SKIP           :R3      skip (FORMAT T account-3 = ~a~% ...)
+RETRY          :R4      retry (FORMAT T account-3 = ~a~% ...)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [48]> 
+[49]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020028A3E9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020028D481>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020028EC19>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200292459>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 7
+account-3 = #<BANK-ACCOUNT-3 #x00000002002964D1>
+
+*** - READ from #<INPUT BUFFERED FILE-STREAM CHARACTER #P"./ch17.lisp" @95>: an object cannot start with #\)
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [50]> 
+[51]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002A3CE9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A6D81>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002A8519>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002ABD59>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 9
+account-3 = #<BANK-ACCOUNT-3 #x00000002002AFDD1>
+customer-name = John Doe
+balance       = 100
+
+*** - SLOT-VALUE: The slot ACCOUNT-TYPE of #<BANK-ACCOUNT-3 #x00000002002AFDD1> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002AFDD1> 'ACCOUNT-TYPE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002AFDD1> 'ACCOUNT-TYPE).
+SKIP           :R3      skip (FORMAT T account-      = ~a~% ...)
+RETRY          :R4      retry (FORMAT T account-      = ~a~% ...)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [52]> 
+[53]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200245891>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200248929>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020024A0C1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020024D901>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 11
+account-3 = #<BANK-ACCOUNT-3 #x0000000200251979>
+customer-name = John Doe
+balance       = 100
+
+;; Loaded file ./ch17.lisp
+T
+[54]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020025ABB9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020025DC51>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020025F3E9>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200262C29>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 13
+account-3 = #<BANK-ACCOUNT-3 #x0000000200266CA1>
+customer-name = John Doe
+balance       = 100
+account-      = GOLD
+
+;; Loaded file ./ch17.lisp
+T
+[55]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200270719>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002737B1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200274F49>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200278789>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 15
+account-3 = #<BANK-ACCOUNT-3 #x000000020027C801>
+customer-name = John Doe
+balance       = 100
+account-type  = GOLD
+
+;; Loaded file ./ch17.lisp
+T
+[56]> (load "./init.lisp")
+[56]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[57]> (help)
+(help)
+NIL
+[58]> (ch06)
+(ch06)
+
+*** - EVAL: undefined function CH06
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'CH06).
+RETRY          :R2      etry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'CH06).
+ABORT          :R4      Abort main loop
+Break 1 [59]> 
+
+[60]> (ch06)
+(ch06)
+
+*** - EVAL: undefined function CH06
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'CH06).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'CH06).
+ABORT          :R4      Abort main loop
+Break 1 [61]> RETRY          :R2      etry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'CH06).
+ABORT          :R4      Abort main loop
+Break 1 [59]> 
+RETRY          :R2      etry
+
+*** - EVAL: undefined function CH06
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'CH06).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'CH06).
+ABORT          :R4      Abort main loop
+Break 1 [62]> 
+[63]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+;; Loaded file ./ch05.lisp
+T
+[64]> (foo 1 2)
+[64]> (foo 1 2)
+(1 2 NIL NIL)
+[65]> (foo 1 2 3)
+[65]> (foo 1 2 3)
+(1 2 3 NIL)
+[66]> (format t (foo 1 2))
+[66]> (format t (foo 1 2))
+
+*** - FORMAT: The control-string must be a string, not (1 2 NIL NIL)
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [67]> 
+[68]> (foo t "(foo 1 2) = ~a~%" (foo 1 2))
+[68]> (foo t "(foo 1 2) = ~a~%" (foo 1 2))
+(T "(foo 1 2) = ~a~%" (1 2 NIL NIL) NIL)
+[69]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2) = (1 2 NIL NIL)
+;; Loaded file ./ch05.lisp
+T
+[70]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2) = (1 2 NIL NIL)
+(foo 1 2 3) = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+;; Loaded file ./ch05.lisp
+T
+[71]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+(foo-1 1)     = (1 10)
+(foo-1 1 2)   = (1 2)
+;; Loaded file ./ch05.lisp
+T
+[72]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 10)
+(foo-1 1 2)   = (1 2)
+
+;; Loaded file ./ch05.lisp
+T
+[73]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 10)
+(foo-1 1 2)   = (1 2)
+
+(foo-1 1)     = (1 10)
+(foo-1 1 2)   = (1 2)
+
+;; Loaded file ./ch05.lisp
+T
+[74]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 10)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 10 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+;; Loaded file ./ch05.lisp
+T
+[75]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+;; Loaded file ./ch05.lisp
+T
+[76]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+
+*** - EVAL: variable A has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of A.
+STORE-VALUE    :R2      Input a new value for A.
+SKIP           :R3      skip (LIST A B ...)
+RETRY          :R4      retry (LIST A B ...)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+ABORT          :R6      Abort main loop
+Break 1 [77]> 
+[78]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+;; Loaded file ./ch05.lisp
+T
+[79]> T
+[79]> 
+T
+T[79]> 
+
+[80]> [79]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable [79]> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of [79]>.
+STORE-VALUE    :R2      Input a new value for [79]>.
+ABORT          :R3      Abort main loop
+Break 1 [81]> 
+[82]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+;; Loaded file ./ch05.lisp
+T
+[83]> (foo-3 1 2 3 4 5)
+[83]> (foo-3 1 2 3 4 5)
+
+*** - FOO-3: keyword arguments in (1 2 3 4 5) should occur pairwise
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [84]> 
+[85]> (foo-4 1 2 3 4 5)
+[85]> (foo-4 1 2 3 4 5)
+(1 2 (3 4 5))
+[86]> (foo-4 1 2)
+[86]> (foo-4 1 2)
+(1 2 NIL)
+[87]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+
+*** - EVAL/APPLY: Too few arguments (1 instead of at least 2) given to FOO-4
+The following restarts are available:
+SKIP           :R1      skip (FORMAT T (foo-4 1)           = ~a~% ...)
+RETRY          :R2      retry (FORMAT T (foo-4 1)           = ~a~% ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+ABORT          :R4      Abort main loop
+Break 1 [88]> 
+[89]> (ch04)
+(ch04)
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+T
+[90]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 1 2)         = (1 2 NIL)
+(foo-4 1 2 3)       = (1 2 (3))
+(foo-4 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[91]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)           = (1 10 11)
+(foo-4 :b 2)           = (0 2 2)
+(foo-4 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[92]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)           = (1 10 11)
+(foo-4 :b 2)           = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[93]> (ch05)
+(ch05)
+;; Loading file ./ch05.lisp ...
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+T
+[94]> (/ 113 (+ 113 20))
+[94]> (/ 113 (+ 113 20))
+113/133
+[95]> (/ 113.0 (+ 113.0 20.0))
+[95]> (/ 113.0 (+ 113.0 20.0))
+0.84962404
+[96]> (shell)
+(shell)
+seizosakurai@sixam prctclcmmnlsp % expense
+expense
+12/01   01290   00000   00000   01290
+12/02   02158   00000   00000   02158
+12/03   00220   00000   00000   00220
+12/04   01400   00000   00000   001400`
+12/05   00000   00000   00000   00000
+12/06   15800   00000   00000   15800
+12/07   01230   00000   00000   01230
+12/08   02239   00000   00000   02239
+12/09   08500   00000   00000   08500
+12/10   01451   00000   00000   01451
+12/11   00000   00000   00000   00000
+12/12   01335   00000   00000   01335
+12/13   00000   00000   00000   00000
+12/14   00000   00000   00000   00000
+
+合計    35623   00000   00000   35623(02740) days=13 
+seizosakurai@sixam prctclcmmnlsp % AggExp
+AggExp
+Exp.01.txt    134980   00000   00000   134980 
+Exp.02.txt    171177   00000   00000   171177 
+Exp.03.txt    183136   00000   00000   183136 
+Exp.04.txt    153149   00000   00000   153139 
+Exp.05.txt    155887   00000   00000   154817 
+Exp.06.txt    096495   00000   00000   096495 
+Exp.07.txt    180572   00000   00000   180572 
+Exp.08.txt    150250   00000   00000   150250 
+Exp.09.txt    142109   00000   00000   144109 
+Exp.10.txt    113149   00000   00000   113149 
+Exp.11.txt    135103   00000   00000   135103 
+Exp.12.txt    035623   00000   00000   035623 
+
+TOTAL                                 1652550  =  150231.82 * 11 
+seizosakurai@sixam prctclcmmnlsp % 
+NIL
+[97]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x0000000200260159> #<Y-INUM #x0000000200260419>
+x-Inum times y-Rnum is #<X-INUM #x0000000200260159> #<Y-RNUM #x0000000200260999>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200273481>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200276519>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200277CB1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020027B4F1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 17
+account-3 = #<BANK-ACCOUNT-3 #x000000020027F569>
+customer-name = John Doe
+balance       = 100
+account-type  = GOLD
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[98]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020028D691>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200290729>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200291EC1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200295701>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 19
+account-3 = #<BANK-ACCOUNT-3 #x0000000200299779>
+customer-name = John Doe
+balance       = 100
+account-type  = GOLD
+
+;; Loaded file ./ch17.lisp
+T
+[99]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002A31A1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A6239>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002A79D1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002AB211>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 21
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x000000020023CA61> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CA61> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CA61> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [100]> 
+[101]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002507D9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200253871>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200255009>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200258849>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 22
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x000000020025DA71> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020025DA71> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020025DA71> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loo
+Break 1 [102]> ABORT          :R6      Abort main loo
+Break 1 [102]> 
+ABORT          :R6      Abort main loo
+Break 1 [102]> 
+[103]> Break 1 [102]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [104]> 
+[105]> (ch17(
+(ch17)
+)
+
+
+
+*** - READ: input stream #<INPUT CONCATENATED-STREAM> ends within an object
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [106]> 
+[107]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200281A61>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200284AF9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200286291>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200289AD1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 23
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x00000002002909F9> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [108]> balance       = 100
+
+account-numbers = 23
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x00000002002909F9> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [108]> 
+balance       = 100
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BALANCE has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BALANCE.
+STORE-VALUE    :R2      Input a new value for BALANCE.
+ABORT          :R3      Abort debug loop
+SKIP           :R4      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R5      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R7      Abort main loop
+Break 2 [109]> 
+Break 1 [108]> 
+[110]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002B2A91>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002B5B29>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002B72C1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002BAB01>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 24
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x000000020023CF61> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CF61> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CF61> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [111]> 
+[112]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200251A09>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200254AA1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200256239>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200259A79>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 25
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x0000000200260CF1> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200260CF1> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200260CF1> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [113]> 
+[114]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200278761>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020027B7F9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020027CF91>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002807D1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 26
+pass1
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x0000000200284B99> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200284B99> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200284B99> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [115]> 
+[116]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200297F71>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020029B009>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020029C7A1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020029FFE1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 27
+pass1
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x00000002002A43A9> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002A43A9> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002A43A9> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [117]> 
+[118]> 
+Bye.
+bash-3.2$ clisp -l ./init.lisp
+clisp -l ./init.lisp
+GNU CLISP: -l without -c is invalid
+GNU CLISP: use '-h' for help
+bash-3.2$ clisp -h
+clisp -h
+GNU CLISP (http://clisp.cons.org/) is an ANSI Common Lisp implementation.
+Usage:  /opt/local/lib/clisp-2.49/base/lisp.run [options] [lispfile [argument ...]]
+ When 'lispfile' is given, it is loaded and '*ARGS*' is set
+ to the list of argument strings. Otherwise, an interactive
+ read-eval-print loop is entered.
+Informative output:
+ -h, --help    - print this help and exit
+ --version     - print the version information
+ --license     - print the licensing information
+ -help-image   - print image-specific help and exit
+Memory image selection:
+ -B lisplibdir - set the installation directory
+ -K linkingset - use this executable and memory image
+ -M memfile    - use this memory image
+ -m size       - memory size (size = nB or nKB or nMB)
+Internationalization:
+ -L language   - set user language
+ -N nlsdir     - NLS catalog directory
+ -Edomain encoding - set encoding
+Interoperability:
+ -q, --quiet, --silent, -v, --verbose - verbosity level:
+     affects banner, *LOAD-VERBOSE*/*COMPILE-VERBOSE*,
+     and *LOAD-PRINT*/*COMPILE-PRINT*
+ -w            - wait for a keypress after program termination
+ -I            - be ILISP-friendly
+ -disable-readline - do not use the gnu readline library
+Startup actions:
+ -ansi         - more ANSI CL compliance
+ -traditional  - traditional (undoes -ansi)
+ -modern       - start in a case-sensitive lowercase-preferring package
+ -p package    - start in the package
+ -C            - set *LOAD-COMPILING* to T
+ -norc         - do not load the user ~/.clisprc file
+ -lp dir       - add dir to *LOAD-PATHS* (can be repeated)
+ -i file       - load initfile (can be repeated)
+Actions:
+ -c [-l] lispfile [-o outputfile] - compile lispfile
+ -x expressions - execute the expressions, then exit
+ Depending on the image, positional arguments can mean:
+   lispscript [argument ...] - load script, then exit
+   [argument ...]            - run the init-function
+  arguments are placed in EXT:*ARGS* as strings.
+These actions put CLISP into a batch mode, which is overridden by
+ -on-error action - action can be one of debug, exit, abort, appease
+ -repl            - enter the interactive read-eval-print loop when done
+Default action is an interactive read-eval-print loop.
+bash-3.2$ clisp -cl ./init.lisp
+clisp -cl ./init.lisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+;; Compiling file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/init.lisp ...
+;; Wrote file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/init.fas
+;; Wrote file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/init.lis
+0 errors, 0 warnings
+Bye.
+bash-3.2$ clisp
+clisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (ch17)
+(ch17)
+
+*** - EVAL: undefined function CH17
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'CH17).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'CH17).
+ABORT          :R4      Abort main loop
+Break 1 [2]> 
+[3]> (load "./init.lisp")
+[3]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[4]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+** - Continuable Error
+DEFUN/DEFMACRO(WITH-GENSYMS): #<PACKAGE EXT> is locked
+If you continue (by typing 'continue'): Ignore the lock and proceed
+The following restarts are also available:
+SKIP           :R1      skip (DEFMACRO WITH-GENSYMS # ...)
+RETRY          :R2      retry (DEFMACRO WITH-GENSYMS # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp
+ABORT          :R4      Abort main loop
+Break 1 [5]> 
+WARNING: DEFUN/DEFMACRO: redefining macro WITH-GENSYMS in
+         /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp, was defined in
+         /opt/local/var/macports/build/_opt_local_var_macports_sources_rsync.macports.org_release_tarballs_ports_lang_clisp/clisp/work/clisp-2.49/src/pprint.fas
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+x-Inum times y-Inum is #<X-INUM #x000000020028BAA9> #<Y-INUM #x000000020028BF91>
+x-Inum times y-Rnum is #<X-INUM #x000000020028BAA9> #<Y-RNUM #x000000020028C961>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002383C1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020023B8E1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020023D4C1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200241099>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 1
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x0000000200245889>
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[6]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x00000002002617B1> #<Y-INUM #x0000000200261A71>
+x-Inum times y-Rnum is #<X-INUM #x00000002002617B1> #<Y-RNUM #x0000000200261FF1>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200274AD9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200277B71>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200279309>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020027CB49>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 3
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x0000000200280F11>
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[7]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020028DDC9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200290E61>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002925F9>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200295E39>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 5
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x000000020029A201>
+
+;; Loaded file ./ch17.lisp
+T
+[8]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002A29B9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A5A51>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002A71E9>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002AAA29>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 7
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x000000020023B4A9>
+
+;; Loaded file ./ch17.lisp
+T
+[9]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200245181>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200248219>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002499B1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020024D1F1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 9
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x0000000200254469>
+customer-name = John Doe
+balance       = 70000
+account-type  = SILVER
+
+;; Loaded file ./ch17.lisp
+T
+[10]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200261831>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002648C9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200266061>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002698A1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 11
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x0000000200270B19>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+T
+[11]> pwd
+pwd
+
+*** - SYSTEM::READ-EVAL-PRINT: variable PWD has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of PWD.
+STORE-VALUE    :R2      Input a new value for PWD.
+ABORT          :R3      Abort main loop
+Break 1 [12]> 
+[13]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x00000002002804C9> #<Y-INUM #x0000000200280789>
+x-Inum times y-Rnum is #<X-INUM #x00000002002804C9> #<Y-RNUM #x0000000200280D09>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002937F1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200296889>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200298021>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020029B861>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 13
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x00000002002A2AD9>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[14]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020023FF31>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200242FC9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200244761>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200247FA1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 15
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x000000020024F219>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+T
+[15]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020025C5E1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020025F679>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200260E11>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200264651>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 17
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x000000020026B8C9>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+T
+[16]> (load "./init.lisp")
+[16]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[17]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x000000020027F8B1> #<Y-INUM #x000000020027FB71>
+x-Inum times y-Rnum is #<X-INUM #x000000020027F8B1> #<Y-RNUM #x00000002002800F1>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200292BD9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200295C71>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200297409>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020029AC49>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 19
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x00000002002A1EC1>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch19.lisp ...
+;; Loaded file ./ch19.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T T)
+[18]> (ch19)
+(ch19)
+;; Loading file ./ch19.lisp ...
+;; Loaded file ./ch19.lisp
+T
+[19]> cd prctclcmmnlsp/
+cd prctclcmmnlsp/
+
+*** - SYSTEM::READ-EVAL-PRINT: variable CD has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of CD.
+STORE-VALUE    :R2      Input a new value for CD.
+ABORT          :R3      Abort main loop
+Break 1 [20]> 
+
+[21]> (load "./init.lisp")
+[21]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[22]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x0000000200254831> #<Y-INUM #x0000000200254AF1>
+x-Inum times y-Rnum is #<X-INUM #x0000000200254831> #<Y-RNUM #x0000000200255071>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200267B59>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020026ABF1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020026C389>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020026FBC9>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 21
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x0000000200276E41>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch19.lisp ...
+;; Loaded file ./ch19.lisp
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T T T)
+[23]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[24]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+*** - FLET/LABELS: code contains a dotted list, ending with F1
+The following restarts are available:
+SKIP           :R1      skip (DEFUN GLOBAL_FUN NIL ...)
+RETRY          :R2      retry (DEFUN GLOBAL_FUN NIL ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch20.lisp
+ABORT          :R4      Abort main loop
+Break 1 [25]> 
+[26]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020029EE69>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A1F01>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002A3699>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002A6ED9>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 23
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x00000002002AE151>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+T
+[27]> (global_fun)
+[27]> (global_fun)
+
+*** - EVAL: undefined function GLOBAL_FUN
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'GLOBAL_FUN).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'GLOBAL_FUN).
+ABORT          :R4      Abort main loop
+Break 1 [28]> 
+[29]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+*** - Illegal syntax in FLET/LABELS: F1
+The following restarts are available:
+SKIP           :R1      skip (DEFUN GLOBAL_FUN NIL ...)
+RETRY          :R2      retry (DEFUN GLOBAL_FUN NIL ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch20.lisp
+ABORT          :R4      Abort main loop
+Break 1 [30]> 
+[31]> Break 1 [30]> 
+[31]> 
+Break 1 [30]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [32]> 
+[33]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[34]> (global_fun)
+[34]> (global_fun)
+global_fun() called
+WARNING: DEFUN/DEFMACRO: redefining function FOO in top-level, was defined in
+         /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+I am foo from f1
+NIL
+[35]> (global_fun)
+[35]> (global_fun)
+global_fun() called
+I am foo from f1
+NIL
+[36]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+*** - SYSTEM::%EXPAND-FORM: (F2 NIL (FORMAT T "f2(): called.~%")) should be a lambda expression
+The following restarts are available:
+SKIP           :R1      skip (DEFUN GLOBAL_FUN NIL ...)
+RETRY          :R2      retry (DEFUN GLOBAL_FUN NIL ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch20.lisp
+ABORT          :R4      Abort main loop
+Break 1 [37]> ABORT          :R4      Abort main loop
+Break 1 [37]> 
+ABORT          :R4      Abort main loop
+Break 1 [37]> 
+[38]> Break 1 [37]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [39]> 
+[40]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[41]> (global_fun)
+[41]> (global_fun)
+global_fun() called
+I am foo from f1
+*** - EVAL: undefined function F2
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'F2).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'F2).
+ABORT          :R4      Abort main loop
+Break 1 [42]> ABORT          :R4      Abort main loop
+Break 1 [42]> 
+ABORT          :R4      Abort main loop
+Break 1 [42]> 
+[43]> Break 1 [42]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [44]> 
+[45]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[46]> (global_fun)
+[46]> (global_fun)
+global_fun() called
+I am foo from f1
+NIL
+[47]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[48]> (global_fun)
+[48]> (global_fun)
+global_fun() called
+I am foo from f1
+*** - EVAL: undefined function F2
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'F2).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'F2).
+ABORT          :R4      Abort main loop
+Break 1 [49]> ABORT          :R4      Abort main loop
+Break 1 [49]> 
+ABORT          :R4      Abort main loop
+Break 1 [49]> 
+[50]> Break 1 [49]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [51]> 
+[52]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[53]> (global_fun)
+[53]> (global_fun)
+global_fun() called
+I am foo from f1
+NIL
+[54]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[55]> (global_fun)
+[55]> (global_fun)
+global_fun() called
+I am foo from f1I am foo from f1
+NIL
+[56]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[57]> (global_fun)
+[57]> (global_fun)
+global_fun() called
+I am foo from f1
+*** - EVAL: undefined function F2
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'F2).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'F2).
+ABORT          :R4      Abort main loop
+Break 1 [58]> 
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x000000020027F8B1> #<Y-INUM #x000000020027FB71>
+x-Inum times y-Rnum is #<X-INUM #x000000020027F8B1> #<Y-RNUM #x00000002002800F1>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200292BD9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200295C71>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200297409>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020029AC49>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 19
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x00000002002A1EC1>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch19.lisp ...
+;; Loaded file ./ch19.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T T)
+[18]> 
+
+**
+NIL****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The func
+Break 1 [58]> ****
+
+*** - SYSTEM::READ-EVAL-PRINT: variable **** has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of ****.
+STORE-VALUE    :R2      Input a new value for ****.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort main loop
+Break 2 [59]> irst picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIirst picks up the first element of the given list
+
+*** - SYSTEM::READ-EVAL-PRINT: variable IRST has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of IRST.
+STORE-VALUE    :R2      Input a new value for IRST.
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 3 [60]> (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+Break 3 [60]> (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+
+*** - READ from #<INPUT CONCATENATED-STREAM #<INPUT STRING-INPUT-STREAM> #<IO TERMINAL-STREAM>>: objects printed as #<...>
+      cannot be read back in
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort main loop
+Break 4 [61]>  #<BANK-ACCOUNT-1 #x0000000200297409>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020029AC49>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 19
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x00000002002A1EC1>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch19.lisp ...
+;; Loaded file ./ch19.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file  #<BANK-ACCOUNT-1 #x0000000200297409>
+
+*** - READ from #<INPUT CONCATENATED-STREAM #<INPUT STRING-INPUT-STREAM> #<IO TERMINAL-STREAM>>: objects printed as #<...>
+      cannot be read back in
+The following restarts are available:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 5 [62]> 
+
+Break 4 [61]> 
+Break 3 [60]> 
+Break 2 [59]> 
+Break 1 [58]> 
+[63]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[64]> (global_fun)
+[64]> (global_fun)
+global_fun() called
+f1(): called.
+NIL
+[65]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[66]> (global_fun)
+[66]> (global_fun)
+global_fun() called
+f1(): called.
+f2(): cqlled.
+NIL
+[67]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[68]> (global_fun)
+[68]> (global_fun)
+global_fun() called
+f1(): called.
+f2(): cqlled.
+NIL
+[69]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[70]> (global_fun)
+[70]> (global_fun)
+global_fun() called
+f1(): called.
+f2(): cqlled.
+lf1(): called.
+
+*** - EVAL: undefined function FLRMAT
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'FLRMAT).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'FLRMAT).
+ABORT          :R4      Abort main loop
+Break 1 [71]> 
+[72]> (ch20)
+(ch20)
+;; Loading file ./ch20.lisp ...
+;; Loaded file ./ch20.lisp
+T
+[73]> (global_fun)
+[73]> (global_fun)
+global_fun() called
+f1(): called.
+f2(): cqlled.
+lf1(): called.
+lf2(): called.
+NIL
+[74]> 

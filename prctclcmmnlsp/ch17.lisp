@@ -106,3 +106,7 @@
 (format t "balance       = ~a~%" (slot-value *account-3* 'balance))
 (format t "account-type  = ~a~%" (slot-value *account-3* 'account-type))
 (format t "~%")
+
+;;
+;; Accessor Functions
+;;
