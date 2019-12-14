@@ -75,6 +75,7 @@
 (format t "~%")
 
 (format t "account-numbers = ~a~%" *account-numbers*)
+(format t "pass1~%")
 
 ;;
 ;;
@@ -89,10 +90,17 @@
     :initform (incf *account-numbers*))
    account-type))
 
+(defmethod initialize-instance :after ((account bank-account-3) &key)
+  (let ((balance (slot-value account 'balance)))
+    (setf (slot-value account 'account-type)
+	  (cond
+	   ((>= balance 100000) :gold)
+	   ((>= balance 50000) :silver)
+	   (t :bronze)))))
+
 (defparameter *account-3*
   (make-instance 'bank-account-3
 		 :customer-name "John Doe"))
-(setf (slot-value *account-3* 'account-type) :gold)
 (format t "account-3 = ~a~%" *account-3*)
 (format t "customer-name = ~a~%" (slot-value *account-3* 'customer-name))
 (format t "balance       = ~a~%" (slot-value *account-3* 'balance))

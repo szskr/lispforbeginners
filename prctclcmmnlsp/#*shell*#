@@ -2475,4 +2475,874 @@ T
 [95]> (/ 113.0 (+ 113.0 20.0))
 [95]> (/ 113.0 (+ 113.0 20.0))
 0.84962404
-[96]> 
+[96]> (shell)
+(shell)
+seizosakurai@sixam prctclcmmnlsp % expense
+expense
+12/01   01290   00000   00000   01290
+12/02   02158   00000   00000   02158
+12/03   00220   00000   00000   00220
+12/04   01400   00000   00000   001400`
+12/05   00000   00000   00000   00000
+12/06   15800   00000   00000   15800
+12/07   01230   00000   00000   01230
+12/08   02239   00000   00000   02239
+12/09   08500   00000   00000   08500
+12/10   01451   00000   00000   01451
+12/11   00000   00000   00000   00000
+12/12   01335   00000   00000   01335
+12/13   00000   00000   00000   00000
+12/14   00000   00000   00000   00000
+
+合計    35623   00000   00000   35623(02740) days=13 
+seizosakurai@sixam prctclcmmnlsp % AggExp
+AggExp
+Exp.01.txt    134980   00000   00000   134980 
+Exp.02.txt    171177   00000   00000   171177 
+Exp.03.txt    183136   00000   00000   183136 
+Exp.04.txt    153149   00000   00000   153139 
+Exp.05.txt    155887   00000   00000   154817 
+Exp.06.txt    096495   00000   00000   096495 
+Exp.07.txt    180572   00000   00000   180572 
+Exp.08.txt    150250   00000   00000   150250 
+Exp.09.txt    142109   00000   00000   144109 
+Exp.10.txt    113149   00000   00000   113149 
+Exp.11.txt    135103   00000   00000   135103 
+Exp.12.txt    035623   00000   00000   035623 
+
+TOTAL                                 1652550  =  150231.82 * 11 
+seizosakurai@sixam prctclcmmnlsp % 
+NIL
+[97]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x0000000200260159> #<Y-INUM #x0000000200260419>
+x-Inum times y-Rnum is #<X-INUM #x0000000200260159> #<Y-RNUM #x0000000200260999>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200273481>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200276519>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200277CB1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020027B4F1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 17
+account-3 = #<BANK-ACCOUNT-3 #x000000020027F569>
+customer-name = John Doe
+balance       = 100
+account-type  = GOLD
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[98]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020028D691>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200290729>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200291EC1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200295701>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 19
+account-3 = #<BANK-ACCOUNT-3 #x0000000200299779>
+customer-name = John Doe
+balance       = 100
+account-type  = GOLD
+
+;; Loaded file ./ch17.lisp
+T
+[99]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002A31A1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A6239>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002A79D1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002AB211>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 21
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x000000020023CA61> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CA61> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CA61> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [100]> 
+[101]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002507D9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200253871>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200255009>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200258849>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 22
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x000000020025DA71> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020025DA71> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020025DA71> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loo
+Break 1 [102]> ABORT          :R6      Abort main loo
+Break 1 [102]> 
+ABORT          :R6      Abort main loo
+Break 1 [102]> 
+[103]> Break 1 [102]> 
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BREAK has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BREAK.
+STORE-VALUE    :R2      Input a new value for BREAK.
+ABORT          :R3      Abort main loop
+Break 1 [104]> 
+[105]> (ch17(
+(ch17)
+)
+
+
+
+*** - READ: input stream #<INPUT CONCATENATED-STREAM> ends within an object
+The following restarts are available:
+ABORT          :R1      Abort main loop
+Break 1 [106]> 
+[107]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200281A61>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200284AF9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200286291>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200289AD1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 23
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x00000002002909F9> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [108]> balance       = 100
+
+account-numbers = 23
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x00000002002909F9> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002909F9> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [108]> 
+balance       = 100
+
+*** - SYSTEM::READ-EVAL-PRINT: variable BALANCE has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of BALANCE.
+STORE-VALUE    :R2      Input a new value for BALANCE.
+ABORT          :R3      Abort debug loop
+SKIP           :R4      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R5      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R6      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R7      Abort main loop
+Break 2 [109]> 
+Break 1 [108]> 
+[110]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002B2A91>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002B5B29>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002B72C1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002BAB01>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 24
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x000000020023CF61> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CF61> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x000000020023CF61> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [111]> 
+[112]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200251A09>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200254AA1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200256239>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200259A79>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 25
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x0000000200260CF1> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200260CF1> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200260CF1> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [113]> 
+[114]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200278761>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020027B7F9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020027CF91>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002807D1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 26
+pass1
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x0000000200284B99> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200284B99> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x0000000200284B99> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [115]> 
+[116]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200297F71>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020029B009>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020029C7A1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020029FFE1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 27
+pass1
+
+*** - SLOT-VALUE: The slot BALANCE of #<BANK-ACCOUNT-3 #x00000002002A43A9> has no value
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002A43A9> 'BALANCE).
+STORE-VALUE    :R2      Input a new value for (SLOT-VALUE #<BANK-ACCOUNT-3 #x00000002002A43A9> 'BALANCE).
+SKIP           :R3      skip (DEFPARAMETER *ACCOUNT-3* #)
+RETRY          :R4      retry (DEFPARAMETER *ACCOUNT-3* #)
+STOP           :R5      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch17.lisp
+ABORT          :R6      Abort main loop
+Break 1 [117]> 
+[118]> 
+Bye.
+bash-3.2$ clisp -l ./init.lisp
+clisp -l ./init.lisp
+GNU CLISP: -l without -c is invalid
+GNU CLISP: use '-h' for help
+bash-3.2$ clisp -h
+clisp -h
+GNU CLISP (http://clisp.cons.org/) is an ANSI Common Lisp implementation.
+Usage:  /opt/local/lib/clisp-2.49/base/lisp.run [options] [lispfile [argument ...]]
+ When 'lispfile' is given, it is loaded and '*ARGS*' is set
+ to the list of argument strings. Otherwise, an interactive
+ read-eval-print loop is entered.
+Informative output:
+ -h, --help    - print this help and exit
+ --version     - print the version information
+ --license     - print the licensing information
+ -help-image   - print image-specific help and exit
+Memory image selection:
+ -B lisplibdir - set the installation directory
+ -K linkingset - use this executable and memory image
+ -M memfile    - use this memory image
+ -m size       - memory size (size = nB or nKB or nMB)
+Internationalization:
+ -L language   - set user language
+ -N nlsdir     - NLS catalog directory
+ -Edomain encoding - set encoding
+Interoperability:
+ -q, --quiet, --silent, -v, --verbose - verbosity level:
+     affects banner, *LOAD-VERBOSE*/*COMPILE-VERBOSE*,
+     and *LOAD-PRINT*/*COMPILE-PRINT*
+ -w            - wait for a keypress after program termination
+ -I            - be ILISP-friendly
+ -disable-readline - do not use the gnu readline library
+Startup actions:
+ -ansi         - more ANSI CL compliance
+ -traditional  - traditional (undoes -ansi)
+ -modern       - start in a case-sensitive lowercase-preferring package
+ -p package    - start in the package
+ -C            - set *LOAD-COMPILING* to T
+ -norc         - do not load the user ~/.clisprc file
+ -lp dir       - add dir to *LOAD-PATHS* (can be repeated)
+ -i file       - load initfile (can be repeated)
+Actions:
+ -c [-l] lispfile [-o outputfile] - compile lispfile
+ -x expressions - execute the expressions, then exit
+ Depending on the image, positional arguments can mean:
+   lispscript [argument ...] - load script, then exit
+   [argument ...]            - run the init-function
+  arguments are placed in EXT:*ARGS* as strings.
+These actions put CLISP into a batch mode, which is overridden by
+ -on-error action - action can be one of debug, exit, abort, appease
+ -repl            - enter the interactive read-eval-print loop when done
+Default action is an interactive read-eval-print loop.
+bash-3.2$ clisp -cl ./init.lisp
+clisp -cl ./init.lisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+;; Compiling file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/init.lisp ...
+;; Wrote file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/init.fas
+;; Wrote file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/init.lis
+0 errors, 0 warnings
+Bye.
+bash-3.2$ clisp
+clisp
+  i i i i i i i       ooooo    o        ooooooo   ooooo   ooooo
+  I I I I I I I      8     8   8           8     8     o  8    8
+  I  \ `+' /  I      8         8           8     8        8    8
+   \  `-+-'  /       8         8           8      ooooo   8oooo
+    `-__|__-'        8         8           8           8  8
+        |            8     o   8           8     o     8  8
+  ------+------       ooooo    8oooooo  ooo8ooo   ooooo   8
+
+Welcome to GNU CLISP 2.49 (2010-07-07) <http://clisp.cons.org/>
+
+Copyright (c) Bruno Haible, Michael Stoll 1992, 1993
+Copyright (c) Bruno Haible, Marcus Daniels 1994-1997
+Copyright (c) Bruno Haible, Pierpaolo Bernardi, Sam Steingold 1998
+Copyright (c) Bruno Haible, Sam Steingold 1999-2000
+Copyright (c) Sam Steingold, Bruno Haible 2001-2010
+
+Type :h and hit Enter for context help.
+
+[1]> (ch17)
+(ch17)
+
+*** - EVAL: undefined function CH17
+The following restarts are available:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'CH17).
+RETRY          :R2      Retry
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'CH17).
+ABORT          :R4      Abort main loop
+Break 1 [2]> 
+[3]> (load "./init.lisp")
+[3]> (load "./init.lisp")
+;; Loading file ./init.lisp ...
+;; Loaded file ./init.lisp
+T
+[4]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+** - Continuable Error
+DEFUN/DEFMACRO(WITH-GENSYMS): #<PACKAGE EXT> is locked
+If you continue (by typing 'continue'): Ignore the lock and proceed
+The following restarts are also available:
+SKIP           :R1      skip (DEFMACRO WITH-GENSYMS # ...)
+RETRY          :R2      retry (DEFMACRO WITH-GENSYMS # ...)
+STOP           :R3      stop loading file /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp
+ABORT          :R4      Abort main loop
+Break 1 [5]> 
+WARNING: DEFUN/DEFMACRO: redefining macro WITH-GENSYMS in
+         /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch08.lisp, was defined in
+         /opt/local/var/macports/build/_opt_local_var_macports_sources_rsync.macports.org_release_tarballs_ports_lang_clisp/clisp/work/clisp-2.49/src/pprint.fas
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+x-Inum times y-Inum is #<X-INUM #x000000020028BAA9> #<Y-INUM #x000000020028BF91>
+x-Inum times y-Rnum is #<X-INUM #x000000020028BAA9> #<Y-RNUM #x000000020028C961>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002383C1>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x000000020023B8E1>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x000000020023D4C1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200241099>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 1
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x0000000200245889>
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[6]> (l)
+(l)
+;; Loading file ./ch03.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp
+;; Loaded file ./ch03.lisp
+;; Loading file ./ch04.lisp ...
+Function foo4-1Function foo4-1*
+**
+***
+*****
+********
+*************
+*********************
+**********************************
+*******************************************************
+
+**
+****
+******
+********
+**********
+************
+**************
+****************
+******************
+********************
+;; Loaded file ./ch04.lisp
+;; Loading file ./ch05.lisp ...
+WARNING: DEFUN/DEFMACRO: redefining function FOO in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch05.lisp,
+         was defined in /Users/seizosakurai/workspaces/lispforbeginners/prctclcmmnlsp/ch03.lisp
+(foo 1 2)     = (1 2 NIL NIL)
+(foo 1 2 3)   = (1 2 3 NIL)
+(foo 1 2 3 4) = (1 2 3 4)
+
+(foo-1 1)     = (1 0)
+(foo-1 1 2)   = (1 2)
+
+(foo-2 1)     = (1 0 NIL)
+(foo-2 1 2)   = (1 2 T)
+
+(foo-3 :a 1)           = (1 NIL NIL)
+(foo-3 :b 2)           = (NIL 2 NIL)
+(foo-3 :a 1 :b 2 :c 3) = (1 2 3)
+
+(foo-4 :a 1)             = (1 10 11)
+(foo-4 :b 2)             = (0 2 2)
+(foo-4 :a 1 :b 2 :c 100) = (1 2 100)
+
+(foo-5 1 2)         = (1 2 NIL)
+(foo-5 1 2 3)       = (1 2 (3))
+(foo-5 1 2 3 4)     = (1 2 (3 4))
+
+;; Loaded file ./ch05.lisp
+;; Loading file ./ch07.lisp ...
+;; Loaded file ./ch07.lisp
+;; Loading file ./ch08.lisp ...
+The function first picks up the first element of the given list
+;; Loaded file ./ch08.lisp
+;; Loading file ./ch09.lisp ...
+;; Loaded file ./ch09.lisp
+;; Loading file ./ch16.lisp ...
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS BNK-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CHECKING-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS PROXY-ACCOUNT> #<BUILT-IN-CLASS T>)> in
+         #<STANDARD-GENERIC-FUNCTION WITHDRAW>
+WARNING: Replacing method #<STANDARD-METHOD :BEFORE (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD :AROUND (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS CH16SCT01>)> in #<STANDARD-GENERIC-FUNCTION CH16-HELLO>
+WARNING: The generic function #<STANDARD-GENERIC-FUNCTION MULTIPLY> is being modified, but has already been called.
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-INUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+WARNING: Replacing method #<STANDARD-METHOD (#<STANDARD-CLASS X-INUM> #<STANDARD-CLASS Y-RNUM>)> in
+         #<STANDARD-GENERIC-FUNCTION MULTIPLY>
+x-Inum times y-Inum is #<X-INUM #x00000002002617B1> #<Y-INUM #x0000000200261A71>
+x-Inum times y-Rnum is #<X-INUM #x00000002002617B1> #<Y-RNUM #x0000000200261FF1>
+;; Loaded file ./ch16.lisp
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200274AD9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200277B71>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200279309>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020027CB49>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 3
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x0000000200280F11>
+
+;; Loaded file ./ch17.lisp
+;; Loading file ./ch21.lisp ...
+The current package is #<PACKAGE COMMON-LISP-USER> 
+;; Loaded file ./ch21.lisp
+(T T T T T T T T T)
+[7]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x000000020028DDC9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200290E61>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002925F9>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x0000000200295E39>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 5
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x000000020029A201>
+
+;; Loaded file ./ch17.lisp
+T
+[8]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x00000002002A29B9>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002A5A51>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002A71E9>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002AAA29>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 7
+pass1
+account-3 = #<BANK-ACCOUNT-3 #x000000020023B4A9>
+
+;; Loaded file ./ch17.lisp
+T
+[9]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200245181>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x0000000200248219>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x00000002002499B1>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x000000020024D1F1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 9
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x0000000200254469>
+customer-name = John Doe
+balance       = 70000
+account-type  = SILVER
+
+;; Loaded file ./ch17.lisp
+T
+[10]> (ch17)
+(ch17)
+;; Loading file ./ch17.lisp ...
+account-0 = #<BANK-ACCOUNT-0 #x0000000200261831>
+customer-name = John Doe
+balance       = 1000
+
+account-1 = #<BANK-ACCOUNT-1 #x00000002002648C9>
+customer-name = John Doe
+balance       = 1000
+
+account-11 = #<BANK-ACCOUNT-1 #x0000000200266061>
+customer-name = John Doe
+balance       = 10
+
+account-2 = #<BANK-ACCOUNT-2 #x00000002002698A1>
+customer-name = John Doe
+balance       = 100
+
+account-numbers = 11
+pass1
+WARNING: Replacing method #<STANDARD-METHOD :AFTER (#<STANDARD-CLASS BANK-ACCOUNT-3>)> in
+         #<STANDARD-GENERIC-FUNCTION INITIALIZE-INSTANCE>
+account-3 = #<BANK-ACCOUNT-3 #x0000000200270B19>
+customer-name = John Doe
+balance       = 100
+account-type  = BRONZE
+
+;; Loaded file ./ch17.lisp
+T
+[11]> 
