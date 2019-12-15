@@ -2,7 +2,8 @@
 ;;; Little tools
 ;;;
 (defun l ()
-  (let ((files '("./ch03.lisp" "./ch04.lisp"
+  (let ((files '("./tools.lisp"
+	       "./ch03.lisp" "./ch04.lisp"
 	       "./ch05.lisp" "./ch07.lisp"
 	       "./ch08.lisp" "./ch09.lisp"
 	       "./ch16.lisp" "./ch17.lisp"
@@ -10,8 +11,6 @@
 	       "./ch21.lisp")))
     (mapcar #'load files)))
 
-(defun help () )
-  
 (defun ch21 ()
   (load "./ch21.lisp"))
 
@@ -44,4 +43,6 @@
   
 (defun ch03 ()
   (load "./ch03.lisp"))
- 
+
+(defun tools ()
+  (load "./tools.lisp"))

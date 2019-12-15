@@ -29,3 +29,17 @@
 
 (global_fun)
 
+;;;
+;;; Local Flow of Control
+;;;
+(defun blk ()
+  (format t "In function blk().~%")
+  (block block-1
+	 (format t "In block-1~%")
+	 (block block-2
+		(format t "This is block-2 in BLOCK.~%")))
+  (format t "Out b().~%"))
+
+(blk)
+  
+
