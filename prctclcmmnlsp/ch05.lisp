@@ -43,3 +43,13 @@
 (format t "~%")
 
 (defparameter *fn5-1* (let ((count 0)) #'(lambda () (setf count (+ 1 count))))) ;; Closure!
+
+;;;
+;;; Misc
+;;;
+(defun ll()
+  (format t "func ll() called.~%")
+  (defun lll()
+    (format t "func lll() defined in ll() called~%"))
+  (lll))
+(ll)
