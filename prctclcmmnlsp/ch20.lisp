@@ -50,5 +50,17 @@
   (format t "Out blk-2().~%"))
 (blk-2)
 (nl)
+
+(defun tag-1 ()
+  (format t "In tag-1():")
+  (tagbody
+   top
+   (print 'hello)
+   (when (plusp (random 10))
+     (go top)))
+  (nl)
+  (format t "Out tag-1():"))
+(tag-1)
+(nl)
   
 
