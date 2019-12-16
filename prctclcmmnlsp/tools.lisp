@@ -2,6 +2,9 @@
 ;;; Little tools
 ;;; 
 
+(defmacro nl ()
+  `(format t "~%"))
+
 (defun help(&optional chp)
   (chap03)
   (chap04)
