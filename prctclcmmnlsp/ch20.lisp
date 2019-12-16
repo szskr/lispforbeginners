@@ -1,9 +1,15 @@
 ;;
 ;; Chapter 20: The Special Operators
 ;;
+(nl)
+(comment "Chapter 20")
+(chap20)
+(nl)
 
+;;;
 ;;; flet and labels
 ;;;
+
 (defun global_fun ()
   (format t "global_fun() called~%")
   ;;
@@ -93,7 +99,7 @@
 ;;; Catch and Throw
 ;;;
 (nl)
-(format t "N: Catch and Throw~%")
+(comment  "Catch and Throw")
 
 (defparameter *obj21* (cons nil nil)); Some arbitary object
 
@@ -116,3 +122,48 @@
   (format t "  Leaving  baz-21~%"))
 (foo-21)
 
+;;;
+;;; unwind-protect
+;;;
+(comment "Unwind-protect")
+
+(defun AmIeven (num)
+  (format t "Entering AmIeven: ~a~%" num)
+  (unwind-protect (+ 1 num)
+    (format t "unwinding: Leaving AmIeven~%"))
+  (format t "Leaving AmIeven~%"))
+
+(AmIeven 100)
+(nl)
+(AmIeven 101)
+(nl)
+
+;;;
+;;; Multiple Values
+;;;
+(comment "Function values")
+
+(comment "(values)")
+(values)
+(nl)
+
+(comment "(values 1 2)")
+(values 1 2)
+(format t "VAL=~a~%" (multiple-value-bind (x y) (values 1 2)
+		     (+ x y)))
+(nl)
+
+(comment "(values 1 2)")
+(values 1 2 3)
+
+(comment "YOU NEED TO COMEBACK here later")
+(nl)
+
+;;;
+;;; EVAL-WHEN
+;;;
+(comment "EVAL-WHEN")
+(nl)
+(load "./ch20.f1.lisp")
+(compile-file "./ch20.f1.lisp")
+(main20-01)
