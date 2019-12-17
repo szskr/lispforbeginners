@@ -49,7 +49,7 @@
 
 (defun blk-2 ()
   (format t "In function blk-2(): Nameless BLOCK.~%")
-  (block ;; NAMELESS!
+  (block blk ;; NAMELESS! /* CLISP ok. SBCL does not allow nameless BLOCK */
 	 (format t "In NAMELESS BLOCK~%")
 	 (block block-2
 		(format t "This is block-2 in BLOCK.~%")))
