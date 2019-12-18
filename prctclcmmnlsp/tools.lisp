@@ -99,3 +99,6 @@
 
 (defun chap21 ()
   (format t "Chapter 21: Programming in the Large: Packages and Symbols~%"))
+
+(defun chap24 ()
+  (format t "Chapter 24: Practical: Parsing Binary Files~%"))

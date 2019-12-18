@@ -8,8 +8,11 @@
 	       "./ch08.lisp" "./ch09.lisp"
 	       "./ch16.lisp" "./ch17.lisp"
 	       "./ch19.lisp" "./ch20.lisp"
-	       "./ch21.lisp")))
+	       "./ch21.lisp" "./ch24.lisp")))
     (mapcar #'load files)))
+
+(defun ch24 ()
+  (load "./ch24.lisp"))
 
 (defun ch21 ()
   (load "./ch21.lisp"))
