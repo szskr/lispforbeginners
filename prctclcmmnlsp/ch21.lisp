@@ -27,8 +27,22 @@
 ;;;;  Names that contain no colons.
 ;;;;
 ;;;; PACKAGE QUALIFIED NAME
-;;;;  A name containing either a single colon or a double colon is a PACKAGE QUALIFIED NAME.
-;;;;  
+;;;;  *) A name containing either a single colon or a double colon is a PACKAGE QUALIFIED NAME.
+;;;;     Example: 
+;;;;     yacc::yyparse
+;;;;       yacc    -> package name
+;;;;       yyparse -> symbol name
+;;;;  *) A name containing only a single colon must refer to an EXTERNAL symbol.
+;;;;     An EXTERNAL symbol is EXPORTED by a package for public use.
+;;;;
+;;;; PUBLIC INTERFACE
+;;;;  The set of exported symbols define a package's PUBLIC INTERFACE.
+;;;;
+;;;; KEYWORD SYMBOL
+;;;;  KEYWORD SYMBOLS are written with names starting with a colon.
+;;;;  Such symbols are INTERNed in the package named KEYWORD and automatically exported.
+;;;;  When the reader INTERNs a symbol in the KEYWORD package, it also defines a constant variable
+;;;;   with the symbol as both its name and value.
 
 ;;;
 ;;; How the Reader Uses Packages
