@@ -4,7 +4,8 @@
 (defun l ()
   (let ((files '("./tools.lisp"
 	       "./ch03.lisp" "./ch04.lisp"
-	       "./ch05.lisp" "./ch07.lisp"
+	       "./ch05.lisp" "./ch06.lisp"
+	       "./ch07.lisp"
 	       "./ch08.lisp" "./ch09.lisp"
 	       "./ch16.lisp" "./ch17.lisp"
 	       "./ch19.lisp" "./ch20.lisp"
@@ -37,6 +38,9 @@
 
 (defun ch07 ()
   (load "./ch07.lisp"))
+
+(defun ch06 ()
+  (load "./ch06.lisp"))
 
 (defun ch05 ()
   (load "./ch05.lisp"))
