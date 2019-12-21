@@ -2,6 +2,29 @@
 ;; Chapter 08: Macros: Defining Your Own
 ;;
 
+(nl)
+(nl)
+(chap08)
+(comment "Chapter 08")
+(nl)
+
+;;
+;;
+;;
+(defmacro when-08 (condition &rest body)
+  `(if ,condition
+       (progn ,@body)))
+
+(defun foo-08-01 (x)
+  (when-08 (> x 10)
+    (print 'big)))
+
+(format t "(foo-08-01 100): ~a~%" (foo-08-01 100))
+(nl)
+
+;;;
+;;;
+;;;
 (defun primep (number)
   (when (> number 1)
     (loop for fac from 2 to (isqrt number) never (zerop (mod number fac)))))
@@ -51,5 +74,4 @@
        `(let (,,@(loop for g in gensyms for n in names collect ``(,,g ,,n)))
 	  ,(let (,@(loop for n in names for g in gensyms collect `(,n ,g)))
 	     ,@body)))))
-
 
