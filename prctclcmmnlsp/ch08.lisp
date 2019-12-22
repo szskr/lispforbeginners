@@ -9,7 +9,7 @@
 (nl)
 
 ;;
-;;
+;; Warm Ups
 ;;
 (defmacro when-08 (condition &rest body)
   `(if ,condition
@@ -23,7 +23,7 @@
 (nl)
 
 ;;;
-;;;
+;;; Tools
 ;;;
 (defun primep (number)
   (when (> number 1)
@@ -41,7 +41,55 @@
 (if (equal (first '(1 2 3)) 1)
     (format t "The function first picks up the first element of the given list"))
 
-(defmacro do-primes-0 ((var start end) &body body)
+;;;
+;;; DEFMACRO
+;;;
+;;;  The steps to writing a macro are as follows:
+;;;    1. Write a sample call to the macro and the code it should expand into, or vice versa.
+;;;    2. Write code that generates the handwritten expansion from the arguments in the
+;;;       sample call.
+;;;    3. Make sure the macro abstraction doesn't "leak".
+;;;
+
+;;;
+;;; Sample Macro: do-primes
+;;;
+;;; 1. Sample Call
+;;;    (do-primes (p 0 19)
+;;;      (format t "~d " p)
+;;;
+;;;    will output: 2 3 5 7 11 13 17 19
+;;;
+
+;;;
+;;; 2. Hand written expansion could be:
+;;;    (do ((p (next-prime 0) (next-prime (1+ p))))
+;;;        ((> p 19))
+;;;      (format t "~d " p))
+
+;;;
+;;; Macro Parameters:
+;;;  The do-primes macro could be defined with two parameters.
+;;;  The first parameter to hold the list, and the second, &rest, to hold the body form.
+;;;
+;;; The first macro could be as follow:
+
+(defmacro do-primes-1 (var-and-range &rest body)
+  (let ((var (first var-and-range))
+	(start (second var-and-range))
+	(end (third var-and-range)))
+    `(do ((,var (next-prime ,start) (next-prime (1+ ,var))))
+	 ((> ,var ,end))
+	 ,@body)))
+
+
+;;
+;; MACRO-WRITING MACROs
+;;   with-gensyms
+;;   once-only
+;;
+
+(defmacro do-primes-10 ((var start end) &body body)
   (let ((ending-value-name (gensym)))
     `(do ((,var (next-prime ,start) (next-prime (1+ ,var)))
 	  (,ending-value-name ,end))
@@ -58,13 +106,6 @@
 	  (,ending-value-name ,end))
 	 ((> ,var ,ending-value-name))
 	 ,@body)))
-
-;;
-;; MACRO-WRITING MACROs
-;;   with-gensyms
-;;   once-only
-;;
-
 ;;
 ;; once-only :: Figure how this works later!
 ;;
