@@ -3,10 +3,8 @@
 ;;
 
 (nl)
-(nl)
 (chap08)
 (comment "Chapter 08")
-(nl)
 
 ;;
 ;; Warm Ups
@@ -20,7 +18,6 @@
     (print 'big)))
 
 (format t "(foo-08-01 100): ~a~%" (foo-08-01 100))
-(nl)
 
 ;;;
 ;;; Tools
@@ -38,8 +35,9 @@
       ((> p to))
       (format t "~d " p)))
 
-(if (equal (first '(1 2 3)) 1)
-    (format t "The function first picks up the first element of the given list"))
+;(if (equal (first '(1 2 3)) 1)
+;    (format t "The function first picks up the first element of the given list"))
+(nl)
 
 ;;;
 ;;; DEFMACRO
@@ -82,6 +80,23 @@
 	 ((> ,var ,end))
 	 ,@body)))
 
+(comment "(do-primes-1 (p 0 19) (format t \"~d \" p))")
+(do-primes-1 (p 0 19) (format t "~d " p))
+(nl)
+
+;;
+;; DO-PRIMES-1 can be modifined using DESTRUCTURING PARAMETERS
+;;
+(nl)
+(comment "DESTRUCTURING PARAMETERS")
+(defmacro do-primes-2 ((var start end) &rest body)
+  `(do ((,var (next-prime ,start) (next-prime (1+ ,var))))
+       ((> ,var ,end))
+       ,@body))
+
+(comment "(do-primes-2 (p 0 19) (format t \"~d \" p))")
+(do-primes-2 (p 0 19) (format t "~d " p))
+(nl)
 
 ;;
 ;; MACRO-WRITING MACROs
