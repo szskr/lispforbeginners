@@ -66,9 +66,21 @@
 ;;;      (format t "~d " p))
 
 ;;;
+;;; Implementations of do-primes
+;;;
+;;;; do-primes-1 - simple implementation
+;;;; do-primes-2 - simple implementation using DESTRUCTURING PARAMETERS
+;;;; do-primes-3 - Introduced a local variable ending-value. Should change the evaluation order.
+;;;; do-primes-4 - Changed the evaluation order properly, however, variable name crash could occur.
+;;;; do-primes-5 - Use GENSYM to generate local variable symbol's name
+;;;;
+
+;;;
 ;;; Macro Parameters:
 ;;;  The do-primes macro could be defined with two parameters.
 ;;;  The first parameter to hold the list, and the second, &rest, to hold the body form.
+;;;
+
 ;;;
 ;;; The first macro could be as follow:
 
@@ -89,7 +101,7 @@
 ;;
 (nl)
 (comment "DESTRUCTURING PARAMETERS")
-(defmacro do-primes-2 ((var start end) &rest body)
+(defmacro do-primes-2 ((var start end) &body body)
   `(do ((,var (next-prime ,start) (next-prime (1+ ,var))))
        ((> ,var ,end))
        ,@body))
@@ -98,18 +110,118 @@
 (do-primes-2 (p 0 19) (format t "~d " p))
 (nl)
 
-;;
-;; MACRO-WRITING MACROs
-;;   with-gensyms
-;;   once-only
-;;
+(comment "macroexpand-1: (do-primes-2)")
+(macroexpand-1 '(do-primes-2 (p 0 19) (format t "~d " p)))
+(nl)
 
-(defmacro do-primes-10 ((var start end) &body body)
+;;;
+;;; do-primes-2 has bugs: See the following macro expansions.
+;;;
+
+;;;
+;;; [202]> (macroexpand-1 '(do-primes-2 (p 0 19) (format t "~d " p)))
+;;; (DO ((P (NEXT-PRIME 0) (NEXT-PRIME (1+ P))))
+;;;     ((> P 19))
+;;;    (FORMAT T "~d " P)) 
+;;;
+
+;;; [208]> (macroexpand-1 '(do-primes-1 (p 0 (random 100)) (format t "~d " p)))
+;;; (DO ((P (NEXT-PRIME 0) (NEXT-PRIME (1+ P))))
+;;;     ((> P (RANDOM 100)))
+;;;    (FORMAT T "~d " P))
+;;;
+(comment "(do-primes-2 (p 0 (random 100)) (format t \"~d \" p))")
+(do-primes-2 (p 0 (random 100)) (format t "~d " p))
+(nl)
+(nl)
+
+(defmacro do-primes-3 ((var start end) &body body)
+  `(do ((ending-value ,end)
+	(,var (next-prime ,start) (next-prime (1+ ,var))))
+       ((> ,var ending-value))
+       ,@body))
+
+(comment "(do-primes-3 (p 0 19) (format t \"~d \" p))")
+(do-primes-3 (p 0 19) (format t "~d " p))
+(nl)
+(nl)
+
+(defmacro do-primes-4 ((var start end) &body body)
+  `(do ((,var (next-prime ,start) (next-prime (1+ ,var)))
+	(ending-value ,end))
+       ((> ,var ending-value))
+       ,@body))
+
+(comment "(do-primes-4 (p 0 19) (format t \"~d \" p))")
+(do-primes-4 (p 0 19) (format t "~d " p))
+(nl)
+
+;;;
+;;; See the expansion below.
+;;;
+
+;;; [8]> (macroexpand-1 '(do-primes-4 (ending-value 0 19) (format t "~d " ending-value)))
+;;; (DO ((ENDING-VALUE (NEXT-PRIME 0) (NEXT-PRIME (1+ ENDING-VALUE)))
+;;;      (ENDING-VALUE 19))
+;;;     ((> ENDING-VALUE ENDING-VALUE))
+;;;  (FORMAT T "~d " ENDING-VALUE))
+
+;;;
+;;; GENSYM
+;;;
+(nl)
+(comment "Going to use GENSYM")
+(format t "(gensym) = ~a~%" (gensym))
+(nl)
+
+;;;
+;;; do-primes with gensym
+;;; 
+(defmacro do-primes-5 ((var start end) &body body)
   (let ((ending-value-name (gensym)))
     `(do ((,var (next-prime ,start) (next-prime (1+ ,var)))
 	  (,ending-value-name ,end))
 	 ((> ,var ,ending-value-name))
 	 ,@body)))
+
+(comment "((do-primes-5 (p 0 19) (format t \"~d \" p))")
+(do-primes-5 (p 0 19) (format t "~d " p))
+(nl)
+
+;;; [16]> (macroexpand-1 '(do-primes-5 (p 0 19) (format t "~d " p)))
+;;; (DO ((P (NEXT-PRIME 0) (NEXT-PRIME (1+ P)))
+;;;      (#:G3573 19))
+;;;     ((> P #:G3573))
+;;;    (FORMAT T "~d " P))
+;;;
+
+(comment "((do-primes-5 (ending-value-name 0 19) (format t \"~d \" p))")
+(do-primes-5 (ending-value-name 0 19) (format t "~d " ending-value-name))
+(nl)
+
+;;; [18]> (macroexpand-1 '(do-primes-5 (ending-value 0 19) (format t "~d " ending-value)))
+;;; (DO ((ENDING-VALUE (NEXT-PRIME 0) (NEXT-PRIME (1+ ENDING-VALUE)))
+;;;      (#:G3620 19))
+;;;     ((> ENDING-VALUE #:G3620))
+;;;    (FORMAT T "~d " ENDING-VALUE))
+;;;
+
+;;; [22]> (macroexpand-1 '(do-primes-5 (ending-value-name 0 19) (format t "~d " ending-value-name)))
+;;; (DO ((ENDING-VALUE-NAME (NEXT-PRIME 0) (NEXT-PRIME (1+ ENDING-VALUE-NAME)))
+;;;      (#:G3701 19))
+;;;     ((> ENDING-VALUE-NAME #:G3701))
+;;;    (FORMAT T "~d " ENDING-VALUE-NAME))
+;;;
+
+;;;
+;;; OK, do-primes-5 could be a FCS, first custmer ship, quality.
+;;;
+
+;;
+;; MACRO-WRITING MACROs
+;;   with-gensyms
+;;   once-only
+;;
 
 (defmacro with-gensyms-1 ((&rest names) &body body)
   `(let ,(loop for n in names collect `(,n (gensym)))
@@ -121,6 +233,7 @@
 	  (,ending-value-name ,end))
 	 ((> ,var ,ending-value-name))
 	 ,@body)))
+
 ;;
 ;; once-only :: Figure how this works later!
 ;;
