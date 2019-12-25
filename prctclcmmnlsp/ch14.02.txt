@@ -1,0 +1,15 @@
+;;;
+;;; Chapter 14: test data input file
+;;;
+(+ 1 2)
+
+(format t "Hello World")
+
+101
+
+(defun (gensym) ()
+ (format t "hello world"))
+
+;;;
+;;;
+;;;
