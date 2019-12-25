@@ -6,4 +6,5 @@
 PCL = ./
 
 clean:
-	rm -f $(PCL)/#*shell*# $(PCL)/*.fas  $(PCL)/*.fasl $(PCL)/*.lib
+	rm -f $(PCL)/#*shell*# $(PCL)/*.fas  $(PCL)/*.fasl $(PCL)/*.lib \
+		$(PCL)/ch14.03.txt

@@ -11,6 +11,7 @@
 ;;;
 (defvar ch14.01.txt "./ch14.01.txt") ;; Regular text file
 (defvar ch14.02.txt "./ch14.02.txt") ;; S-expressions
+(defvar ch14.03.txt "./ch14.03.txt") ;; Output file
 
 (nl)
 (comment "Opening a text file1:")
@@ -45,3 +46,28 @@ fin2
 	  while line do (format t "~a~%" line))
     (close in)))
 (nl)
+
+;;;
+;;; Reading Binary Data
+;;; 
+(nl)
+(comment "Opening a binary file:")
+(format t "(setf fin3 (open ch14.01.txt) :element-type '(unsigned-byte 8)) = ~a~%"
+	(setf fin3 (open ch14.01.txt :element-type '(unsigned-byte 8))))
+fin3
+
+(nl)
+(format t "Read a byte from ~a~%" ch14.01.txt)
+(let ((in (open ch14.01.txt :element-type '(unsigned-byte 8))))
+  (format t "0x~x ~%" (read-byte in))
+  (close in))
+
+;;;
+;;; File Output
+;;;
+(nl)
+(comment "Going to wrint into a file")
+(format t "Going to write a string into ~a~%" ch14.03.txt)
+(let ((out (open ch14.03.txt :direction :output :if-exists :supersede)))
+  (write-line "Hello World" out)
+  (close out))
