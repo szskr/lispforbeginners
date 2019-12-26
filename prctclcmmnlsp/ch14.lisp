@@ -81,4 +81,63 @@ fin3
 (with-open-file (stream ch14.04.txt :direction :output :if-exists :supersede)
 		(write-line "Hello World No.02" stream)
 	       	(write-line "Hello World No.03" stream))
-	       
+
+;;;
+;;; Filename <-> Pathname
+;;;  namestrings - file name strings used in the local system. EX: "./work/ch14.lisp" "/usr/szskr/workspaces/"
+;;;  pathname object - namestring translated by PATHNAME function
+;;;                    (EX) (setf pobj (pathname "./work/ch14.lisp"))
+;;;  The function namestring translates pathname object back to original string
+;;;
+
+(nl)
+(comment "FILENAMES- namestring, pathname, namestring->pathname, pathname->namestring")
+(setf raw-string-name "/lisp/prlisp/ch14.lisp")
+
+(nl)
+(format t "raw-string-name = ~a~%" raw-string-name)
+(format t "(pathname raw-string-name) = ~a~%" (pathname raw-string-name))
+(setf path-name (pathname raw-string-name))
+
+(format t "(pathname-directory path-name)=~a~%" (pathname-directory path-name))
+(format t "(pathname-name path-name)=~a~%" (pathname-name path-name))
+(format t "(pathname-type path-name)=~a~%" (pathname-type path-name))
+(nl)
+(format t "(namestring path-name)=~a~%" (namestring path-name))
+(format t "(directory-namestring path-name)=~a~%" (directory-namestring path-name))
+(format t "(file-namestring path-name)=~a~%" (file-namestring path-name))
+(nl)
+
+;;;
+;;; Constructing New Pathnames
+;;;
+(nl)
+(setq pathname-created (make-pathname
+ :directory '(:absolute "foo" "bar" "hoo")
+ :name "baz"
+ :type "txt"))
+
+(format t "pathname-created = ~a~%" pathname-created)
+(format t "(make-pathname :name \"foo\" :type \"txt\") = ~a~%" (make-pathname :name "foo" :type "txt"))
+(nl)
+
+(setf ROOT-dir "/usr/src/")
+(setf REL-dir "cmd/sgs/")
+(setf merged-pathname (merge-pathnames (pathname REL-dir) (pathname ROOT-dir)))
+(format t "(merge-pathnames (pathname \"~a\") (pathname \"~a\")) = #p\"~a\"~%" REL-dir ROOT-dir merged-pathname)
+
+;;;
+;;; Interacting with the File System
+;;;
+
+(setf delete-me "_DELETE_ME_")
+
+(defun create-file (name)
+  (close (open name :if-does-not-exist :create)))
+
+(format t "~a~%" (create-file delete-me))
+(format t "(probe-file delete-me) = ~a~%" (probe-file delete-me))
+(format t "(delete-file delete-me) = ~a~%" (delete-file delete-me))
+(format t "(probe-file delete-me) = ~a~%" (probe-file delete-me))
+
+(nl)

@@ -59,6 +59,7 @@
   (chap08)
   (chap09)
   (chap14)
+  (chap15)
   (chap16)
   (chap17)
   (chap19)
@@ -88,6 +89,9 @@
 
 (defun chap14 ()
   (format t "Chapter 14: Files and File I/O~%"))
+
+(defun chap15 ()
+  (format t "Chapter 15: Practical: A Portable Pathname Library~%"))
 
 (defun chap16 ()
   (format t "Chapter 16: Object Reorientation: General Functions~%"))

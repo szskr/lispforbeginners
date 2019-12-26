@@ -7,8 +7,8 @@
 	       "./ch05.lisp" "./ch06.lisp"
 	       "./ch07.lisp" "./ch08.lisp"
 	       "./ch09.lisp"
-	       "./ch14.lisp"
-	       "./ch16.lisp"
+	       "./ch14.lisp" 
+	       "./ch15.lisp" "./ch16.lisp"
 	       "./ch17.lisp"
 	       "./ch19.lisp" "./ch20.lisp"
 	       "./ch21.lisp"
@@ -32,6 +32,9 @@
 
 (defun ch16 ()
   (load "./ch16.lisp"))
+
+(defun ch15 ()
+  (load "./ch15.lisp"))
 
 (defun ch14 ()
   (load "./ch14.lisp"))
