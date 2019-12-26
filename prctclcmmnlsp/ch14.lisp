@@ -12,6 +12,7 @@
 (defvar ch14.01.txt "./ch14.01.txt") ;; Regular text file
 (defvar ch14.02.txt "./ch14.02.txt") ;; S-expressions
 (defvar ch14.03.txt "./ch14.03.txt") ;; Output file
+(defvar ch14.04.txt "./ch14.04.txt") ;; Output file
 
 (nl)
 (comment "Opening a text file1:")
@@ -71,3 +72,13 @@ fin3
 (let ((out (open ch14.03.txt :direction :output :if-exists :supersede)))
   (write-line "Hello World" out)
   (close out))
+
+;;;
+;;; Closing Files
+;;;
+(nl)
+(comment "Open/Write/Close with with-open-file() macro")
+(with-open-file (stream ch14.04.txt :direction :output :if-exists :supersede)
+		(write-line "Hello World No.02" stream)
+	       	(write-line "Hello World No.03" stream))
+	       
