@@ -64,7 +64,9 @@
   (chap17)
   (chap19)
   (chap20)
-  (chap21))
+  (chap21)
+  (chap23)
+  (chap24))
 
 (defun chap03 ()
   (format t "Chapter  3: Practical: A Simple Database~%"))
@@ -107,6 +109,9 @@
 
 (defun chap21 ()
   (format t "Chapter 21: Programming in the Large: Packages and Symbols~%"))
+
+(defun chap23 ()
+  (format t "Chapter 23: Practical: A Spam Filter~%"))
 
 (defun chap24 ()
   (format t "Chapter 24: Practical: Parsing Binary Files~%"))
