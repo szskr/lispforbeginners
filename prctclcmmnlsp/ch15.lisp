@@ -6,6 +6,9 @@
 (chap15)
 (comment "Chapter 15")
 
+(nl)
+(comment "WARNING: Works for SBCL, not for CLISP")
+
 ;;;
 ;;; *FEATURES* and Read-Time Conditionalization
 ;;;
@@ -56,3 +59,38 @@
   (when (wild-pathname-p dirname)
     (error "Can only list concretedirectory names."))
   (directory (directory-wildcard dirname)))
+
+;;;
+;;; Testing a File's Existence
+;;;
+
+(defun file-exists-p (pathname)
+  (probe-file pathname))
+
+(defun pathname-as-file (name)
+  (let ((pathname (pathname name)))
+    (when (wild-pathname-p pathname)
+      (error "Can't reliably convert wild pathname."))
+    (if (directory-pathname-p name)
+	(let* ((directory (pathname-directory pathname))
+	       (name-and-type (pathname (first (last directory)))))
+	  (make-pathname
+	   :directory (butlast directory)
+	   :name (pathname-name name-and-type)
+	   :type (pathname-type name-and-type)
+	   :defaults pathname))
+      pathname)))
+				 
+;;;
+;;; Walking a Directory Tree
+;;;
+(defun walk-directory (dirname fn &key directories (test (constantly t)))
+  (labels
+   ((walk (name)
+	  (cond
+	   ((direcory-pathname-p name)
+	    (when (and directories (funcall test name))
+	      (funcall fn name))
+	    (dolist (x (list-directory name)) (walk x)))
+	  ((funcall test name) (funcall fn name)))))
+  (walk (pathname-as-directory dirname))))
