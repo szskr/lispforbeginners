@@ -117,20 +117,20 @@
   (format t "Chapter 24: Practical: Parsing Binary Files~%"))
 	       
 (defun l-ppcre ()
-  (let ((files '("../cl-ppcre-2.1.1/packages.lisp"
-		 "../cl-ppcre-2.1.1/specials.lisp"
-		 "../cl-ppcre-2.1.1/util.lisp"
-		 "../cl-ppcre-2.1.1/parser.lisp"
-		 "../cl-ppcre-2.1.1/lexer.lisp"
-		 "../cl-ppcre-2.1.1/scanner.lisp"
-		 "../cl-ppcre-2.1.1/convert.lisp"
-		 "../cl-ppcre-2.1.1/chartest.lisp"
-		 "../cl-ppcre-2.1.1/errors.lisp"
-		 "../cl-ppcre-2.1.1/charmap.lisp"
-		 "../cl-ppcre-2.1.1/regex-class.lisp"
-		 "../cl-ppcre-2.1.1/regex-class-util.lisp"
-		 "../cl-ppcre-2.1.1/closures.lisp"
-		 "../cl-ppcre-2.1.1/repetition-closures.lisp"
-		 "../cl-ppcre-2.1.1/optimize.lisp"
-		 "../cl-ppcre-2.1.1/api.lisp")))
+  (let ((files '("../libs//cl-ppcre-2.1.1/packages.lisp"
+		 "../libs//cl-ppcre-2.1.1/specials.lisp"
+		 "../libs//cl-ppcre-2.1.1/util.lisp"
+		 "../libs//cl-ppcre-2.1.1/parser.lisp"
+		 "../libs//cl-ppcre-2.1.1/lexer.lisp"
+		 "../libs//cl-ppcre-2.1.1/scanner.lisp"
+		 "../libs//cl-ppcre-2.1.1/convert.lisp"
+		 "../libs//cl-ppcre-2.1.1/chartest.lisp"
+		 "../libs//cl-ppcre-2.1.1/errors.lisp"
+		 "../libs//cl-ppcre-2.1.1/charmap.lisp"
+		 "../libs//cl-ppcre-2.1.1/regex-class.lisp"
+		 "../libs//cl-ppcre-2.1.1/regex-class-util.lisp"
+		 "../libs//cl-ppcre-2.1.1/closures.lisp"
+		 "../libs//cl-ppcre-2.1.1/repetition-closures.lisp"
+		 "../libs//cl-ppcre-2.1.1/optimize.lisp"
+		 "../libs//cl-ppcre-2.1.1/api.lisp")))
     (mapcar #'load files)))

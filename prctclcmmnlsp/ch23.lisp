@@ -62,3 +62,20 @@
   (or (gethash word *feature-database*)
       (setf (gethash word *feature-database*)
 	    (make-instance 'word-feature :word word))))
+
+;;;
+;;; FIX_ME!
+;;;
+(setf *l-ppcre-loaded* nil)
+(when (not *l-ppcre-loaded*)
+  (comment "Let's load CL-PPCRE")
+  (setf *l-ppcre-loaded* t)
+  (l-ppcre))
+;;;
+;;;
+;;;
+
+(defun extract-words (text)
+  (delete-duplicates
+   (cl-ppcre:all-matches-as-strings "[a-zA-Z]{3,}" text)
+   :test #'string=))
