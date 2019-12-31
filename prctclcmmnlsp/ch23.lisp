@@ -55,27 +55,64 @@
     :initform 0
     :documentation "Number of hams we have seen this feature in.")))
 
-(defun clear-database ()
+(defun clear-database-0 ()
   (setf *feature-database*  (make-hash-table :test #'equal)))
 
 (defun intern-feature (word)
   (or (gethash word *feature-database*)
       (setf (gethash word *feature-database*)
-	    (make-instance 'word-feature :word word))))
+	    (make-instance 'word-feature :pclword word))))
 
-;;;
-;;; FIX_ME!
-;;;
-(setf *l-ppcre-loaded* nil)
-(when (not *l-ppcre-loaded*)
+;;
+;; Load cl-ppcre
+;;
+(when (not *l-ppcre-loaded*)        ;; *l-ppcre-loaded* defined in init.lisp
   (comment "Let's load CL-PPCRE")
   (setf *l-ppcre-loaded* t)
   (l-ppcre))
-;;;
-;;;
-;;;
 
 (defun extract-words (text)
   (delete-duplicates
    (cl-ppcre:all-matches-as-strings "[a-zA-Z]{3,}" text)
    :test #'string=))
+
+(defun extract-features (text)
+  (mapcar #'intern-feature (extract-words text)))
+
+(defmethod print-object ((object word-feature) stream)
+  (print-unreadable-object (object stream :type t)
+			   (with-slots (pclword ham-count spam-count) object
+				       (format stream "~s :hams ~d :spams ~d" pclword ham-count spam-count))))
+(nl)
+(format t "(extract-features \"foo bar baz foo bar\") = ~%")
+(extract-features "foo bar baz foo bar")
+
+;;;
+;;; Training the Filter
+;;;
+
+(defun train (text type)
+  (dolist (feature (extract-feature text))
+    (increment-count feature type))
+  (increment-total-count type))
+
+(defun increment-type (feature type)
+  (ecase type
+	 (ham (incf (ham-count feature)))
+	 (spam (incf (spam-count feature)))))
+
+
+(defvar *total-spams* 0)
+(defvar *total-hams* 0)
+
+(defun increment-total-count (type)
+  (ecase type
+	 (ham (incf *total-hams*))
+	 (spam (incf *total-spams*))))
+
+(defun clear-database ()
+  (setf
+   *feature-database*  (make-hash-table :test #'equal)
+   *total-spams 0
+   *total-hams 0))
+

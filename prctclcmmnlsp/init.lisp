@@ -65,3 +65,8 @@
 
 (defun tools ()
   (load "./tools.lisp"))
+
+;;;
+;;; Load flag
+;;;
+(setf *l-ppcre-loaded* nil)
