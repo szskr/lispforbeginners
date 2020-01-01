@@ -96,7 +96,7 @@
     (increment-count feature type))
   (increment-total-count type))
 
-(defun increment-type (feature type)
+(defun increment-count (feature type)
   (ecase type
 	 (ham (incf (ham-count feature)))
 	 (spam (incf (spam-count feature)))))
@@ -113,6 +113,14 @@
 (defun clear-database ()
   (setf
    *feature-database*  (make-hash-table :test #'equal)
-   *total-spams 0
-   *total-hams 0))
+   *total-spams* 0
+   *total-hams* 0))
+
+;;;
+;;; Per-Word Statistics
+;;;
+
+(defun spam-probability (feature)
+  (with-slots (spam-count ham-count) feature
+	      (/ spam-count (+ spam-count ham-count))))
 
