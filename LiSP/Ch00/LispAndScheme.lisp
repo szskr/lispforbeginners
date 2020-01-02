@@ -3,5 +3,15 @@
 ;;;
 
 ;;;
-;;; Scheme: atom?
+;;; Scheme: atom?   == CommonLisp: atom
+;;; Scheme: symbol? == CommonLisp: symbol
+;;; Scheme: define  == CommonLisp: defun
 ;;;
+
+(nl)
+(comment "LispAndScheme")
+
+(format t "(scheme:atom? is cl:atom~%")
+(nl)
+(format t "(atom 1) = ~a~%" (atom 1))
+(format t "(atom :keyword) = ~a~%" (symbolp :keyword))
