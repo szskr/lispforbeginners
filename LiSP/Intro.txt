@@ -1,0 +1,8 @@
+;;;
+;;; Rules of the game
+;;;
+
+001. The syntax and semantics of the target languages are same as the ones written in the book.
+
+100. The implementation language is Common Lisp instead of Scheme.
+
