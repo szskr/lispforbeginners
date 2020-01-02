@@ -12,11 +12,15 @@
 	       "./ch17.lisp"
 	       "./ch19.lisp" "./ch20.lisp"
 	       "./ch21.lisp"
-	       "./ch23.lisp" "./ch24.lisp")))
+	       "./ch23.lisp"
+	       "./ch24-intro.lisp" "./ch24.lisp")))
     (mapcar #'load files)))
 
 (defun ch24 ()
   (load "./ch24.lisp"))
+
+(defun ch24-intro ()
+  (load "./ch24-intro.lisp"))
 
 (defun ch23 ()
   (load "./ch23.lisp"))
