@@ -4,6 +4,7 @@
 
 (defun l ()
   (let ((files '("../lib/tools.lisp"
+		 "./stubs.lisp"
 		 "./LispAndScheme.lisp")))
     (mapcar #'load files)))
   
@@ -12,3 +13,6 @@
 
 (defun tools ()
   (load "../lib/tools.lisp"))
+
+(defmacro comment-out (form)
+  ())
