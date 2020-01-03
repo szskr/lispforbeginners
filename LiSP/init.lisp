@@ -18,5 +18,4 @@
 (defun ch01 ()
   (load "./ch01.lisp"))
 
-(defmacro comment-out (form)
-  ())
+(defmacro comment-out (form))

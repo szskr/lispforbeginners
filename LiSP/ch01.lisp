@@ -8,7 +8,12 @@
 ;;;
 ;;; 1.4 Evaluating Forms
 ;;;
+(comment "1.4: Evaluating Forms")
+
 (comment-out
+ ;;;
+ ;;;
+ ;;;
  (define (evaluate e env)
    (if (atom? s)
        (cond ((symbol? e) (lookup s env))
@@ -20,5 +25,8 @@
 	   ((if) (if (evaluate (cadr e) env)
 		     (evaluate (caddr e) env)
 		   (evaluate (cadddr e) env)))))))
+ ;;;
+ ;;;
+ ;;;
 
-(comment "1.4: Evaluating Forms")
+

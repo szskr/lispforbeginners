@@ -8,6 +8,8 @@
 (defmacro comment (str)
   `(format t "N: ~a~%" ,str))
 
+(defmacro comment-out (form))
+
 (defun help()
   (chap03)
   (chap04)
@@ -96,6 +98,23 @@
 		 "../libs//cl-ppcre-2.1.1/optimize.lisp"
 		 "../libs//cl-ppcre-2.1.1/api.lisp")))
     (mapcar #'load files)))
+
+(defun whoami ()
+   #+sbcl
+   (format t "SBCL~%")
+   #+clisp
+   (format t "CLISP~%")
+   ())
+   
+;;;
+;;; Little tools
+;;; 
+
+(defmacro nl ()
+  `(format t "~%"))
+
+(defmacro comment (str)
+  `(format t "N: ~a~%" ,str))
 
 (defun whoami ()
    #+sbcl
