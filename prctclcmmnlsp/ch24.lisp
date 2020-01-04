@@ -57,5 +57,10 @@
   (loop for char across string
 	do (write-byte (char-code char) out))
   (write-byte (char-code +null+) out))
+
+(defun write-ascii-str (str fname)
+    (let ((o (open-w-binary fname)))
+      (write-null-terminated-ascii str o)
+      (close o)))
   
 
