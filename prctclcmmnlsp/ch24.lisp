@@ -62,5 +62,19 @@
     (let ((o (open-w-binary fname)))
       (write-null-terminated-ascii str o)
       (close o)))
-  
 
+;;;
+;;; Composite Structures
+;;;
+(defclass id3-tag()
+  ((identifier    :initarg :identifier    :accessor identifier)
+   (major-version :initarg :major-version :accessor major-version)
+   (revision      :initarg :revision      :accessor revision)
+   (flags         :initarg :flags         :accessor flags)
+   (size          :initarg :size          :accessor size)
+   (framse        :initarg :frames        :accessor frames)))
+
+;;
+;; REVIEW NOTES
+;;   (make-instance 'id3-tag)  ;; Creating an instance of id3-tag.
+;;

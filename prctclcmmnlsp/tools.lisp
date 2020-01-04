@@ -22,6 +22,7 @@
   (chap15)
   (chap16)
   (chap17)
+  (chap17-review)
   (chap19)
   (chap20)
   (chap21)
@@ -61,6 +62,9 @@
 
 (defun chap17 ()
   (format t "Chapter 17: Object Reorientation: Classes~%"))
+
+(defun chap17-review ()
+  (format t "Chapter 17-review: Notes/Review Object Orientation (Chap17/Chap16)~%"))
 
 (defun chap19 ()
   (format t "Chapter 19: Beyond Exception Handling: Condition and Restarts~%"))
