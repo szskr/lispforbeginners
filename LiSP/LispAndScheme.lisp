@@ -5,6 +5,7 @@
 ;;;
 ;;; Scheme: atom?   == CommonLisp: atom
 ;;; Scheme: symbol? == CommonLisp: symbol
+;;; Scheme: pair?   == CommonLisp: listp
 ;;; Scheme: define  == CommonLisp: defun
 ;;;
 
