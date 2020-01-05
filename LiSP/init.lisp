@@ -2,6 +2,12 @@
 ;;; Little tools
 ;;;
 
+(defparameter *pwd* "./LiSP")
+(defmacro pwd()
+  (format t "~a~%" *pwd*))
+
+(defmacro comment-out (form))
+
 (defun l ()
   (let ((files '("./tools.lisp"
 		 "./stubs.lisp"
@@ -18,4 +24,4 @@
 (defun ch01 ()
   (load "./ch01.lisp"))
 
-(defmacro comment-out (form))
+
