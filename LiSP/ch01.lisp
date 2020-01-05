@@ -13,7 +13,6 @@
 (comment-out
  ;;;
  ;;;
- ;;;
  (define (evaluate e env)
    (if (atom? s)
        (cond ((symbol? e) (lookup s env))
@@ -30,3 +29,6 @@
  ;;;
 
 
+;;;
+;;; Common Lisp Codes start HERE
+;;;
