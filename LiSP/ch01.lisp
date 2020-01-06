@@ -12,8 +12,8 @@
 
 (comment-out
  (define (evaluate e env)
-   (if (atom? s)
-       (cond ((symbol? e) (lookup s env))
+   (if (atom? e)
+       (cond ((symbol? e) (lookup e env))
 	     ((or (number? e)
 		  (string? e)
 		  (char? e)
@@ -21,11 +21,15 @@
 		  (vector? e)) e)
 	     (else (wrong "Cannot evaluate" e)))
      (case (car e)
-	   ((quote) (vadr e))
+	   ((quote) (cadr e))
 	   ((if) (if (evaluate (cadr e) env)
 		     (evaluate (caddr e) env)
-		   (evaluate (cadddr e) env)))))))
-
+		   (evaluate (cadddr e) env)))
+	   ((begin) (eprogn (cdr e) env))
+	   ((set!) (update! (cadr e) env (evaluate (caddr e) env)))
+	   ((lambda) (make-function (cadr e) (cddr e) env))
+	   (else (invoke (evaluate (car e) env)
+			 (evlis (cdr e) env)))))))
 (comment-out
  (define (eprogn exps env)
    (if (pair? exps)
@@ -37,6 +41,13 @@
 
 (comment-out
  (define empty-begin 813))
+
+(comment-out
+ (define (evlis exps env)
+   (if (pair? exps)
+       (let ((argument1 (evaluate (car exps) env)))
+	 (cons argument1 (evlis (cdr exps) env)))
+     '())))
    
 ;;;
 ;;; Common Lisp Codes start HERE
