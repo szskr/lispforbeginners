@@ -45,8 +45,8 @@
 (comment-out
  (define (evlis exps env)
    (if (pair? exps)
-       (let ((argument1 (evaluate (car exps) env)))
-	 (cons argument1 (evlis (cdr exps) env)))
+       (cons (evaluate (car exps) env)
+	     (elvis (cdr exps) env))
      '())))
 
 ;;;
