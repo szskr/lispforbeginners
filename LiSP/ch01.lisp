@@ -48,7 +48,31 @@
        (let ((argument1 (evaluate (car exps) env)))
 	 (cons argument1 (evlis (cdr exps) env)))
      '())))
-   
+
+;;;
+;;; 1.5 Representing the Environment
+;;;
+
+;;
+;;  The variables are represented by symbols of the same name.
+;;
+(comment-out
+ (define (lookup id env)
+   (if (pair? env)
+       (if (eq? (caar env) id)
+	   (cdar env)
+	 (lookup id (cdr env)))
+     (wrong "No such binding" id))))
+
+(comment-out
+ (define (update! id env value)
+   (if (pair? env)
+       (if (eq? (caar env) value)
+	   (begin (set-cdr! (car env) value)
+	      value)
+	 (update! if (cdr env) value))
+     (wrong "No such binding" id))))
+	      
 ;;;
 ;;; Common Lisp Codes start HERE
 ;;;
