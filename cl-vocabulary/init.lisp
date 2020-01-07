@@ -3,18 +3,14 @@
 ;;;
 (defun l ()
   (let ((files '("../libs/tools.lisp"
-		 "./word.lisp")))
+		 "./a-word.lisp")))
     (mapcar #'load files)))
 
-(defun init()
+(defun i()
   (load "./init.lisp"))
 
 (defun tools()
   (load "../libs/tools.lisp"))
 
-(defun l-word()
-  (load "./word.lisp"))
-
-
-
-
+(defun a-word()
+  (load "./a-word.lisp"))
