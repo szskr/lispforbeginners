@@ -9,7 +9,7 @@
 (defmacro comment-out (form))
 
 (defun l ()
-  (let ((files '("./tools.lisp"
+  (let ((files '("../libs/tools.lisp"
 		 "./stubs.lisp"
 		 "./LispAndScheme.lisp"
 		 "./ch01.lisp")))
@@ -19,7 +19,7 @@
   (load "./LispAndScheme.lisp"))
 
 (defun tools ()
-  (load "./tools.lisp"))
+  (load "../libs/tools.lisp"))
 
 (defun ch01 ()
   (load "./ch01.lisp"))

@@ -3,7 +3,6 @@
 ;;;
 (defun l ()
   (let ((files '("./tools.lisp"
-		 "./BookList.lisp"
 	       "./ch03.lisp" "./ch04.lisp"
 	       "./ch05.lisp" "./ch06.lisp"
 	       "./ch07.lisp" "./ch08.lisp"
@@ -70,9 +69,6 @@
   
 (defun ch03 ()
   (load "./ch03.lisp"))
-
-(defun booklist ()
-  (load "./BookList.lisp"))
 
 (defun tools ()
   (load "./tools.lisp"))

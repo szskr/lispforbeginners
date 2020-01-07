@@ -6,17 +6,18 @@
 ;; Chapter 01: The Basics of Interpretation
 ;;
 
-;;;
-;;; Scheme: atom?    == CommonLisp: atom
-;;; Scheme: symbol?  == CommonLisp: symbol
-;;; Scheme: number?  == CommonLisp:
-;;; Scheme: string?  ==
-;;; Scheme: char?    ==
-;;; Scheme: boolean? ==
-;;; Scheme: vector?  ==
-;;; Scheme: pair?    == CommonLisp: consp       ;; SEE: Issue (1)
-;;; Scheme: define   == CommonLisp: defun
-;;; Scheme: eq?      == CommonLisp:
+;;; Scheme      CommonLisp
+;;; -----------------------
+;;; atom?    == atom
+;;; symbol?  == symbolp
+;;; number?  == numberp
+;;; string?  == stringp
+;;; char?    ==
+;;; boolean? == null        // ???? 
+;;; vector?  == vectorp
+;;; pair?    == consp       // SEE: Issue (1)
+;;; define   == defun
+;;; eq?      == equal       // (or could be 'eq' ??)
 ;;;
 
 (nl)
