@@ -52,6 +52,7 @@
 ;;;
 ;;; 1.5 Representing the Environment
 ;;;
+(comment "1.5: Representing the Environment")
 
 ;;
 ;;  The variables are represented by symbols of the same name.
@@ -72,7 +73,35 @@
 	      value)
 	 (update! if (cdr env) value))
      (wrong "No such binding" id))))
-	      
+
+;;
+;; Empty environment
+;;
+(comment-out
+ (define env.init '()))
+
+(comment-out
+ (define (extend env variables values)
+   (cond ((pair? variables)
+	  (if (pair? values)
+	      (cons (cons (car variables) (car values))
+		    (extend env (cdr variables) (cdr values)))
+	    (wrong "Too less values")))
+	 ((null? variables)
+	  (if (null? values)
+	      env
+	    (wrong "Too much values")))
+	 ((symbol? variables) (cons (cons variables values) env)))))
+
+;;;
+;;; 1.6 Representing Functions
+;;;
+
+
+;;;;; ***** ;;;;;
+;;;;; ***** ;;;;;
+;;;;; ***** ;;;;;
+
 ;;;
 ;;; Common Lisp Codes start HERE
 ;;;
