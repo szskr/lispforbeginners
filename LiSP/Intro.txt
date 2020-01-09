@@ -1,5 +1,5 @@
 ;;;
-;;; Rules of the game
+;;; Notes
 ;;;
 
 001. The syntax and semantics of the target languages are same as the ones written in the book.
