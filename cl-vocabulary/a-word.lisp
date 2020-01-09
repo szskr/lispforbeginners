@@ -13,6 +13,9 @@
    (wds
     :initarg :wds)))
 
+(defgeneric print-root (root)
+  (:documentation "print out dictinary-like root information."))
+
 (defclass a-word ()
   ((wd
     :initarg :wd
@@ -25,6 +28,9 @@
     :initarg :root)
    (cmmts
     :initarg :comments)))
+
+(defgeneric print-word (wd)
+  (:documentation "print out dictinary-like word information."))
 
 ;;;
 ;;;

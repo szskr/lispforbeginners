@@ -96,7 +96,11 @@
 ;;;
 ;;; 1.6 Representing Functions
 ;;;
-
+(comment-out
+ (define (invoke fn args)
+   (if (procedure? fn)
+       (fn args)
+     (wrong "Not a function" fn))))
 
 ;;;;; ***** ;;;;;
 ;;;;; ***** ;;;;;

@@ -6,7 +6,8 @@
 ;; Chapter 01: The Basics of Interpretation
 ;;
 
-;;; Scheme     CommonLisp
+;;;
+;;; Scheme        CommonLisp
 ;;; -----------------------
 ;;; atom?      == atom
 ;;; symbol?    == symbolp
