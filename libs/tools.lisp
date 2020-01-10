@@ -5,6 +5,8 @@
 (defmacro nl ()
   `(format t "~%"))
 
+(defmacro comment-out (form))
+
 (defmacro comment (str)
   `(format t "N: ~a~%" ,str))
 
