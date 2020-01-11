@@ -17,13 +17,21 @@
     :initarg :def
     :accessor def)
    (wds
-    :initarg :wds)))
+    :initarg :wds
+    :accessor wds)))
 
 (defgeneric print-root (root)
   (:documentation "print out dictinary-like root information."))
 
 (defmethod print-root ((rt root))
-  (format t "print-root: called. ~a~%" rt))
+  (with-accessors ((root root)
+		   (r-type r-type)
+		   (def def)
+		   (wds wds)) rt
+		   (format t "print-root: called. ~a~%" rt)
+		   (format t " root = ~a~%" root)
+		   (format t " type = ~a~%" r-type)
+		   (format t " def  = ~a~%" def)))
 
 (defclass a-word ()
   ((wd
