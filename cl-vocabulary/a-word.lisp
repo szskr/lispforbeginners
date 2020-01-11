@@ -10,6 +10,9 @@
     :initarg :root
     :initform (error "Must provide ROOT")
     :accessor root)
+   (r-type       ;; (word == :prefix :root :suffix)
+    :initarg :r-type
+    :accessor r-type)
    (def
     :initarg :def
     :accessor def)
@@ -18,6 +21,9 @@
 
 (defgeneric print-root (root)
   (:documentation "print out dictinary-like root information."))
+
+(defmethod print-root ((rt root))
+  (format t "print-root: called. ~a~%" rt))
 
 (defclass a-word ()
   ((wd
@@ -31,6 +37,11 @@
     :initarg :examples
     :accessor examples)))
 
+(defgeneric print-word (word)
+  (:documentation "print a word"))
+
+(defmethod print-word ((wd a-word))
+  (format t "print-word: called. ~a~%" wd))
 
 (defgeneric print-word (wd)
   (:documentation "print out dictinary-like word information."))
@@ -41,6 +52,7 @@
 (defparameter *r-u01-01*
   (make-instance 'root
 		 :root "BENE"
+		 :r-type :prefix
 		 :def '("BENE is Latin for 'well'."
 		       "A Benefit is a good result or effect."
 		       "Something beneficial produes good results or effects.")))
@@ -48,12 +60,13 @@
 (defparameter *r-u01-02*
   (make-instance 'root
 		 :root "AM"
+		 :r-type :prefix
 		 :def '("AM comes from the Latin 'amare'."
 		       "The Roman god of love was known by two differnt names, Cupid and Amor."
 		       "Amiable means 'friendly or good-natured' and amigo is Spanish for 'friend.")))
 
 
-(defparameter *w-u01-01
+(defparameter *w-u01-01*
   (make-instance 'a-word
 		 :wd "benediction"
 		 :def '("A prayer that asks for God's blessing, especially a prayer that concludes a worship service.")
@@ -71,7 +84,7 @@
 		 :def '("Friendly, peaceful")
 		 :examples '("Their relations with their in-laws were generally amicable, sespite some bickering during the holidays.")))
 
-(defparameter *w-u02-02
+(defparameter *w-u02-02*
   (make-instance 'a-word
 		 :wd "enamored"
 		 :def '("Charmed or fascinatedl inflamed with love.")
