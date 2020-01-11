@@ -9,10 +9,10 @@
   ((root
     :initarg :root
     :initform (error "Must provide ROOT")
-    :reader root)
+    :accessor root)
    (def
     :initarg :def
-    :reader def)
+    :accessor def)
    (wds
     :initarg :wds)))
 
@@ -23,13 +23,13 @@
   ((wd
     :initarg :wd
     :initform (error "Must provide WD- WORD")
-    :reader wd)
+    :accessor wd)
    (def
     :initarg :def
-    :reader def)
+    :accessor def)
    (examples
     :initarg :examples
-    :reader examples)))
+    :accessor examples)))
 
 
 (defgeneric print-word (wd)
