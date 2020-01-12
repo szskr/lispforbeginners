@@ -24,7 +24,6 @@
     :initarg :wds
     :accessor wds)))
 
-
 (defclass a-word ()
   ((wd
     :initarg :wd
@@ -44,6 +43,10 @@
 (defgeneric print-root (root)
   (:documentation "print out dictinary-like root information."))
 
+(defgeneric print-word (word)
+  (:documentation "print a word"))
+
+
 (defmethod print-root ((rt root))
   (with-accessors ((root root)
 		   (r-type r-type)
@@ -54,11 +57,5 @@
 		   (format t " type = ~a~%" r-type)
 		   (format t " def  = ~a~%" def)))
 
-(defgeneric print-word (word)
-  (:documentation "print a word"))
-
 (defmethod print-word ((wd a-word))
   (format t "print-word: called. ~a~%" wd))
-
-(defgeneric print-word (wd)
-  (:documentation "print out dictinary-like word information."))

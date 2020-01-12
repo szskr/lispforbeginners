@@ -74,11 +74,6 @@
    (size          :initarg :size          :accessor size)
    (frames        :initarg :frames        :accessor frames)))
 
-;;
-;; REVIEW NOTES
-;;   (make-instance 'id3-tag)  ;; Creating an instance of id3-tag.
-;;
-
 (defun read-id3-tag (in)
   (let ((tag (make-instance 'id3-tag)))
     (with-slots (identifier major-version revision flags size frames) tag
