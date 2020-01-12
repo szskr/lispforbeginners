@@ -66,7 +66,7 @@
 ;;;
 ;;; Composite Structures
 ;;;
-(defclass id3-tag()
+pwd(defclass id3-tag()
   ((identifier    :initarg :identifier    :accessor identifier)
    (major-version :initarg :major-version :accessor major-version)
    (revision      :initarg :revision      :accessor revision)
@@ -84,4 +84,9 @@
 		(setf size          (read-id3-encoded-size in))
 		(setf frames        (read-id3-frames in :tag-size size)))
     tag))
+
+;;;
+;;; Designing the Macros
+;;;
+
 	  

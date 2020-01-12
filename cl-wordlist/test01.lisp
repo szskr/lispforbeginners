@@ -1,5 +1,5 @@
 ;;;
-;;; Simple tests 01
+;;; Simple tests 01: Setting test data part 1
 ;;;
 
 (comment "Running test01.lisp")
