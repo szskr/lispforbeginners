@@ -2,7 +2,7 @@
 ;;; Word List Manager
 ;;;
 
-(comment "Loading A-word.lisp")
+(comment "Loading wordlist.lisp")
 (nl)
 
 ;;;
