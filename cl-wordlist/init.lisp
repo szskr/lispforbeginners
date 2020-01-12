@@ -14,3 +14,10 @@
 
 (defun a-word()
   (load "./a-word.lisp"))
+
+(defun run-tests ()
+  (let ((tests '("./test01.lisp")))
+    (mapcar #'load tests)))
+
+(defun test01 ()
+  (load "./test01.lisp"))
