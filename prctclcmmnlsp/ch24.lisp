@@ -3,9 +3,8 @@
 ;;
 
 (nl)
-(nl)
 (chap24)
-(comment "Chapter 24")
+(comment "Chapter 24: Practical: Parsing Binary Files")
 (nl)
 	
 ;;
@@ -66,6 +65,7 @@
 ;;;
 ;;; Composite Structures
 ;;;
+(comment "Composite Structure")
 (defclass id3-tag()
   ((identifier    :initarg :identifier    :accessor identifier)
    (major-version :initarg :major-version :accessor major-version)
@@ -89,6 +89,7 @@
 ;;;
 ;;; Designing the Macros
 ;;;
+(comment "Desiging the Macros")
 
 ;;
 ;; Write a macro so we can write stuff like the following.
@@ -106,6 +107,8 @@
 ;;;
 ;;; Making the Dream a Reality
 ;;;
+(comment "Making the Dream a Reality")
+
 (defun as-keyword (sym)
   (intern (string sym) :keyword))
 
@@ -113,22 +116,32 @@
   (let ((name (first spec)))
     `(,name :initarg ,(as-keyword name) :accessor ,name)))
 
-(defmacro define-binary-class (name slots)
+(defmacro define-binary-class-v0 (name slots)
   `(defclass ,name ()
      ,(mapcar #'slot->defclass-slot slots)))
 
 (format t "macroexpand-1 
-(macroexpand-1 '(define-binary-class id3-tag
+(macroexpand-1 '(define-binary-class-v0 id3-tag
 		  ((identifier    (iso-8859-1-string :length 3))
 		   (major-version u1)
 		   (revision      u1)
 		   (flags         u1)
 		   (size          id3-tag-size)
 		   (frames        (id3-frames :tag-size size))))) = ~%~a~%"
-(macroexpand-1 '(define-binary-class id3-tag
+(macroexpand-1 '(define-binary-class-v0 id3-tag
 		  ((identifier    (iso-8859-1-string :length 3))
 		   (major-version u1)
 		   (revision      u1)
 		   (flags         u1)
 		   (size          id3-tag-size)
 		   (frames        (id3-frames :tag-size size))))))
+(nl)
+
+;;;
+;;; Reading Binary Objects
+;;;
+(comment "Reading Binary Objects")
+
+(defgeneric read-value (type stream &key)
+  (:documentation "Read a value of the given type from the stream."))
+
