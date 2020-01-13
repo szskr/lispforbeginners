@@ -90,4 +90,45 @@
 ;;; Designing the Macros
 ;;;
 
-	  
+;;
+;; Write a macro so we can write stuff like the following.
+;;   This is a handwritten vesion of define-binary-class.
+;;
+(comment-out
+ (define-binary-class id3-tag
+   ((file-identifier (iso-8859-1-string :length 3))
+    (major-version u1)
+    (revision      u1)
+    (flags         u1)
+    (size          id3-tag-size)
+    (frames        (od3-frames :tag-size size)))))
+
+;;;
+;;; Making the Dream a Reality
+;;;
+(defun as-keyword (sym)
+  (intern (string sym) :keyword))
+
+(defun slot->defclass-slot (spec)
+  (let ((name (first spec)))
+    `(,name :initarg ,(as-keyword name) :accessor ,name)))
+
+(defmacro define-binary-class (name slots)
+  `(defclass ,name ()
+     ,(mapcar #'slot->defclass-slot slots)))
+
+(format t "macroexpand-1 
+(macroexpand-1 '(define-binary-class id3-tag
+		  ((identifier    (iso-8859-1-string :length 3))
+		   (major-version u1)
+		   (revision      u1)
+		   (flags         u1)
+		   (size          id3-tag-size)
+		   (frames        (id3-frames :tag-size size))))) = ~%~a~%"
+(macroexpand-1 '(define-binary-class id3-tag
+		  ((identifier    (iso-8859-1-string :length 3))
+		   (major-version u1)
+		   (revision      u1)
+		   (flags         u1)
+		   (size          id3-tag-size)
+		   (frames        (id3-frames :tag-size size))))))
