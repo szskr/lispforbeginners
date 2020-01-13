@@ -145,3 +145,12 @@
 (defgeneric read-value (type stream &key)
   (:documentation "Read a value of the given type from the stream."))
 
+(defmethod read-value ((type (eql 'id3-tag)) in &key)
+  (let ((object (make-instance 'id3-tag)))
+    (with-slots (identifier major-version revision flags size frames) object
+		(setf identifier    (read-value 'iso-8859-1-string in :length 3))
+		(setf major-version (read-value 'u1 in))
+		(setf flags         (read-value 'u1 in))
+		(setf size          (read-value 'id3-encoded-size in))
+		(setf frames        (read-value 'id3-frames in :tag-size size)))
+    object))
