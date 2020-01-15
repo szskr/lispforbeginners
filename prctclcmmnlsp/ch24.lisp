@@ -66,7 +66,7 @@
 ;;; Composite Structures
 ;;;
 (comment "Composite Structure")
-(defclass id3-tag()
+(defclass id2-tag()
   ((identifier    :initarg :identifier    :accessor identifier)
    (major-version :initarg :major-version :accessor major-version)
    (revision      :initarg :revision      :accessor revision)
@@ -82,7 +82,7 @@
 		(setf major-version (read-u1 in))
 		(setf revision      (read-u1 in))
 		(setf flags         (read-u1 in))
-		(setf size          (read-id3-encoded-size in))
+		(setf size          (read-id3-tag-size in))
 		(setf frames        (read-id3-frames in :tag-size size)))
      tag)))
 
@@ -147,7 +147,7 @@
 
 (comment "The following 4 read-value methods are stub methods for now.")
 
-(defmethod read-value ((type (eql 'iso-8859-1-string)) in &key)
+(defmethod read-value ((type (eql 'iso-8859-1-string)) in &key length)
   (format t "(read-value 'iso-8859-1-string) called.~%")
   "IS3")
 
@@ -155,7 +155,7 @@
   (format t "(read-value 'u1) called.~%")
   #xab)
 
-(defmethod read-value ((type (eql 'id3-encoded-size)) in &key length)
+(defmethod read-value ((type (eql 'id3-tag-size)) in &key)
   (format t "(read-value 'id3-encoded-size) called.~%")
   #x10)
 
@@ -169,7 +169,7 @@
 		(setf identifier    (read-value 'iso-8859-1-string in :length 3))
 		(setf major-version (read-value 'u1 in))
 		(setf flags         (read-value 'u1 in))
-		(setf size          (read-value 'id3-encoded-size in))
+		(setf size          (read-value 'id3-tag-size in))
 		(setf frames        (read-value 'id3-frames in :tag-size size)))
     object))
 
@@ -184,3 +184,32 @@
   (if (listp x)
       x
     (list x)))
+
+(defmacro define-binary-class (name slots)
+  (with-gensyms-1 (typevar objectvar streamvar)
+		`(progn
+		   (defclass ,name ()
+		     ,(mapcar #'slot->defclass-slot slots))
+		   
+		   (defmethod read-value ((,typevar (eql ',name)) ,streamvar &key)
+		     (let ((,objectvar (make-instance ',name)))
+		       (with-slots ,(mapcar #'first slots) ,objectvar
+				   ,@(mapcar #'(lambda (x) (slot->read-value x streamvar)) slots))
+		       ,objectvar)))))
+
+(macroexpand-1 '(define-binary-class id3-tag
+		  ((identifier    (iso-8859-1-string :length 3))
+		   (major-version u1)
+		   (revision      u1)
+		   (flags         u1)
+		   (size          id3-tag-size)
+		   (frames        (id3-frames :tag-size size)))))
+(nl)
+
+(setf oo (define-binary-class id3-tag
+		  ((identifier    (iso-8859-1-string :length 3))
+		   (major-version u1)
+		   (revision      u1)
+		   (flags         u1)
+		   (size          id3-tag-size)
+		   (frames        (id3-frames :tag-size size)))))
