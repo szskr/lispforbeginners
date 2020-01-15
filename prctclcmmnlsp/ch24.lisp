@@ -145,6 +145,24 @@
 (defgeneric read-value (type stream &key)
   (:documentation "Read a value of the given type from the stream."))
 
+(comment "The following 4 read-value methods are stub methods for now.")
+
+(defmethod read-value ((type (eql 'iso-8859-1-string)) in &key)
+  (format t "(read-value 'iso-8859-1-string) called.~%")
+  "IS3")
+
+(defmethod read-value ((type (eql 'u1)) in &key)
+  (format t "(read-value 'u1) called.~%")
+  #xab)
+
+(defmethod read-value ((type (eql 'id3-encoded-size)) in &key length)
+  (format t "(read-value 'id3-encoded-size) called.~%")
+  #x10)
+
+(defmethod read-value ((type (eql 'id3-frames)) in &key tag-size)
+  (format t "(read-value 'id3-frames) called.~%")
+  #x11)
+
 (defmethod read-value ((type (eql 'id3-tag)) in &key)
   (let ((object (make-instance 'id3-tag)))
     (with-slots (identifier major-version revision flags size frames) object
@@ -154,3 +172,15 @@
 		(setf size          (read-value 'id3-encoded-size in))
 		(setf frames        (read-value 'id3-frames in :tag-size size)))
     object))
+
+(defun slot->read-value (spec stream)
+  (destructuring-bind (name (type &rest args)) (normalize-slot-spec spec)
+    `(setf ,name (read-value ',type ,stream ,@args))))
+
+(defun normalize-slot-spec (spec)
+  (list (first spec) (mklist (second spec))))
+
+(defun mklist (x)
+  (if (listp x)
+      x
+    (list x)))

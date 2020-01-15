@@ -3,25 +3,30 @@
 ;;;
 (defun l ()
   (let ((files '("./tools.lisp"
-	       "./ch03.lisp" "./ch04.lisp"
-	       "./ch05.lisp" "./ch06.lisp"
-	       "./ch07.lisp" "./ch08.lisp"
-	       "./ch09.lisp"
-	       "./ch14.lisp" 
-	       "./ch15.lisp" "./ch16.lisp"
-	       "./ch17.lisp"
-	       "./ch19.lisp" "./ch20.lisp"
-	       "./ch21.lisp"
-	       "./ch23.lisp"
-	       "./ch24.lisp"
-	       "./apndx-ch24.lisp")))
+		 "./ch03.lisp"
+		 "./ch04.lisp"
+		 "./ch05.lisp"
+		 "./ch06.lisp"
+		 "./ch07.lisp"
+		 "./ch08.lisp"
+		 "./ch09.lisp"
+		 "./ch14.lisp" 
+		 "./ch15.lisp"
+		 "./ch16.lisp"
+		 "./ch17.lisp"
+		 "./ch19.lisp"
+		 "./ch20.lisp"
+		 "./ch21.lisp"
+		 "./ch23.lisp"
+		 "./ch24.lisp"
+		 "./z-appndx-ch24.lisp")))
     (mapcar #'load files)))
 
 (defun ch24 ()
   (load "./ch24.lisp"))
 
 (defun anndx-ch24 ()
-  (load "./apndx-ch24.lisp"))
+  (load "./z-appndx-ch24.lisp"))
 
 (defun ch23 ()
   (load "./ch23.lisp"))
