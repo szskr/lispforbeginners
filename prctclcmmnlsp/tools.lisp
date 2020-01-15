@@ -63,9 +63,6 @@
 (defun chap17 ()
   (format t "Chapter 17: Object Reorientation: Classes~%"))
 
-(defun appndx-chap17 ()
-  (format t "Appendix: Supplement for Chapter 17: Notes/Review Object Orientation (Chap17/Chap16)~%"))
-
 (defun chap19 ()
   (format t "Chapter 19: Beyond Exception Handling: Condition and Restarts~%"))
 

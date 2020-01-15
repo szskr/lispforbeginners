@@ -9,10 +9,10 @@
 ;;;
 ;;; Reading File Data
 ;;;
-(defvar ch14.01.txt "./ch14.01.txt") ;; Regular text file
-(defvar ch14.02.txt "./ch14.02.txt") ;; S-expressions
-(defvar ch14.03.txt "./ch14.03.txt") ;; Output file
-(defvar ch14.04.txt "./ch14.04.txt") ;; Output file
+(defvar ch14.01.txt "./data/ch14.01.txt") ;; Regular text file
+(defvar ch14.02.txt "./data/ch14.02.txt") ;; S-expressions
+(defvar ch14.03.txt "./data/ch14.03.txt") ;; Output file
+(defvar ch14.04.txt "./data/ch14.04.txt") ;; Output file
 
 (nl)
 (comment "Opening a text file1:")

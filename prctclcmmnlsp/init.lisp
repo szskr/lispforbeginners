@@ -14,7 +14,6 @@
 	       "./ch21.lisp"
 	       "./ch23.lisp"
 	       "./ch24.lisp"
-	       "./apndx-ch17.lisp"
 	       "./apndx-ch24.lisp")))
     (mapcar #'load files)))
 
@@ -38,9 +37,6 @@
 
 (defun ch17 ()
   (load "./ch17.lisp"))
-
-(defun apndx-ch17 ()
-  (load "./apndx-ch17.lisp"))
 
 (defun ch16 ()
   (load "./ch16.lisp"))
