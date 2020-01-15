@@ -163,6 +163,14 @@
   (format t "(read-value 'id3-frames) called.~%")
   #x11)
 
+(defmethod read-value ((type (eql 'id4-tag-size)) in &key)
+  (format t "(read-value 'id4-encoded-size) called.~%")
+  #x10)
+
+(defmethod read-value ((type (eql 'id4-frames)) in &key tag-size)
+  (format t "(read-value 'id4-frames) called.~%")
+  #x11)
+
 (defmethod read-value ((type (eql 'id3-tag)) in &key)
   (let ((object (make-instance 'id3-tag)))
     (with-slots (identifier major-version revision flags size frames) object
@@ -197,19 +205,14 @@
 				   ,@(mapcar #'(lambda (x) (slot->read-value x streamvar)) slots))
 		       ,objectvar)))))
 
-(macroexpand-1 '(define-binary-class id3-tag
+(define-binary-class id4-tag
 		  ((identifier    (iso-8859-1-string :length 3))
 		   (major-version u1)
 		   (revision      u1)
 		   (flags         u1)
-		   (size          id3-tag-size)
-		   (frames        (id3-frames :tag-size size)))))
-(nl)
+		   (size          id4-tag-size)
+		   (frames        (id4-frames :tag-size size))))
 
-(setf oo (define-binary-class id3-tag
-		  ((identifier    (iso-8859-1-string :length 3))
-		   (major-version u1)
-		   (revision      u1)
-		   (flags         u1)
-		   (size          id3-tag-size)
-		   (frames        (id3-frames :tag-size size)))))
+(setf *id4-tag* (make-instance 'id4-tag))
+(format t "(read-value 'id4-tag 100) = ~%~a" (read-value 'id4-tag 100))
+(nl)
