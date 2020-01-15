@@ -4,8 +4,8 @@
 
 (nl)
 (nl)
-(chap24-intro)
-(comment "Chapter 24: Introduction")
+(appndx-chap24)
+(comment "Appendix: Supplementary for Chapter 24")
 (nl)
 
 ;;

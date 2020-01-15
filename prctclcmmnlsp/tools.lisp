@@ -63,8 +63,8 @@
 (defun chap17 ()
   (format t "Chapter 17: Object Reorientation: Classes~%"))
 
-(defun chap17-review ()
-  (format t "Chapter 17-review: Notes/Review Object Orientation (Chap17/Chap16)~%"))
+(defun appndx-chap17 ()
+  (format t "Appendix: Supplement for Chapter 17: Notes/Review Object Orientation (Chap17/Chap16)~%"))
 
 (defun chap19 ()
   (format t "Chapter 19: Beyond Exception Handling: Condition and Restarts~%"))
@@ -78,8 +78,8 @@
 (defun chap23 ()
   (format t "Chapter 23: Practical: A Spam Filter~%"))
 
-(defun chap24-intro ()
-  (format t "Chapter 24-intro: Intro To: Practical: Parsing Binary Files~%"))
+(defun appndx-chap24 ()
+  (format t "Appendix: Supplement for Chapter 24-intro: Practical: Parsing Binary Files~%"))
 
 (defun chap24 ()
   (format t "Chapter 24: Practical: Parsing Binary Files~%"))

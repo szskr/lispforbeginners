@@ -5,6 +5,6 @@
 
 (nl)
 (chap17-review)
-(comment "Chapter 17-Review")
+(comment "Appendix: Supplementary for Chapter 17")
 (nl)
 

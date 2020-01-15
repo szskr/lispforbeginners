@@ -9,18 +9,20 @@
 	       "./ch09.lisp"
 	       "./ch14.lisp" 
 	       "./ch15.lisp" "./ch16.lisp"
-	       "./ch17.lisp" "./ch17-review.lisp"
+	       "./ch17.lisp"
 	       "./ch19.lisp" "./ch20.lisp"
 	       "./ch21.lisp"
 	       "./ch23.lisp"
-	       "./ch24-intro.lisp" "./ch24.lisp")))
+	       "./ch24.lisp"
+	       "./apndx-ch17.lisp"
+	       "./apndx-ch24.lisp")))
     (mapcar #'load files)))
 
 (defun ch24 ()
   (load "./ch24.lisp"))
 
-(defun ch24-intro ()
-  (load "./ch24-intro.lisp"))
+(defun anndx-ch24 ()
+  (load "./apndx-ch24.lisp"))
 
 (defun ch23 ()
   (load "./ch23.lisp"))
@@ -37,8 +39,8 @@
 (defun ch17 ()
   (load "./ch17.lisp"))
 
-(defun ch17-review ()
-  (load "./ch17-review.lisp"))
+(defun apndx-ch17 ()
+  (load "./apndx-ch17.lisp"))
 
 (defun ch16 ()
   (load "./ch16.lisp"))
