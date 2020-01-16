@@ -2,16 +2,7 @@
 ;; Chapter 16: Object Reorientation: Generic Functions
 ;;
 
-;;
-;; A generic function is generic in the sense that it can accept any objectsas arguments.
-;; However, a generic function can't actuallt do anything.
-;;  The actual implementation has to be provided by METHODS. Each method provides provides an
-;;  implementation of the generic function for the particular claees of arguments.
-;;  Methods DO NOT belong to the clsses. They belong to the generic function!
-;;
-;; Methods indicatee what kinds of arguments they can handle by SPECIALIZING the rquired
-;; parameters defined by the generic function.
-;;
+(comment "Chapter 16: Object Reorientation: Generic Functions")
 
 ;;
 ;;  Defgeneric and Defmethod (p.193-195)
@@ -61,65 +52,45 @@ Signal an error if the current balance is less than amount."))
 (setf (slot-value *sa* 'balance) 500)
 
 ;;
-;; Method Combination (p.196-p.197)
+;; Method Combination
 ;; The Standard Method Combination
 ;;
 (defclass ch16 ()
-  (var16))
+  ((id    :initarg :id    :accessor id)
+   (var16 :initarg :var16 :accessor var16)))
 
-(defclass ch16sct01 (ch16) ())
+(defclass ch16sct01 (ch16)
+  ((sct01 :initarg :sct01 :accessor sct01)))
 
-(defgeneric ch16-hello (cls)
-  (:documentation "Experiments"))
+(defclass ch16sct02 (ch16)
+  ((sct02 :initarg :sct02 :accessor sct02)))
 
-(setf *ch16* (make-instance 'ch16))
-(setf *ch16sct01* (make-instance 'ch16sct01))
+(defgeneric ch16-hello (cls msg)
+  (:documentation "**** Experiments ****"))
 
-(defmethod ch16-hello :before  ((cls ch16))
-  (format t "ch16-hello: :before :GenericTop~%"))
-
-(defmethod ch16-hello :after  ((cls ch16))
-  (format t "ch16-hello: :after :GenericTop~%"))
-
-(defmethod ch16-hello :around  ((cls ch16))
-  (format t "ch16-hello: :around :GenericTop~%")
-  (call-next-method))
-  
-(defmethod ch16-hello ((cls ch16))
+(defmethod ch16-hello ((cls ch16) msg)
   (format t "ch16-hello: Generic TopClass~%"))
 
-(defmethod ch16-hello ((cls ch16sct01))
+(defmethod ch16-hello ((cls ch16sct01) msg)
   (format t "ch16-hello: ch16sct01~%")
   (call-next-method))
 
-;;
-;; Other Method Combinations
-;;  1) Nine other buit-n methid known as SIMPLE built-in method combinations
-;;  2) Custome method: fairly esoteric feature and beyond the scope of this book
-;;
+(defmethod ch16-hello :before  ((cls ch16) msg)
+  (format t "ch16-hello: :before :GenericTop~%"))
 
-;;
-;;Multimethods
-;;
-(defclass x-inum () ())
-(defclass y-inum () ())
-(defclass x-rnum () ())
-(defclass y-rnum () ())
+(defmethod ch16-hello :after  ((cls ch16) msg)
+  (format t "ch16-hello: :after :GenericTop~%"))
 
-(defgeneric multiply (x y)
-  (:documentation
-   "Produce a product by given x and y"))
+(defmethod ch16-hello :around  ((cls ch16) msg)
+  (format t "ch16-hello: :around :GenericTop~%")
+  (call-next-method))
 
-(defmethod multiply ((x x-inum) (y y-inum))
-  (format t "x-Inum times y-Inum is ~a ~a~%" x y))
+(defgeneric print-obj (obj msg)
+  (:documentation "print-obj():"))
 
-(defmethod multiply ((x x-inum) (y y-rnum))
-  (format t "x-Inum times y-Rnum is ~a ~a~%" x y))
-
-(setf *xi* (make-instance 'x-inum))
-(setf *yi* (make-instance 'y-inum))
-(setf *xr* (make-instance 'x-rnum))
-(setf *yr* (make-instance 'y-rnum))
-
-(multiply *xi* *yi*)
-(multiply *xi* *yr*)
+(defmethod print-obj ((obj ch16) msg)
+  (format t "print-obj: ~a~%" msg))
+  
+(setf *ch16* (make-instance 'ch16 :var16 16))
+(setf *ch16sct01* (make-instance 'ch16sct01 :sct01 01))
+(setf *ch16sct02* (make-instance 'ch16sct02 :sct02 02))

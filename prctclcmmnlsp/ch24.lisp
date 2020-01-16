@@ -228,3 +228,15 @@
 (defun slot-write-value (spec stream)
   (destructuring-bind (name (type &rest args)) (normalize-slot-spec spec)
 		      `(write-value ',type ,name ,@args)))
+
+;;;
+;;; Adding Inheritance3 and Tagged Structures
+;;;
+(comment "Adding Inheritance and Tagged Structures")
+
+(defmacro define-binary-class (name (&rest superclasses) slots)
+  ())
+
+(defgeneric read-object (object stream)
+  (:method-combination progn :most-specific-last)
+  (:documentation "Fill in the slots of objects from stream."))
