@@ -53,44 +53,63 @@ Signal an error if the current balance is less than amount."))
 
 ;;
 ;; Method Combination
-;; The Standard Method Combination
+;;  Experiments
+;;  The Standard Method Combination
 ;;
-(defclass ch16 ()
+(defclass obj ()
+  ((id :initarg :id :accessor id)))
+
+(defclass book (obj)
+  ((name  :initarg :name  :accessor name)))
+
+(defclass chapter (book)
   ((id    :initarg :id    :accessor id)
-   (var16 :initarg :var16 :accessor var16)))
+   (chap  :initarg :chap  :accessor chap)))
 
-(defclass ch16sct01 (ch16)
-  ((sct01 :initarg :sct01 :accessor sct01)))
+(defclass section (chapter)
+  ((sect :initarg :sect   :accessor sect)))
 
-(defclass ch16sct02 (ch16)
-  ((sct02 :initarg :sct02 :accessor sct02)))
+(defgeneric book-hello (cls msg)
+  (:documentation "Studying Generic Function Mechanichary"))
 
-(defgeneric ch16-hello (cls msg)
-  (:documentation "**** Experiments ****"))
+(defmethod book-hello (cls msg)
+  (format t "book-hello (cls msg):                 called~%"))
 
-(defmethod ch16-hello ((cls ch16) msg)
-  (format t "ch16-hello: Generic TopClass~%"))
+(defmethod book-hello ((cls book) msg)
+  (format t "book-hello((cls book   ) msg):        called~%"))
 
-(defmethod ch16-hello ((cls ch16sct01) msg)
-  (format t "ch16-hello: ch16sct01~%")
+(defmethod book-hello ((cls chapter) msg)
+  (format t "book-hello((cls chapter) msg):        called~%")
   (call-next-method))
 
-(defmethod ch16-hello :before  ((cls ch16) msg)
-  (format t "ch16-hello: :before :GenericTop~%"))
+(defmethod book-hello ((cls section) msg)
+  (format t "book-hello((cls section) msg):        called~%")
+  (call-next-method))
 
-(defmethod ch16-hello :after  ((cls ch16) msg)
-  (format t "ch16-hello: :after :GenericTop~%"))
+(defmethod book-hello :before  ((cls book) msg)
+  (format t "book-hello( cls book   ) msg): before called~%"))
 
-(defmethod ch16-hello :around  ((cls ch16) msg)
-  (format t "ch16-hello: :around :GenericTop~%")
+(defmethod book-hello :after  ((cls book) msg)
+  (format t "book-hello((cls book   ) msg): after  called~%"))
+
+(defmethod book-hello :around  ((cls book) msg)
+  (format t "book-hello((cls book   ) msg): around called~%")
   (call-next-method))
 
 (defgeneric print-obj (obj msg)
   (:documentation "print-obj():"))
 
-(defmethod print-obj ((obj ch16) msg)
-  (format t "print-obj: ~a~%" msg))
+(defmethod print-obj (obj msg)
+  (format t "(print-obj (obj msg): called. ~%"))
+
+(defmethod print-obj ((obj obj) msg)
+  (format t "print-obj((obj obj) msg): ~a~%" msg))
+
+(defmethod print-obj ((obj chapter) msg)
+  (format t "print-obj((obj ch16) msg): ~a~%" msg))
   
-(setf *ch16* (make-instance 'ch16 :var16 16))
-(setf *ch16sct01* (make-instance 'ch16sct01 :sct01 01))
-(setf *ch16sct02* (make-instance 'ch16sct02 :sct02 02))
+(setf *obj* (make-instance 'obj :id "OBJ"))
+(setf *book* (make-instance 'book :name "Practical Common Lisp"))
+(setf *ch* (make-instance 'chapter :chap 16))
+(setf *sct01* (make-instance 'section :sect 01))
+(setf *sct02* (make-instance 'section :sect 02))
