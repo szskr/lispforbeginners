@@ -75,8 +75,8 @@
    (frames        :initarg :frames        :accessor frames)))
 
 (comment-out
- (defun read-id3-tag (in)
-   (let ((tag (make-instance 'id3-tag)))
+ (defun read-id2-tag (in)
+   (let ((tag (make-instance 'id2-tag)))
      (with-slots (identifier major-version revision flags size frames) tag
 		(setf identifier    (read-iso-8859-1-string in :length 3))
 		(setf major-version (read-u1 in))
@@ -96,13 +96,13 @@
 ;;   This is a handwritten vesion of define-binary-class.
 ;;
 (comment-out
- (define-binary-class id3-tag
+ (define-binary-class id2-tag
    ((file-identifier (iso-8859-1-string :length 3))
     (major-version u1)
     (revision      u1)
     (flags         u1)
-    (size          id3-tag-size)
-    (frames        (od3-frames :tag-size size)))))
+    (size          id2-tag-size)
+    (frames        (id2-frames :tag-size size)))))
 
 ;;;
 ;;; Making the Dream a Reality
@@ -121,20 +121,20 @@
      ,(mapcar #'slot->defclass-slot slots)))
 
 (format t "macroexpand-1 
-(macroexpand-1 '(define-binary-class-v0 id3-tag
+(macroexpand-1 '(define-binary-class-v0 id2-tag
 		  ((identifier    (iso-8859-1-string :length 3))
 		   (major-version u1)
 		   (revision      u1)
 		   (flags         u1)
-		   (size          id3-tag-size)
-		   (frames        (id3-frames :tag-size size))))) = ~%~a~%"
-(macroexpand-1 '(define-binary-class-v0 id3-tag
+		   (size          id2-tag-size)
+		   (frames        (id2-frames :tag-size size))))) = ~%~a~%"
+(macroexpand-1 '(define-binary-class-v0 id2-tag
 		  ((identifier    (iso-8859-1-string :length 3))
 		   (major-version u1)
 		   (revision      u1)
 		   (flags         u1)
-		   (size          id3-tag-size)
-		   (frames        (id3-frames :tag-size size))))))
+		   (size          id2-tag-size)
+		   (frames        (id2-frames :tag-size size))))))
 (nl)
 
 ;;;
@@ -193,7 +193,7 @@
       x
     (list x)))
 
-(defmacro define-binary-class (name slots)
+(defmacro define-binary-class-v1 (name slots)
   (with-gensyms-1 (typevar objectvar streamvar)
 		`(progn
 		   (defclass ,name ()
@@ -205,7 +205,7 @@
 				   ,@(mapcar #'(lambda (x) (slot->read-value x streamvar)) slots))
 		       ,objectvar)))))
 
-(define-binary-class id4-tag
+(define-binary-class-v1 id4-tag
 		  ((identifier    (iso-8859-1-string :length 3))
 		   (major-version u1)
 		   (revision      u1)
@@ -216,3 +216,15 @@
 (setf *id4-tag* (make-instance 'id4-tag))
 (format t "(read-value 'id4-tag 100) = ~%~a" (read-value 'id4-tag 100))
 (nl)
+
+;;;
+;;; Writing Binary Objects
+;;;
+(comment "Writing Binary Objects")
+
+(defgeneric write-value (type stream value &key)
+  (:documentation "Write a value as athe given type to the stream."))
+
+(defun slot-write-value (spec stream)
+  (destructuring-bind (name (type &rest args)) (normalize-slot-spec spec)
+		      `(write-value ',type ,name ,@args)))
