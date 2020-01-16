@@ -69,6 +69,22 @@ Signal an error if the current balance is less than amount."))
 (defclass section (chapter)
   ((sect :initarg :sect   :accessor sect)))
 
+;;
+;; Defgeneric and defmethods
+;;
+
+(defgeneric print-obj (obj msg)
+  (:documentation "print-obj():"))
+
+(defmethod print-obj (obj msg)
+  (format t "(print-obj (obj msg): called. ~%"))
+
+(defmethod print-obj ((obj obj) msg)
+  (format t "print-obj((obj obj) msg): ~a~%" msg))
+
+(defmethod print-obj ((obj chapter) msg)
+  (format t "print-obj((obj ch16) msg): ~a~%" msg)) 
+
 (defgeneric book-hello (cls msg)
   (:documentation "Studying Generic Function Mechanichary"))
 
@@ -96,20 +112,9 @@ Signal an error if the current balance is less than amount."))
   (format t "book-hello((cls book   ) msg): around called~%")
   (call-next-method))
 
-(defgeneric print-obj (obj msg)
-  (:documentation "print-obj():"))
 
-(defmethod print-obj (obj msg)
-  (format t "(print-obj (obj msg): called. ~%"))
-
-(defmethod print-obj ((obj obj) msg)
-  (format t "print-obj((obj obj) msg): ~a~%" msg))
-
-(defmethod print-obj ((obj chapter) msg)
-  (format t "print-obj((obj ch16) msg): ~a~%" msg))
-  
 (setf *obj* (make-instance 'obj :id "OBJ"))
 (setf *book* (make-instance 'book :name "Practical Common Lisp"))
-(setf *ch* (make-instance 'chapter :chap 16))
+(setf *ch16* (make-instance 'chapter :chap 16))
 (setf *sct01* (make-instance 'section :sect 01))
 (setf *sct02* (make-instance 'section :sect 02))
