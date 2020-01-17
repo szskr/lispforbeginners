@@ -4,7 +4,7 @@
 
 (nl)
 (nl)
-(appndx-chap24)
+(appendx-chap24)
 (comment "Appendix: Supplementary for Chapter 24")
 (nl)
 

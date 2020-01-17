@@ -86,7 +86,6 @@
 
 (greet p1 :talkative nil)
 
-
 (defgeneric greet (obj &key &allow-other-keys)
   (:documentation "say hi"))
 

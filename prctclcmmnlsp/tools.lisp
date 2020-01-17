@@ -18,6 +18,7 @@
   (chap07)
   (chap08)
   (chap09)
+  (chap11)
   (chap14)
   (chap15)
   (chap16)
@@ -49,6 +50,9 @@
 
 (defun chap09 ()
   (format t "Chapter  9: Practical: Builing a Unit Test Framework~%"))
+
+(defun chap11 ()
+  (format t "Chapter 11: Collections~%"))
 
 (defun chap14 ()
   (format t "Chapter 14: Files and File I/O~%"))
@@ -126,4 +130,3 @@
    #+clisp
    (format t "CLISP~%")
    ())
-   
