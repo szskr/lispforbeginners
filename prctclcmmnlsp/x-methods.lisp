@@ -104,7 +104,83 @@
 (nl)
 
 (greet 100)
+(nl)
 
-;;
-;;
-;;
+;;;
+;;; Defgeneric and :method keyword
+;;;
+
+;;;;
+;;;; In SBCL, the following fmakunbound is required.
+;;;;
+(fmakunbound 'greet)
+
+(defgeneric greet (obj)
+  (:documentation "say hello")
+  (:method (obj)
+    (format t "Are you a person ? You are a ~a~&." (type-of obj)))
+  (:method ((obj person))
+    (format t "Hello ~a !~&" (name obj)))
+  (:method ((obj child))
+    (format t "ur so cute~&")))
+
+;;;;;;;;;;;;;;;;
+;;; Specializers
+;;;;;;;;;;;;;;;;
+
+(defgeneric feed (obj meal-type)
+  (:method (obj meal-type)
+    (declare (ignorable meal-type))
+    (format t "eating~&")))
+
+(defmethod feed (obj (meal-type (eql :dessert)))
+    (declare (ignorable meal-type))
+    (format t "mmh, dessert !~&"))
+
+(feed c1 :dessert)
+;; mmh, dessert !
+
+(defmethod feed ((obj child) (meal-type (eql :soup)))
+    (declare (ignorable meal-type))
+    (format t "bwark~&"))
+
+(feed p1 :soup)
+;; eating
+(feed c1 :soup)
+;; bwark
+
+;;;
+;;; Generic Functions
+;;;
+(comment "Generic Functions")
+(nl)
+
+;;;
+;;; Other Method Combinations
+;;; 
+
+;;; progn
+(comment ":method-combination PROGN")
+(comment-out
+ (progn
+   (method-1 args)
+   (method-2 args)
+   (method-3 args)))
+
+(defgeneric dishes (obj)
+   (:method-combination progn)
+   (:method progn (obj)
+     (format t "- clean and dry.~&"))
+   (:method progn ((obj person))
+     (format t "- bring a person's dishes~&"))
+   (:method progn ((obj child))
+	    (format t "- bring the baby dishes~&")))
+
+(dishes c1)
+(nl)
+
+(dishes p1)
+(nl)
+
+(dishes 100)
+(nl)
