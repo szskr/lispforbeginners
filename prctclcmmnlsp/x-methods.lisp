@@ -73,5 +73,39 @@
 ;;
 (fmakunbound 'greet)
 
+(defmethod greet ((obj person) &key talkative)
+  (format t "Hello ~a~&" (name obj))
+  (when talkative
+    (format t "blah~%")))
+
+(greet p1)
+(nl)
+
+(greet p1 :talkative t)
+(nl)
+
+(greet p1 :talkative nil)
 
 
+(defgeneric greet (obj &key &allow-other-keys)
+  (:documentation "say hi"))
+
+(defmethod greet (obj &key &allow-other-keys)
+  (format t "Are you a person ? You are a ~a.~&" (type-of obj)))
+
+(defmethod greet ((obj person) &key talkative &allow-other-keys)
+  (format t "Hello ~a !~&" (name obj))
+  (when talkative
+    (format t "blah~%")))
+
+(greet p1 :talkative t) ;; ok
+(nl)
+
+(greet p1 :foo t) ;; still ok
+(nl)
+
+(greet 100)
+
+;;
+;;
+;;

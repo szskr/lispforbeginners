@@ -22,13 +22,12 @@
   (chap15)
   (chap16)
   (chap17)
-  (chap17-review)
   (chap19)
   (chap20)
   (chap21)
   (chap23)
-  (chap24-intro)
-  (chap24))
+  (chap24)
+  (appendix))
 
 (defun chap03 ()
   (format t "Chapter  3: Practical: A Simple Database~%"))
@@ -75,8 +74,12 @@
 (defun chap23 ()
   (format t "Chapter 23: Practical: A Spam Filter~%"))
 
-(defun appndx-chap24 ()
-  (format t "Appendix: Supplement for Chapter 24-intro: Practical: Parsing Binary Files~%"))
+(defun appendix ()
+  (format t "APPENDIX~%")
+  (appendx-chap24))
+
+(defun appendx-chap24 ()
+  (format t " Appendix: Supplement for Chapter 24-intro: Practical: Parsing Binary Files~%"))
 
 (defun chap24 ()
   (format t "Chapter 24: Practical: Parsing Binary Files~%"))
