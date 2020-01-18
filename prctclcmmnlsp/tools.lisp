@@ -19,6 +19,7 @@
   (chap08)
   (chap09)
   (chap11)
+  (chap13)
   (chap14)
   (chap15)
   (chap16)
@@ -53,6 +54,9 @@
 
 (defun chap11 ()
   (format t "Chapter 11: Collections~%"))
+
+(defun chap13 ()
+  (format t "Chapter 13: Beyond List: Other Uses for Cons Cells~%"))
 
 (defun chap14 ()
   (format t "Chapter 14: Files and File I/O~%"))

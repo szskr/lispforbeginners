@@ -248,7 +248,11 @@
     (read-object object stream)
     object))
 
-(defmacro define-binary-class (name superclasses slots)
+(defmethod read-value ((type (eql 'string)) in &key length)
+  (format t "(read-value ((type (eql 'string)) in &key lengh) called. in = ~a length = ~a~%" in length)
+  "Hello World")
+
+(defmacro define-binary-class-v2 (name superclasses slots)
   (with-gensyms-1 (objectvar streamvar)
 		  `(progn
 		   (defclass ,name ,superclasses
@@ -258,9 +262,43 @@
 		       (with-slots ,(mapcar #'first slots) ,objectvar
 				   ,@(mapcar #'(lambda (x) (slot->read-value x streamvar)) slots))))))
 
-(define-binary-class id10-tag (id4-tag) 
-		  ((my-id   (iso-8859-1-string :length 3))
+(define-binary-class-v2 id10-tag (id4-tag) 
+		  ((my-id       (string :length 3))
 		   (id10-var1    u1)
 		   (ir10-var2    u1)))
 (comment "Allocating and setting id10-tag instance")
-(defvar *id10-tag* (read-value 'id10-tag 1000))
+
+(setf *id10-tag* (read-value 'id10-tag 1000))
+
+;;;
+;;; Keeping Track of Inherited Slots
+;;;
+(comment "Keeping Track of Inherited Slots")
+
+(defmethod read-value ((type (eql 'u3)) in &key)
+  (format t "(read-value 'u3) called. in = ~a ~%" in)
+  #xabcdef)
+
+(defmethod read-value ((type (eql 'raw-bytes)) in &key bytes)
+  (format t "(read-value 'raw-bytes) called. in = ~a ~%" in)
+  #xaabb)
+
+(define-binary-class-v2 generic-frame-0 ()
+  ((id (string :length 3))
+   (size u3)
+   (data (raw-bytes :bytes size))))
+
+(setf  *generic-frame* (read-value 'generic-frame "HelloWorld"))
+
+;;;
+;;; The next two definitions do not work as expected.
+;;;   The slot 'size' in generic-frame become undefined.
+;;;
+(define-binary-class-v2 frame ()
+  ((id (string :length 3))
+   (size u3)))
+
+(define-binary-class-v2 generic-frame (frame)
+  ((data (raw-bytes :bytes size))))
+
+
