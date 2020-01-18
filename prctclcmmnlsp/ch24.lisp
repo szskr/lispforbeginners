@@ -288,17 +288,19 @@
    (size u3)
    (data (raw-bytes :bytes size))))
 
-(setf  *generic-frame* (read-value 'generic-frame "HelloWorld"))
+(setf  *generic-frame* (read-value 'generic-frame-0 "HelloWorld"))
 
 ;;;
 ;;; The next two definitions do not work as expected.
 ;;;   The slot 'size' in generic-frame become undefined.
 ;;;
+
 (define-binary-class-v2 frame ()
   ((id (string :length 3))
    (size u3)))
 
-(define-binary-class-v2 generic-frame (frame)
-  ((data (raw-bytes :bytes size))))
+(comment-out
+ (define-binary-class-v2 generic-frame (frame)
+  ((data (raw-bytes :bytes size)))))
 
 
