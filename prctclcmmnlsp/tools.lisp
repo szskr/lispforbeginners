@@ -19,6 +19,7 @@
   (chap08)
   (chap09)
   (chap11)
+  (chap12)
   (chap13)
   (chap14)
   (chap15)
@@ -54,6 +55,9 @@
 
 (defun chap11 ()
   (format t "Chapter 11: Collections~%"))
+
+(defun chap12 ()
+  (format t "Chapter 12: They Called it LISP for a Reason: List Processing~%"))
 
 (defun chap13 ()
   (format t "Chapter 13: Beyond List: Other Uses for Cons Cells~%"))
