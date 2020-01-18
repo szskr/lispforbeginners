@@ -148,15 +148,15 @@
 (comment "The following 4 read-value methods are stub methods for now.")
 
 (defmethod read-value ((type (eql 'iso-8859-1-string)) in &key length)
-  (format t "(read-value 'iso-8859-1-string) called.~%")
+  (format t "(read-value 'iso-8859-1-string) called. in = ~a ~%" in)
   "IS3")
 
 (defmethod read-value ((type (eql 'u1)) in &key)
-  (format t "(read-value 'u1) called.~%")
+  (format t "(read-value 'u1) called. in = ~a ~%" in)
   #xab)
 
 (defmethod read-value ((type (eql 'id3-tag-size)) in &key)
-  (format t "(read-value 'id3-encoded-size) called.~%")
+  (format t "(read-value 'id3-encoded-size) called. in = ~a ~%" in)
   #x10)
 
 (defmethod read-value ((type (eql 'id3-frames)) in &key tag-size)
@@ -214,8 +214,12 @@
 		   (frames        (id4-frames :tag-size size))))
 
 (setf *id4-tag* (make-instance 'id4-tag))
-(format t "(read-value 'id4-tag 100) = ~%~a" (read-value 'id4-tag 100))
 (nl)
+
+(format t "(read-value 'id4-tag 10) = ~%~a" (read-value 'id4-tag 10))
+(nl)
+
+(format t "setf *i* (read-value 'id4-tag 100) = ~%~a~%" (setf *i* (read-value 'id4-tag 100)))
 
 ;;;
 ;;; Writing Binary Objects
@@ -234,9 +238,29 @@
 ;;;
 (comment "Adding Inheritance and Tagged Structures")
 
-(defmacro define-binary-class (name (&rest superclasses) slots)
-  ())
-
 (defgeneric read-object (object stream)
   (:method-combination progn :most-specific-last)
   (:documentation "Fill in the slots of objects from stream."))
+
+(defmethod read-value ((type symbol) stream &key)
+  (format t "DEBUG: (read-value ((type symbol) stream &key~%")
+  (let ((object (make-instance type)))
+    (read-object object stream)
+    object))
+
+(defmacro define-binary-class (name superclasses slots)
+  (with-gensyms-1 (objectvar streamvar)
+		  `(progn
+		   (defclass ,name ,superclasses
+		     ,(mapcar #'slot->defclass-slot slots))
+		   
+		   (defmethod read-object progn ((,objectvar ,name) ,streamvar)
+		       (with-slots ,(mapcar #'first slots) ,objectvar
+				   ,@(mapcar #'(lambda (x) (slot->read-value x streamvar)) slots))))))
+
+(define-binary-class id10-tag (id4-tag) 
+		  ((my-id   (iso-8859-1-string :length 3))
+		   (id10-var1    u1)
+		   (ir10-var2    u1)))
+(comment "Allocating and setting id10-tag instance")
+(defvar *id10-tag* (read-value 'id10-tag 1000))
