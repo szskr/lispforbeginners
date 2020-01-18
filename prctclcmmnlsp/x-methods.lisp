@@ -167,6 +167,7 @@
    (method-2 args)
    (method-3 args)))
 
+(comment ":method-combination progn example")
 (defgeneric dishes (obj)
    (:method-combination progn)
    (:method progn (obj)
@@ -184,3 +185,27 @@
 
 (dishes 100)
 (nl)
+
+;;;
+;;; :most-specific-last option
+;;;
+
+(comment ":method-combination progn example and reverse the order with :most-specific-last")
+(defgeneric dishes-rev (obj)
+  (:method-combination progn :most-specific-last)
+   (:method progn (obj)
+     (format t "- clean and dry.~&"))
+   (:method progn ((obj person))
+     (format t "- bring a person's dishes~&"))
+   (:method progn ((obj child))
+	    (format t "- bring the baby dishes~&")))
+
+(dishes-rev c1)
+(nl)
+
+(dishes-rev p1)
+(nl)
+
+(dishes-rev 100)
+(nl)
+
