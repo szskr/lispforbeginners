@@ -86,15 +86,23 @@
 (defun chap23 ()
   (format t "Chapter 23: Practical: A Spam Filter~%"))
 
-(defun appendix ()
-  (format t "APPENDIX~%")
-  (appendx-chap24))
-
-(defun appendx-chap24 ()
-  (format t " Appendix: Supplement for Chapter 24-intro: Practical: Parsing Binary Files~%"))
-
 (defun chap24 ()
   (format t "Chapter 24: Practical: Parsing Binary Files~%"))
+
+(defun appendix ()
+  (format t "APPENDIX~%")
+  (xx-maps)
+  (xx-methods)
+  (z-chap24))
+
+(defun xx-maps()
+  (format t " (x-maps)   : Mapping Functions~%"))
+
+(defun xx-methods()
+  (format t " (x-methods): Generic Functions and Methods~%"))
+
+(defun z-chap24 ()
+  (format t " (z-ch24)   : Supplementary for Chapter 24: Practical: Parsing Binary Files~%"))
 	       
 (defun l-ppcre ()
   (let ((files '("../libs//cl-ppcre-2.1.1/packages.lisp"
