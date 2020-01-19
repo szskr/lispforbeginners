@@ -1,11 +1,8 @@
-
 ;;;
-;;; Chapter 11: Collections
+;;; Mapping Functions 
 ;;;
 
-(nl)
-(chap11)
-(comment "Chapter 11")
+(comment "Mapping Functions")
 (nl)
 
 ;;;
@@ -42,3 +39,14 @@
 (comment "REDUCE: A surprising useful function")
 (format t "(reduce #'+ '(1 2 3 4 5) = ~a~%" (reduce #'+ '(1 2 3 4 5)))
 (format t "(reduce #'max '(10 1 11 3 100 4) = ~a~%" (reduce #'max '(10 1 11 3 100 4)))
+
+(comment "MAPCAR")
+(format t "(mapcar #'(lambda (x) (* 2 x)) (list 1 2 3)) = ~a~%" (mapcar #'(lambda (x) (* 2 x)) (list 1 2 3)))
+(format t "(mapcar #'+ (list 1 2 3) (list 10 20 30))    = ~a~%" (mapcar #'+ (list 1 2 3) (list 10 20 30)))
+(nl)
+
+;;;
+;;; MAPLIST/MAPCAN/MAPCON
+;;;
+(comment "MAPLIST/MAPCAN/MAPCON: Check on them when you have a chance.")
+
