@@ -103,4 +103,4 @@
 ;;;
 ;;; Load flag
 ;;;
-(setf *l-ppcre-loaded* nil)
+(defvar *l-ppcre-loaded* nil)

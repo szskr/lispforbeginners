@@ -19,9 +19,6 @@
 
 ;(in-package :spam)
 
-(defun classify (text)
-  (classification (score (extract-features text))))
-
 ;;;
 ;;; Non-spam, known as HAM
 ;;;
@@ -34,6 +31,9 @@
    ((<= score *max-ham-score*) 'ham)
    ((>= *min-spam-score*) 'spam)
    (t 'unsure)))
+
+(defun classify (text)
+  (classification (score (extract-features text))))
 
 ;;;
 ;;; Changed word to pclword. (Probably name crashing. Fix later.)

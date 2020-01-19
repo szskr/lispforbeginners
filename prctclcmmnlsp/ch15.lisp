@@ -16,10 +16,10 @@
 (format t "*features* = ~a~%" *features*)
 (nl)
 
-(setf home-dir-str "/Users/KenThompson")
+(defvar home-dir-str "/Users/KenThompson")
 (format t "home-dir-str = \"~a\"~%" home-dir-str)
 
-(setf home-dir-path (pathname home-dir-str))
+(defvar home-dir-path (pathname home-dir-str))
 (format t "(directory (make-pathname :name :wild :type :wild :defaults home-dir-path)) = ~a~%"
 	(directory (make-pathname :name :wild :type :wild :defaults home-dir-path)))
 (nl)
@@ -88,7 +88,7 @@
   (labels
    ((walk (name)
 	  (cond
-	   ((direcory-pathname-p name)
+	   ((directory-pathname-p name)
 	    (when (and directories (funcall test name))
 	      (funcall fn name))
 	    (dolist (x (list-directory name)) (walk x)))

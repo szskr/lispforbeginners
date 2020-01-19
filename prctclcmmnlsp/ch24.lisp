@@ -213,13 +213,13 @@
 		   (size          id4-tag-size)
 		   (frames        (id4-frames :tag-size size))))
 
-(setf *id4-tag* (make-instance 'id4-tag))
+(defvar *id4-tag* (make-instance 'id4-tag))
 (nl)
 
 (format t "(read-value 'id4-tag 10) = ~%~a" (read-value 'id4-tag 10))
 (nl)
 
-(format t "setf *i* (read-value 'id4-tag 100) = ~%~a~%" (setf *i* (read-value 'id4-tag 100)))
+(format t "defvar *i* (read-value 'id4-tag 100) = ~%~a~%" (defvar *i* (read-value 'id4-tag 100)))
 
 ;;;
 ;;; Writing Binary Objects
@@ -268,7 +268,7 @@
 		   (ir10-var2    u1)))
 (comment "Allocating and setting id10-tag instance")
 
-(setf *id10-tag* (read-value 'id10-tag 1000))
+(defvar *id10-tag* (read-value 'id10-tag 1000))
 
 ;;;
 ;;; Keeping Track of Inherited Slots
@@ -288,7 +288,7 @@
    (size u3)
    (data (raw-bytes :bytes size))))
 
-(setf  *generic-frame* (read-value 'generic-frame-0 "HelloWorld"))
+(defvar  *generic-frame* (read-value 'generic-frame-0 "HelloWorld"))
 
 ;;;
 ;;; The next two definitions do not work as expected.

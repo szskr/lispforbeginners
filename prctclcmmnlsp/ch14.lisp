@@ -16,12 +16,12 @@
 
 (nl)
 (comment "Opening a text file1:")
-(format t "(setf fin1 (open ch14.01.txt)) = ~a~%" (setf fin1 (open ch14.01.txt)))
+(format t "(defvar fin1 (open ch14.01.txt)) = ~a~%" (defvar fin1 (open ch14.01.txt)))
 fin1
 
 (nl)
 (comment "Opening a text file2:")
-(format t "(setf fin2 (open ch14.02.txt)) = ~a~%" (setf fin2 (open ch14.02.txt)))
+(format t "(setf defvar (open ch14.02.txt)) = ~a~%" (defvar fin2 (open ch14.02.txt)))
 fin2
 
 (nl)
@@ -53,8 +53,8 @@ fin2
 ;;; 
 (nl)
 (comment "Opening a binary file:")
-(format t "(setf fin3 (open ch14.01.txt) :element-type '(unsigned-byte 8)) = ~a~%"
-	(setf fin3 (open ch14.01.txt :element-type '(unsigned-byte 8))))
+(format t "(defvar fin3 (open ch14.01.txt) :element-type '(unsigned-byte 8)) = ~a~%"
+	(defvar fin3 (open ch14.01.txt :element-type '(unsigned-byte 8))))
 fin3
 
 (nl)
@@ -92,12 +92,12 @@ fin3
 
 (nl)
 (comment "FILENAMES- namestring, pathname, namestring->pathname, pathname->namestring")
-(setf raw-string-name "/lisp/prlisp/ch14.lisp")
+(defvar raw-string-name "/lisp/prlisp/ch14.lisp")
 
 (nl)
 (format t "raw-string-name = ~a~%" raw-string-name)
 (format t "(pathname raw-string-name) = ~a~%" (pathname raw-string-name))
-(setf path-name (pathname raw-string-name))
+(defvar path-name (pathname raw-string-name))
 
 (format t "(pathname-directory path-name)=~a~%" (pathname-directory path-name))
 (format t "(pathname-name path-name)=~a~%" (pathname-name path-name))
@@ -112,7 +112,7 @@ fin3
 ;;; Constructing New Pathnames
 ;;;
 (nl)
-(setq pathname-created (make-pathname
+(defvar pathname-created (make-pathname
  :directory '(:absolute "foo" "bar" "hoo")
  :name "baz"
  :type "txt"))
@@ -121,16 +121,16 @@ fin3
 (format t "(make-pathname :name \"foo\" :type \"txt\") = ~a~%" (make-pathname :name "foo" :type "txt"))
 (nl)
 
-(setf ROOT-dir "/usr/src/")
-(setf REL-dir "cmd/sgs/")
-(setf merged-pathname (merge-pathnames (pathname REL-dir) (pathname ROOT-dir)))
+(defvar ROOT-dir "/usr/src/")
+(defvar REL-dir "cmd/sgs/")
+(defvar merged-pathname (merge-pathnames (pathname REL-dir) (pathname ROOT-dir)))
 (format t "(merge-pathnames (pathname \"~a\") (pathname \"~a\")) = #p\"~a\"~%" REL-dir ROOT-dir merged-pathname)
 
 ;;;
 ;;; Interacting with the File System
 ;;;
 
-(setf delete-me "_DELETE_ME_")
+(defvar delete-me "_DELETE_ME_")
 
 (defun create-file (name)
   (close (open name :if-does-not-exist :create)))

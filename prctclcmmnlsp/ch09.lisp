@@ -178,7 +178,7 @@
 ;;
 ;; PS
 ;;
-(setf ll (loop for i below 5 collect i))
+(defvar ll (loop for i below 5 collect i))
 
 (defmacro echo (f)
   `(format t "~a: ~a" ,f ',f))

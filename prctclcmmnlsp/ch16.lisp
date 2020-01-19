@@ -113,8 +113,8 @@ Signal an error if the current balance is less than amount."))
   (call-next-method))
 
 
-(setf *obj* (make-instance 'obj :id "OBJ"))
-(setf *book* (make-instance 'book :name "Practical Common Lisp"))
-(setf *ch16* (make-instance 'chapter :chap 16))
-(setf *sct01* (make-instance 'section :sect 01))
-(setf *sct02* (make-instance 'section :sect 02))
+(defvar *obj* (make-instance 'obj :id "OBJ"))
+(defvar *book* (make-instance 'book :name "Practical Common Lisp"))
+(defvar *ch16* (make-instance 'chapter :chap 16))
+(defvar *sct01* (make-instance 'section :sect 01))
+(defvar *sct02* (make-instance 'section :sect 02))
