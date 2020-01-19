@@ -22,6 +22,7 @@
 		 "./ch21.lisp"
 		 "./ch23.lisp"
 		 "./ch24.lisp"
+		 "./x-maps.lisp"
 		 "./x-methods.lisp"
 		 "./y-ch24.lisp"
 		 "./z-appndx-ch24.lisp")))
@@ -32,6 +33,9 @@
 
 (defun x-methods ()
   (load "./x-methods.lisp"))
+
+(defun x-maps ()
+  (load "./x-maps.lisp"))
 
 (defun ch24 ()
   (load "./ch24.lisp"))
