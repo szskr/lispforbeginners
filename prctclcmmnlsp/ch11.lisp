@@ -1,4 +1,3 @@
-
 ;;;
 ;;; Chapter 11: Collections
 ;;;
@@ -42,3 +41,13 @@
 (comment "REDUCE: A surprising useful function")
 (format t "(reduce #'+ '(1 2 3 4 5) = ~a~%" (reduce #'+ '(1 2 3 4 5)))
 (format t "(reduce #'max '(10 1 11 3 100 4) = ~a~%" (reduce #'max '(10 1 11 3 100 4)))
+
+;;;
+;;; Hash Tables
+;;;
+(comment "Hash Tables")
+(nl)
+(format t "(defparameter *h* (make-hash-table)) = ~a~%" (defparameter *h* (make-hash-table)))
+(format t "(gethash 'foo *h*) = ~a~%" (gethash 'foo *h*))
+(format t "(setf (gethash 'foo *h*) 'quux) = ~a~%" (setf (gethash 'foo *h*) 'quux))
+(format t "(gethash 'foo *h*) = ~a~%" (gethash 'foo *h*))
