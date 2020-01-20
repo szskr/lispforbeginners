@@ -146,3 +146,6 @@
    #+clisp
    (format t "CLISP~%")
    ())
+
+(defmacro myformat (form1 form2)
+  `(format t ,form1  ,form2))
