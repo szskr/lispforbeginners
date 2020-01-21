@@ -19,7 +19,7 @@
 (format t "(ldb (byte 8 16) #x80efabcd) = 0x~x~%" (ldb (byte 8 16) #x80efabcd))
 (format t "(ldb (byte 8 24) #x80efabcd) = 0x~x~%" (ldb (byte 8 24) #x80efabcd))
 
-(defvar *num* 0)
+(defparameter *num* 0)
 (setf *num* 0)
 (nl)
 
@@ -268,7 +268,7 @@
 		   (ir10-var2    u1)))
 (comment "Allocating and setting id10-tag instance")
 
-(defvar *id10-tag* (read-value 'id10-tag 1000))
+(defparameter *id10-tag* (read-value 'id10-tag 1000))
 
 ;;;
 ;;; Keeping Track of Inherited Slots
