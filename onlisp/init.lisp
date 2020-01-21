@@ -4,6 +4,7 @@
 (defun l ()
   (let ((files '("../libs/tools.lisp"
 		 "./ch02.lisp"
+		 "./ch03.lisp"
 		 "./ch04.lisp")))
     (mapcar #'load files)))
 
@@ -12,6 +13,9 @@
 
 (defun ch02()
   (load "./ch02.lisp"))
+
+(defun ch03()
+  (load "./ch03.lisp"))
 
 (defun ch04()
   (load "./ch04.lisp"))
