@@ -13,3 +13,21 @@
 		      (list int frac)) = ~a~%"
 	(multiple-value-bind (int frac) (truncate 17.123)
 			     (list int frac)))
+
+(defun powers (x)
+  (values x (sqrt x) (* x x)))
+
+(multiple-value-bind (base root square) (powers 4)
+		     (list base root square))
+
+(defun m-powers (x)
+  (multiple-value-bind (base root square) (powers x)
+		     (list base root square)))
+
+(defun m-truncate (x)
+  (multiple-value-bind (int frac) (truncate x)
+		       (list int frac)))
+
+;;
+;; Oppotunities for writing useful macros here
+;;

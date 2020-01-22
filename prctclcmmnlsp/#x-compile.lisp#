@@ -22,4 +22,4 @@
 
 (defun yfoo ()
   (format t "(yfoo) called: and calling (xfo)o~%")
-  (xfoo 1))
+  (xfoo 1)
