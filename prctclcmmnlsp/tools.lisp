@@ -69,14 +69,18 @@
 
 (defun appendix ()
   (format t "APPENDIX~%")
+  (xx-compile)
   (xx-eval-when)
   (xx-maps)
   (xx-methods)
   (xx-values)
   (y-chap24))
 
+(defun xx-compile()
+  (format t " (x-compile)   : Compile and its family Exploreds~%"))
+
 (defun xx-eval-when()
-  (format t " (x-eval-when) : Mapping Functions~%"))
+  (format t " (x-eval-when) : Eval-when Explored~%"))
 
 (defun xx-maps()
   (format t " (x-maps)      : Mapping Functions~%"))
