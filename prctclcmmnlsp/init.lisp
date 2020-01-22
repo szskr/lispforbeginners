@@ -22,16 +22,13 @@
 		 "./ch21.lisp"
 		 "./ch23.lisp"
 		 "./ch24.lisp"
+		 "./ch24-x.lisp"
 		 "./x-compile.lisp"
 		 "./x-eval-when.lisp"
 		 "./x-maps.lisp"
 		 "./x-methods.lisp"
-		 "./x-values.lisp"
-		 "./y-ch24.lisp")))
+		 "./x-values.lisp")))
     (mapcar #'load files)))
-
-(defun y-ch24 ()
-  (load "./y-ch24.lisp"))
 
 (defun x-values ()
   (load "./x-values.lisp"))
@@ -47,6 +44,9 @@
 
 (defun x-compile()
   (load "./x-compile.lisp"))
+
+(defun ch24-x ()
+  (load "./ch24-x.lisp"))
 
 (defun ch24 ()
   (load "./ch24.lisp"))

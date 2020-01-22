@@ -67,14 +67,16 @@
 (defun chap24 ()
   (format t "Chapter 24: Practical: Parsing Binary Files~%"))
 
+(defun chap24-x ()
+  (format t " (ch24-x) : Supplementary for Chapter 24: Practical: Parsing Binary Files~%"))
+	       
 (defun appendix ()
   (format t "APPENDIX~%")
   (xx-compile)
   (xx-eval-when)
   (xx-maps)
   (xx-methods)
-  (xx-values)
-  (y-chap24))
+  (xx-values))
 
 (defun xx-compile()
   (format t " (x-compile)   : Compile and its family Exploreds~%"))
@@ -133,6 +135,7 @@
   (chap21)
   (chap23)
   (chap24)
+  (chap24-x)
   (appendix))
 
 (defun whoami ()
