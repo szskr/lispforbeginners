@@ -30,6 +30,9 @@
 		 "./x-values.lisp")))
     (mapcar #'load files)))
 
+(defun run-at ()
+  (load "./run-at-compile-time.lisp"))
+
 (defun x-values ()
   (load "./x-values.lisp"))
 
@@ -107,6 +110,9 @@
 
 (defun tools ()
   (load "./tools.lisp"))
+
+(defun todo()
+  (load "./todo.lisp"))
 
 ;;;
 ;;; Load flag
