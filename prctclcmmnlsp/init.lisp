@@ -25,12 +25,8 @@
 		 "./x-maps.lisp"
 		 "./x-methods.lisp"
 		 "./x-values.lisp"
-		 "./y-ch24.lisp"
-		 "./z-ch24.lisp")))
+		 "./y-ch24.lisp")))
     (mapcar #'load files)))
-
-(defun z-ch24 ()
-  (load "./z-ch24.lisp"))
 
 (defun y-ch24 ()
   (load "./y-ch24.lisp"))

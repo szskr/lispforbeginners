@@ -5,29 +5,7 @@
 (nl)
 (comment "Y-Chapter 24: For Preparation of: Practical: Parsing Binary Files")
 (nl)
-	
-;;
-;; Binary Format Basics
-;;
-
-(format t "(ldb (byte 8 0) #xabcd) = 0x~x~%" (ldb (byte 8 0) #xabcd))
-(format t "(ldb (byte 8 8) #xabcd) = 0x~x~%" (ldb (byte 8 8) #xabcd))
-(format t "(ldb (byte 8 16) #x80efabcd) = 0x~x~%" (ldb (byte 8 16) #x80efabcd))
-(format t "(ldb (byte 8 24) #x80efabcd) = 0x~x~%" (ldb (byte 8 24) #x80efabcd))
-
-(defvar *num* 0)
-(setf *num* 0)
-(nl)
-
-(format t "(defvar *num* 0) ~%")
-(format t "0x~x~%" *num*)
-(nl)
-
-(format t "(setf (ldb (byte 8 0) *num*) #xcd) = 0x~x~%" (setf (ldb (byte 8 0) *num*) #xcd))
-(format t "(setf (ldb (byte 8 8) *num*) #xab) = 0x~x~%" (setf (ldb (byte 8 8) *num*) #xab))
-(format t "*num* = 0x~x~%" *num*)
-(nl)
-
+       
 ;;;
 ;;; Composite Structures
 ;;;
@@ -52,7 +30,67 @@
 (defun dump-id (id)
   (format t "dump_id: id = ~a, ver = ~a, size = ~a ~%" (id id) (ver id) (size id)))
 
-;;;
-;;; Designing the Macros
-;;;
-(comment "Desiging the Macros")
+;;
+;; Review: opening a file to read binary data
+;;
+(defun open-r-binary (name)
+  (open name
+	:if-does-not-exist nil
+	:element-type '(unsigned-byte 8)))
+
+(defun open-w-binary (name)
+  (open name
+	:if-does-not-exist :create
+	:if-exists :append
+	:direction :output
+	:element-type '(unsigned-byte 8)))
+
+(defun cat (file)
+  (let ((in (open-r-binary file))
+	(byte 0))
+    (when (eq in nil)
+      (format t "cat: ~a can not be open~%" file)
+      (return-from cat nil))
+    (loop
+     (setf byte (read-byte in nil))
+     (format t "0x~x~%" byte)
+     (when (eq byte nil)
+       (return)
+    (close in)))))
+
+(defun cp (src dst)
+  (let ((in (open-r-binary src))
+	(out (open-w-binary dst))
+	(byte 0))
+    (when (eq in nil)
+      (format t "cp: ~a can not be open~%" src)
+      (return-from cp nil))
+    (when (eq out nil)
+      (format t "cp: ~a can not be open~%" dst)
+      (close in)
+      (return-from cp nil))
+    (loop
+     (setf byte (read-byte in nil))
+     (if (not (eq byte nil))	 
+	 (write-byte byte out))
+     (when (eq byte nil)
+       (return)))
+    (close in)
+    (close out)))
+
+;;
+;; Using with-open-file function
+;;
+(defun byte-copy (src dst)
+  (with-open-file (in src
+		      :direction :input
+		      :element-type '(unsigned-byte 8)
+		      :if-does-not-exist nil)
+		  (when in
+		    (with-open-file (out dst
+					 :direction :output
+					 :element-type '(unsigned-byte 8)
+					 :if-exists :supersede)
+				    (loop for byte = (read-byte in nil)
+					  while byte
+					  do (write-byte byte out))))))

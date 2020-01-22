@@ -72,7 +72,7 @@
   (xx-maps)
   (xx-methods)
   (xx-values)
-  (z-chap24))
+  (y-chap24))
 
 (defun xx-maps()
   (format t " (x-maps)   : Mapping Functions~%"))
@@ -81,10 +81,10 @@
   (format t " (x-methods): Generic Functions and Methods~%"))
 
 (defun xx-values()
-  (format t " (x-values): Values/Multiple-values-bind and their family~%"))
+  (format t " (x-values) : Values/Multiple-values-bind and their family~%"))
 
-(defun z-chap24 ()
-  (format t " (z-ch24)   : Supplementary for Chapter 24: Practical: Parsing Binary Files~%"))
+(defun y-chap24 ()
+  (format t " (y-ch24)   : Supplementary for Chapter 24: Practical: Parsing Binary Files~%"))
 	       
 (defun l-ppcre ()
   (let ((files '("../libs//cl-ppcre-2.1.1/packages.lisp"
