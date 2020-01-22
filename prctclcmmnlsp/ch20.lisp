@@ -156,7 +156,11 @@
 (comment "(values 1 2)")
 (values 1 2 3)
 
-(comment "YOU NEED TO COMEBACK here later")
+(myformat "(multiple-value-bind (x y z) (values 10 20 30) (list (+ x y z) 100 200)) = ~a~%"
+	  (multiple-value-bind (x y z) (values 10 20 30) (list (+ x y z) 100 200)))
+
+(defmacro my-values (x y z)
+  `(multiple-value-bind (_XX_ _YY_ _ZZ_) (values ,x ,y ,z) (list (+ _XX_ _YY_ _ZZ_) 100 200)))
 (nl)
 
 ;;;
