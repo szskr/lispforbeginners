@@ -69,22 +69,26 @@
 
 (defun appendix ()
   (format t "APPENDIX~%")
+  (xx-eval-when)
   (xx-maps)
   (xx-methods)
   (xx-values)
   (y-chap24))
 
+(defun xx-eval-when()
+  (format t " (x-eval-when) : Mapping Functions~%"))
+
 (defun xx-maps()
-  (format t " (x-maps)   : Mapping Functions~%"))
+  (format t " (x-maps)      : Mapping Functions~%"))
 
 (defun xx-methods()
-  (format t " (x-methods): Generic Functions and Methods~%"))
+  (format t " (x-methods)   : Generic Functions and Methods~%"))
 
 (defun xx-values()
-  (format t " (x-values) : Values/Multiple-values-bind and their family~%"))
+  (format t " (x-values)    : Values/Multiple-values-bind and their family~%"))
 
 (defun y-chap24 ()
-  (format t " (y-ch24)   : Supplementary for Chapter 24: Practical: Parsing Binary Files~%"))
+  (format t " (y-ch24)      : Supplementary for Chapter 24: Practical: Parsing Binary Files~%"))
 	       
 (defun l-ppcre ()
   (let ((files '("../libs//cl-ppcre-2.1.1/packages.lisp"
