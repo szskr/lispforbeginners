@@ -4,6 +4,23 @@
 ;;;   sbcl:  load this file twice, and then it works. What's going on?
 ;;;
 
+;;;
+;;; % sbcl
+;;; * (load "./q-001.lisp")
+;;; * ;; warning: m1-macro() undefined for f0-foo and f1-foo
+;;; * (f0-foo)
+;;; * ;; Undefined Error
+;;; * (load "./q-001.lisp")
+;;; * T
+;;; * (f0-foo)
+;;; * ;; Works fine.
+;;;
+;;; % clisp
+;;; > (load "./q-001.lisp")
+;;; > (f0-foo)
+;;; > ;; Works fine
+;;;
+
 (defun f0-foo()
   (format t "I am f0-foo() ~%")
   (m1-macro))
