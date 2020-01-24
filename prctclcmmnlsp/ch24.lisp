@@ -303,4 +303,17 @@
  (define-binary-class-v2 generic-frame (frame)
   ((data (raw-bytes :bytes size)))))
 
+;;;
+;;; Fixing the problem
+;;;
 
+;;;
+;;; Helper Functions
+;;;
+(defun direct-slots (name)
+  (copy-list (get name 'slots)))
+
+(defun inherited-slots (name)
+  (loop for super in (get name 'superclasses)
+	nconc (direct-slots super)
+	nconc (inherited-slots super)))
