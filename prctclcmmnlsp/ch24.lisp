@@ -310,6 +310,18 @@
 ;;;
 ;;; Helper Functions
 ;;;
+
+;;;
+;;; REVIEW loop + nconc verb
+;;;
+
+(defun ch23-loop-nconc()
+  (loop for i upto 3
+      nconc (list i i)
+      nconc (list (* 10 i) (* 10 i))
+      nconc (list (* 100 i) (* 100 i))))
+
+
 (defun direct-slots (name)
   (copy-list (get name 'slots)))
 
