@@ -335,3 +335,19 @@
 
 (defun new-class-all-slot (slots superclasses)
   (nconc (mapcan #'all-slots superclasses) (mapcar #'first slots)))
+
+(defmacro define-binary-class-v3 (name (&rest superclasses) slots)
+  (with-gensyms-1 (objectvar streamvar)
+		  `(progn
+		     (eval-when (:compile-toplevel
+				 :load-toplevel
+				 :execute)
+				(setf (get ',name ',slots) ',(mapcar #'first slots))
+				(setf (get ',name `superclasses) ',superclasses))
+		     
+		     (defclass ,name ,superclasses
+		       ,(mapcar #'slot->defclass-slot slots))
+
+		     (defmethod read-object progn ((,objectvar ,name) ,streamvar)
+		       (with-slots ,(new-class-all-slots slots superclasses) ,objectvar
+				   ,@(mapcar #'(lambda (x) (slot->read-value x streamvar)) slots))))))
