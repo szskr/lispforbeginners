@@ -329,3 +329,9 @@
   (loop for super in (get name 'superclasses)
 	nconc (direct-slots super)
 	nconc (inherited-slots super)))
+
+(defun all-slots (name)
+  (nconc (direct-slots name) (inherited-slots name)))
+
+(defun new-class-all-slot (slots superclasses)
+  (nconc (mapcan #'all-slots superclasses) (mapcar #'first slots)))

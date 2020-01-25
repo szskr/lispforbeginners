@@ -45,8 +45,14 @@
 (format t "(mapcar #'+ (list 1 2 3) (list 10 20 30))    = ~a~%" (mapcar #'+ (list 1 2 3) (list 10 20 30)))
 (nl)
 
-;;;
-;;; MAPLIST/MAPCAN/MAPCON
-;;;
-(comment "MAPLIST/MAPCAN/MAPCON: Check on them when you have a chance.")
+(comment "MAPCAN")
 
+(format t "(mapcan #'+ '(10)) = ~a~%" (mapcan #'+ '(10)))
+(format t "(mapcan #'+ '(10) '(100)) = ~a~%" (mapcan #'+ '(10) '(100)))
+(format t "(mapcan #'+ '(10) '(100) '(1000)) = ~a~%" (mapcan #'+ '(10) '(100) '(1000)))
+
+(defun remove-10 (l)
+  (mapcan #'(lambda (x) (if (= x 10) nil
+			  (list x))) l))
+
+(format t "(remove-10 '(1 20 10 7 10 )) = ~a~%" (remove-10 '(1 20 10 7 10)))
