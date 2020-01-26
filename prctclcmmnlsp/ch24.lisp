@@ -333,7 +333,7 @@
 (defun all-slots (name)
   (nconc (direct-slots name) (inherited-slots name)))
 
-(defun new-class-all-slot (slots superclasses)
+(defun new-class-all-slots (slots superclasses)
   (nconc (mapcan #'all-slots superclasses) (mapcar #'first slots)))
 
 (defmacro define-binary-class-v3 (name (&rest superclasses) slots)
@@ -342,8 +342,8 @@
 		     (eval-when (:compile-toplevel
 				 :load-toplevel
 				 :execute)
-				(setf (get ',name ',slots) ',(mapcar #'first slots))
-				(setf (get ',name `superclasses) ',superclasses))
+				(setf (get ',name 'slots) ',(mapcar #'first slots))
+				(setf (get ',name 'superclasses) ',superclasses))
 		     
 		     (defclass ,name ,superclasses
 		       ,(mapcar #'slot->defclass-slot slots))
@@ -351,3 +351,21 @@
 		     (defmethod read-object progn ((,objectvar ,name) ,streamvar)
 		       (with-slots ,(new-class-all-slots slots superclasses) ,objectvar
 				   ,@(mapcar #'(lambda (x) (slot->read-value x streamvar)) slots))))))
+
+;;;
+;;; Test Data 
+;;;
+
+(define-binary-class-v3 ch24-v3-d0 ()
+  ((name_d0 (string :length 3))
+   (id u1)
+   (num_d0 u1)))
+
+(define-binary-class-v3 ch24-v3-d1 (ch24-d0)
+  ((name_d1 (string :length 3))
+   (num_d1 u1)))
+
+(define-binary-class-v3 ch24-v3-d2 (ch24-d1)
+  ((name_d2 (string :length 3))
+   (num_d2 u1)))
+
