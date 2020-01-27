@@ -369,3 +369,38 @@
   ((name_d2 (string :length 3))
    (num_d2 u1)))
 
+;;;
+;;;Tagged Structures
+;;;
+(defmacro define-generic-binary-class (name (&rest superclasses) slots read-method)
+  (with-gensyms-1 (objectvar streamvar)
+		  `(progn
+		     (eval-when (:compile-toplevel
+				 :load-toplevel
+				 :execute)
+				(setf (get `,name `slots) `,(mapcar #'first slots))
+				(setf (get `,name `superclasses) `,superclasses))
+		     (defclass ,name ,superclasses
+		       ,(mapcar #'slots->defclass-slot slots))
+		     
+		     ,read-method
+
+		     (defmethod write-object progn ((,objectvar ,name) ,streamvar)
+		       (declare (ignorable ,streamvar))
+		       (with-slots ,(new-class-all-slots slots superclasses) ,objectvar
+				   ,@(mapcar #'(lambda (x) (slot->write-value x streamvar)) slots))))))
+  
+
+;;;
+;;;
+;;;
+(defun dubbing (x fn)
+  (declare (special fn))
+  (dubbing2 x))
+
+(defun dubbing2 (x)
+  (declare (special fn))
+  (cond ((atom x) x)
+	((funcall fn (car x)) 'xxx)
+	(t (cons (dubbing2 (car x))
+		 (dubbing2 (cdr x))))))
