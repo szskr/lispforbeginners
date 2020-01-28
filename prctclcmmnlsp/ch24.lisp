@@ -386,7 +386,7 @@
 		     ,read-method
 
 		     (defmethod write-object progn ((,objectvar ,name) ,streamvar)
-		       (declare (ignorable ,streamvar))
+		       ;(declare (ignorable ,streamvar))
 		       (with-slots ,(new-class-all-slots slots superclasses) ,objectvar
 				   ,@(mapcar #'(lambda (x) (slot->write-value x streamvar)) slots))))))
   
