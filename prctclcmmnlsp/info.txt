@@ -1,0 +1,6 @@
+;;;
+;;; Various Information
+;;;
+
+01) ID3 The Audience is informed
+    http://id3.org/Home
