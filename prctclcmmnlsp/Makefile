@@ -2,11 +2,15 @@
 # Simple Makefile
 #
 
+HDR = id3.h
 OBJS = id3dump.o
 PROG = id3dump
 
 #PCL = prctclcmmlsp
 PCL = ./
+
+id3dump.o: id3dump.c $(HDR)
+	cc -c $(CFLAGS) id3dump.c
 
 $(PROG): $(OBJS)
 	cc -o $(PROG) $(OBJS)
