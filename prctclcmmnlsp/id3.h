@@ -2,22 +2,26 @@
  * ID3 tag version 2.4.
  */
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <string.h>
 
 typedef unsigned char uchar;
 typedef unsigned int uint;
 
-typedef struct id3 Id3;
+typedef struct id3_tag Id3_tag;
 typedef struct header Header;
-typedef struct extended_header Extended_header;
+typedef struct ex_header Ex_header;
 typedef struct footer Footer;
 
-struct id3 {
+struct id3_tag {
   int fd;
+  char *fname;
   uchar *mmapped;
   Header *header;
-  Extended_header *extended_header;
+  Ex_header *ex_header;
   uchar *frames;
   uchar *paddings;
   Footer *footer;
@@ -30,7 +34,7 @@ struct header {
   uint size;
 };
 
-struct extended_header {
+struct ex_header {
   uint size;
   uchar num_of_flag_bytes;
   uchar extended_flags;
@@ -42,3 +46,13 @@ struct footer {
   uchar flags;
   uint size;
 };
+
+/*
+ *
+ */
+#define ERROR (-1)
+
+/*
+ * Function prototypes
+ */
+Id3_tag *id3_open(char *);
