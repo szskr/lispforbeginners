@@ -69,6 +69,9 @@
 
 (defun chap24-x ()
   (format t " (ch24-x) : Supplementary for Chapter 24: Practical: Parsing Binary Files~%"))
+
+(defun chap25 ()
+  (format t "Chapter 25: Practical:  An ID3 Parser~%"))
 	       
 (defun appendix ()
   (format t "APPENDIX~%")
@@ -136,6 +139,7 @@
   (chap23)
   (chap24)
   (chap24-x)
+  (chap25)
   (appendix))
 
 (defun whoami ()

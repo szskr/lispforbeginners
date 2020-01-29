@@ -2,6 +2,9 @@
  * ID3 tag version 2.4.
  */
 
+#include <sys/types.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,6 +21,7 @@ typedef struct footer Footer;
 
 struct id3_tag {
   int fd;
+  struct stat *stbuf;
   char *fname;
   uchar *mmapped;
   Header *header;
@@ -55,4 +59,6 @@ struct footer {
 /*
  * Function prototypes
  */
+
 Id3_tag *id3_open(char *);
+void id3_close(Id3_tag *);

@@ -40,11 +40,11 @@ id3_open(char *fname)
     close(fd);
     return ((Id3_tag *)ERROR);
   }
+  free(header);
 
   id3_tag = (Id3_tag *) calloc(1, sizeof (struct id3_tag));
   if (id3_tag == (Id3_tag *) 0) {
     fprintf(stderr, "id3_open(): Could not allocate memory.");
-    free(header);
     close(fd);
     return ((Id3_tag *)ERROR);
   }
@@ -53,12 +53,47 @@ id3_open(char *fname)
   id3_tag->fname = strdup(fname);
   if (id3_tag->fname == (char *)0) {
     fprintf(stderr, "id3_open(): Could not allocate memory.");
-    free(header);
     close(fd);
     free(id3_tag);
     return ((Id3_tag *)ERROR);
   }
-    
-  free(header);
+
+  id3_tag->stbuf = (struct stat *) calloc(1, sizeof (struct stat));
+  if (id3_tag->stbuf == 0) {
+    fprintf(stderr, "id3_open(): Could not allocate memory.");
+    free(id3_tag->fname);
+    close(fd);
+    free(id3_tag);
+    return ((Id3_tag *)ERROR);
+  }
+
+  if (fstat(fd, id3_tag->stbuf) < 0) {
+    fprintf(stderr, "id3_open(): fstat():\n");
+    free(id3_tag->fname);
+    free(id3_tag->stbuf);
+    close(fd);
+    free(id3_tag);
+    return ((Id3_tag *)ERROR);
+  }
+
+  id3_tag->mmapped = (uchar *) mmap(0, id3_tag->stbuf->st_size, PROT_READ, MAP_SHARED, fd, 0);
+  if (id3_tag->mmapped == (uchar *) -1) {
+    fprintf(stderr, "id3_open(): mmap():\n");
+    free(id3_tag->fname);
+    free(id3_tag->stbuf);
+    close(fd);
+    free(id3_tag);
+    return ((Id3_tag *)ERROR);
+  }
+  
   return (id3_tag);
+}
+
+void
+id3_close(Id3_tag *id3_tag)
+{
+  close(id3_tag->fd);
+  free(id3_tag->stbuf);
+  free(id3_tag->fname);
+  free(id3_tag);
 }

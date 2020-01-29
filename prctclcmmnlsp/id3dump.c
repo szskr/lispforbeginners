@@ -36,5 +36,5 @@ main(int argc, char *argv[])
   /*
    * Close
    */
-  
+  id3_close(id3_tag);
 }

@@ -23,6 +23,7 @@
 		 "./ch23.lisp"
 		 "./ch24.lisp"
 		 "./ch24-x.lisp"
+		 "./ch25.lisp"
 		 "./x-compile.lisp"
 		 "./x-eval-when.lisp"
 		 "./x-maps.lisp"
@@ -44,6 +45,9 @@
 
 (defun x-eval-when ()
   (load "./x-eval-when.lisp"))
+
+(defun ch25 ()
+  (load "./ch25.lisp"))
 
 (defun x-compile()
   (load "./x-compile.lisp"))
