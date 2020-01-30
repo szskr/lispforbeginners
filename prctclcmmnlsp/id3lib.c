@@ -91,6 +91,9 @@ id3_open(char *fname)
     return ((Id3_tag *)ERROR);
   }
   id3_tag->header = (Header *)id3_tag->mmapped;
+#ifdef DEBUG
+  fprintf(stderr, "id3_open(%s): size = %d\n", fname, (int) id3_tag->stbuf->st_size);
+#endif
   
   return (id3_tag);
 }
@@ -128,7 +131,11 @@ id3_dump_header(Header *h)
   printf("\tExtended Header         : %s\n", (h->flags & 0x40) ? "YES" : "NO");
   printf("\tExperimental indicator  : %s\n", (h->flags & 0x20) ? "ON"  : "OFF");
   printf("\tFooter present          : %s\n", (h->flags & 0x10) ? "YES" : "NO");
-  
+
+  /*
+   * size
+   */
+  printf("\tSize                    : %d\n", to_unsynchint(msbtolsb(h->size)));
 }
 
 /*
@@ -152,3 +159,36 @@ to_unsynchint(uint in)
   
   return (out);
 }
+
+int
+msbtolsb(uchar *lsb)
+{
+  int idx = 0;
+  union {
+    char c[4];
+    int i;
+  } u;
+
+  for (idx = 0; idx < 4; idx++) {
+    fprintf(stderr, "val = 0x%x\n", *lsb);
+    u.c[3 - idx] = *lsb++;
+  }
+
+  return (u.i);
+}
+
+void
+dump_memory(uchar *s, int n)
+{
+  printf("DUMPing memory\n");
+
+  while (n > 0) {
+    if (isprint(*s))
+	printf("\t0x%x = 0x%x|%c\n", s, *s, *s);
+    else
+	printf("\t0x%x = 0x%x\n", s, *s);	  
+    s++;
+    --n;
+  }
+}
+

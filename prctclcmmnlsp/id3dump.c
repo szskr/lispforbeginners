@@ -11,6 +11,10 @@ main(int argc, char *argv[])
   char *fname;
 
   fname = argv[1];
+
+#ifdef DEBUG
+  fprintf(stderr, "sizeof (struct Header) = %lu\n", sizeof (struct header));
+#endif
   
   /*
    * Analyze options
@@ -24,6 +28,9 @@ main(int argc, char *argv[])
    * Open files
    */
   id3_tag = id3_open(fname);
+#ifdef DEBUG
+  dump_memory(id3_tag->mmapped, 14);
+#endif
   
   /*
    * Analyze the file
@@ -33,14 +40,6 @@ main(int argc, char *argv[])
    * Print out the contents of the file
    */
   id3_dump_header(id3_tag->header);
-#ifdef DEBUG
-  {
-    int i = 0;
-    char *p = (char *) id3_tag->mmapped + 10;
-    for (i = 0; i < 4; i++)
-      fprintf(stderr, "\ti[%d] = '%c'\n", i, *p++);
-  }
-#endif
 
   /*
    * Close

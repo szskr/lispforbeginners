@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef unsigned char uchar;
 typedef unsigned int uint;
@@ -36,7 +37,7 @@ struct header {
   char id[3];
   uchar version[2];
   uchar flags;
-  uint size;
+  uchar size[4];
 };
 
 struct ex_header {
@@ -49,12 +50,12 @@ struct footer {
   char id[3];
   uchar version;
   uchar flags;
-  uint size;
+  uchar size[4];
 };
 
 struct frame_header {
   char id[4];
-  uint size;
+  uchar size[4];
   uchar flags;
 };
 
@@ -73,3 +74,5 @@ void id3_dump_header(Header *);
 void id3_dump_frame_header(Frame_header *);
 
 int to_unsynchint(uint);
+int msbtolsb(uchar *);
+void dump_memory(uchar *, int);
