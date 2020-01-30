@@ -18,6 +18,7 @@ typedef struct id3_tag Id3_tag;
 typedef struct header Header;
 typedef struct ex_header Ex_header;
 typedef struct footer Footer;
+typedef struct frame_header Frame_header;
 
 struct id3_tag {
   int fd;
@@ -51,6 +52,12 @@ struct footer {
   uint size;
 };
 
+struct frame_header {
+  char id[4];
+  uint size;
+  uchar flags;
+};
+
 /*
  *
  */
@@ -62,3 +69,7 @@ struct footer {
 
 Id3_tag *id3_open(char *);
 void id3_close(Id3_tag *);
+void id3_dump_header(Header *);
+void id3_dump_frame_header(Frame_header *);
+
+int to_unsynchint(uint);

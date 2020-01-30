@@ -17,7 +17,7 @@ main(int argc, char *argv[])
    */
   if (argc < 2) {
     fprintf(stderr, "Usage: %s files,,,\n", argv[0]);
-    exit (1);
+    exit(1);
   }
 
   /*
@@ -32,9 +32,20 @@ main(int argc, char *argv[])
   /*
    * Print out the contents of the file
    */
+  id3_dump_header(id3_tag->header);
+#ifdef DEBUG
+  {
+    int i = 0;
+    char *p = (char *) id3_tag->mmapped + 10;
+    for (i = 0; i < 4; i++)
+      fprintf(stderr, "\ti[%d] = '%c'\n", i, *p++);
+  }
+#endif
 
   /*
    * Close
    */
   id3_close(id3_tag);
+  
+  exit(0);
 }

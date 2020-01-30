@@ -1,6 +1,7 @@
 #
 # Simple Makefile
 #
+CFLAGS += -DDEBUG
 
 HDR  = id3.h
 OBJS = id3dump.o id3lib.o
