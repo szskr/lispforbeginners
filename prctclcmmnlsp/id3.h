@@ -21,19 +21,39 @@ typedef struct ex_header Ex_header;
 typedef struct footer Footer;
 typedef struct frame_header Frame_header;
 
+/*
+ * id3_tag flags
+ */
+#define ID3_ANALYZED      0x01 /* id3_tag analuzed */
+#define ID3_HAS_EX_HEADER 0x02 /* id3_tag has extended header */
+#define ID3_HAS_FOOTER    0x04 /* id3_tag has footer */
+#define ID3_HAS_PADDINGS  0x08 /* id3_tag has padding */
+
+/*
+ * id3_tag header flags
+ */
+
+/*
+ * id3_tag footer flags
+ */
+
+/*
+ * id3_tag frame flags
+ */
+
 struct id3_tag {
-  uchar *mmapped;
+  uchar flags;
+  
   int fd;
   char *fname;
   struct stat *stbuf;
-  
-  int num_frames;
-  uchar **framess;
-  uchar *frames;
+  uchar *mmapped;
 
   Header *header;
   Ex_header *ex_header;
-
+  int num_frames;
+  uchar **framess;
+  uchar *frames;
   uchar *paddings;
   Footer *footer;
 };
@@ -75,7 +95,7 @@ struct frame_header {
 
 Id3_tag *id3_open(char *);
 void id3_close(Id3_tag *);
-void id3_taginfo(Id3_tag);
+void id3_info(Id3_tag);
 void id3_header(Header *);
 void id3_frame_header(Frame_header *);
 int id3_analyze(Id3_tag *);

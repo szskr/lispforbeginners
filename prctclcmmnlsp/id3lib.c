@@ -31,7 +31,7 @@ id3_open(char *fname)
     fprintf(stderr, "id3_open(): Could not read header information from %s.\n", fname);
     free(header);
     close(fd);
-    return ((Id3_tag *)ERROR);
+    return ((Id3_tag *) ERROR);
   }
 
   if ((header->id[0] != 'I') ||
@@ -156,6 +156,9 @@ id3_frame_header(Frame_header *fh)
 int
 id3_analyze(Id3_tag *id3)
 {
+  if (id3->flags & ID3_ANALYZED)
+    return (0);
+  
   /*
    * Set id3 information
    */
@@ -185,5 +188,6 @@ id3_analyze(Id3_tag *id3)
    * Get number of frames
    */
 
+  id3->flags |= ID3_ANALYZED;
   return (0);
 }
