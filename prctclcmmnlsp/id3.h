@@ -22,13 +22,18 @@ typedef struct footer Footer;
 typedef struct frame_header Frame_header;
 
 struct id3_tag {
-  int fd;
-  struct stat *stbuf;
-  char *fname;
   uchar *mmapped;
+  int fd;
+  char *fname;
+  struct stat *stbuf;
+  
+  int num_frames;
+  uchar **framess;
+  uchar *frames;
+
   Header *header;
   Ex_header *ex_header;
-  uchar *frames;
+
   uchar *paddings;
   Footer *footer;
 };
@@ -70,9 +75,13 @@ struct frame_header {
 
 Id3_tag *id3_open(char *);
 void id3_close(Id3_tag *);
-void id3_dump_header(Header *);
-void id3_dump_frame_header(Frame_header *);
+void id3_taginfo(Id3_tag);
+void id3_header(Header *);
+void id3_frame_header(Frame_header *);
+int id3_analyze(Id3_tag *);
 
+int get_number_of_frames(Id3_tag *);
+void dump_memory(uchar *, int);
+int get_size(uchar *);
 int to_unsynchint(uint);
 int msbtolsb(uchar *);
-void dump_memory(uchar *, int);

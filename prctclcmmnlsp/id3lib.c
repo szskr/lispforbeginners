@@ -10,7 +10,6 @@
 Id3_tag *
 id3_open(char *fname)
 {
-
   int fd;
   Id3_tag *id3_tag;
   Header *header;
@@ -94,6 +93,7 @@ id3_open(char *fname)
 #ifdef DEBUG
   fprintf(stderr, "id3_open(%s): size = %d\n", fname, (int) id3_tag->stbuf->st_size);
 #endif
+  id3_tag->frames = id3_tag->mmapped + sizeof (struct header);
   
   return (id3_tag);
 }
@@ -114,7 +114,7 @@ id3_close(Id3_tag *id3_tag)
  * Dump ID3 header information
  */
 void
-id3_dump_header(Header *h)
+id3_header(Header *h)
 {
   printf("ID3 header\n");
 
@@ -135,60 +135,55 @@ id3_dump_header(Header *h)
   /*
    * size
    */
-  printf("\tSize                    : %d\n", to_unsynchint(msbtolsb(h->size)));
-}
-
-/*
- * Utilities
- */
-
-/*
- * Convert the given synch safe integer 'in' into unsynch safe integer.
- */
-int
-to_unsynchint(uint in)
-{
-  int out = 0;
-  int mask = 0x7f000000;
-
-  while (mask) {
-    out >>= 1;
-    out |= in & mask;
-    mask >>= 8;
-  }
-  
-  return (out);
-}
-
-int
-msbtolsb(uchar *lsb)
-{
-  int idx = 0;
-  union {
-    char c[4];
-    int i;
-  } u;
-
-  for (idx = 0; idx < 4; idx++) {
-    fprintf(stderr, "val = 0x%x\n", *lsb);
-    u.c[3 - idx] = *lsb++;
-  }
-
-  return (u.i);
+  printf("\tSize                    : %d\n", get_size(h->size));
 }
 
 void
-dump_memory(uchar *s, int n)
+id3_frame_header(Frame_header *fh)
 {
-  printf("DUMPing memory\n");
+  int i;
+  
+  printf("ID3 frame header\n");
 
-  while (n > 0) {
-    if (isprint(*s))
-	printf("\t0x%x = 0x%x|%c\n", s, *s, *s);
-    else
-	printf("\t0x%x = 0x%x\n", s, *s);	  
-    s++;
-    --n;
-  }
+  printf("\tID: '");
+  for (i = 0; i < 4; i++)
+    printf("%c", fh->id[i]);
+  printf("'\n");
+  
+  printf("\tSize                    : %d\n", get_size(fh->size));  
 }
 
+int
+id3_analyze(Id3_tag *id3)
+{
+  /*
+   * Set id3 information
+   */
+  id3->header = (Header *) id3->mmapped;
+
+  /*
+   * Extended Header ?
+   */
+  if (id3->header->flags & 0x40)
+    id3->ex_header = (Ex_header *) (id3->mmapped + sizeof (struct header));
+  else
+    id3->ex_header = (Ex_header *) NULL;
+
+  /*
+   * Footer ?
+   */
+  if (id3->header->flags & 0x10)
+    id3->footer = (Footer *) (id3->mmapped + id3->stbuf->st_size - sizeof (struct footer));
+  else
+    id3->footer = (Footer *) NULL;
+
+  /*
+   * Padding
+   */
+  
+  /*
+   * Get number of frames
+   */
+
+  return (0);
+}
