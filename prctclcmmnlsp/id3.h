@@ -24,14 +24,18 @@ typedef struct frame_header Frame_header;
 /*
  * id3_tag flags
  */
-#define ID3_ANALYZED      0x01 /* id3_tag analuzed */
-#define ID3_HAS_EX_HEADER 0x02 /* id3_tag has extended header */
-#define ID3_HAS_FOOTER    0x04 /* id3_tag has footer */
-#define ID3_HAS_PADDINGS  0x08 /* id3_tag has padding */
+#define ID3_ANALYZED      0x0001 /* id3_tag analyzed */
+#define ID3_HAS_EX_HEADER 0x0002 /* id3_tag has extended header */
+#define ID3_HAS_FOOTER    0x0004 /* id3_tag has footer */
+#define ID3_HAS_PADDINGS  0x0008 /* id3_tag has padding */
 
 /*
  * id3_tag header flags
  */
+#define ID3_HDR_UNSYNCHRONISATION 0x80 /* Unsynchronisation applied */
+#define ID3_HDR_EXTENDED_HEADER   0x40 /* Extended header following the header */
+#define ID3_HDR_EXPERIMENTAL      0x20 /* Experimental indicator */
+#define ID3_HDR_FOOTER            0x10 /* Footer exists */
 
 /*
  * id3_tag footer flags
@@ -42,7 +46,8 @@ typedef struct frame_header Frame_header;
  */
 
 struct id3_tag {
-  uchar flags;
+  uint flags;
+  uint tag_size;
   
   int fd;
   char *fname;

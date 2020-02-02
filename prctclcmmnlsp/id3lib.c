@@ -127,10 +127,10 @@ id3_header(Header *h)
   /*
    * Flags
    */
-  printf("\tUnsynchronisation       : %s\n", (h->flags & 0x80) ? "ON"  : "OFF");
-  printf("\tExtended Header         : %s\n", (h->flags & 0x40) ? "YES" : "NO");
-  printf("\tExperimental indicator  : %s\n", (h->flags & 0x20) ? "ON"  : "OFF");
-  printf("\tFooter present          : %s\n", (h->flags & 0x10) ? "YES" : "NO");
+  printf("\tUnsynchronisation       : %s\n", (h->flags & ID3_HDR_UNSYNCHRONISATION) ? "ON"  : "OFF");
+  printf("\tExtended Header         : %s\n", (h->flags & ID3_HDR_EXTENDED_HEADER)   ? "YES" : "NO");
+  printf("\tExperimental indicator  : %s\n", (h->flags & ID3_HDR_EXPERIMENTAL)      ? "ON"  : "OFF");
+  printf("\tFooter present          : %s\n", (h->flags & ID3_HDR_FOOTER)            ? "YES" : "NO");
 
   /*
    * size
