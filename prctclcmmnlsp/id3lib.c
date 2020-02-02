@@ -1,8 +1,9 @@
 /*
  * ID3 utility routines
  */
-
 #include "./id3.h"
+
+static int get_frame_headers(Id3_tag *);
 
 /*
  * Open specified mp3 file and set up Id3_tag structure.
@@ -73,6 +74,7 @@ id3_open(char *fname)
     fprintf(stderr, "id3_open(): fstat():\n");
     free(id3_tag->fname);
     free(id3_tag->stbuf);
+    free(id3_tag->frames);
     close(fd);
     free(id3_tag);
     return ((Id3_tag *)ERROR);
@@ -90,11 +92,35 @@ id3_open(char *fname)
     return ((Id3_tag *)ERROR);
   }
   id3_tag->header = (Header *)id3_tag->mmapped;
-#ifdef DEBUG
-  fprintf(stderr, "id3_open(%s): size = %d\n", fname, (int) id3_tag->stbuf->st_size);
-#endif
-  id3_tag->frames = id3_tag->mmapped + sizeof (struct header);
+  id3_tag->tag_size = get_size(id3_tag->header->size);
+
+  if (id3_tag->header->flags & ID3_HDR_UNSYNCHRONISATION)
+    id3_tag->flags |= ID3_UNSYNCHRONISATION;
   
+  if (id3_tag->header->flags & ID3_HDR_EXTENDED_HEADER) {
+    id3_tag->flags |= ID3_EXTENDED_HEADER;
+    id3_tag->ex_header = (Ex_header *) (id3_tag->mmapped + sizeof (struct header));
+  }
+  
+  if (id3_tag->header->flags & ID3_HDR_EXPERIMENTAL)
+    id3_tag->flags |= ID3_EXPERIMENTAL;
+  
+  if (id3_tag->header->flags & ID3_HDR_FOOTER) {
+    id3_tag->flags |= ID3_FOOTER;
+    id3_tag->footer = (Footer *) (id3_tag->mmapped + id3_tag->stbuf->st_size - sizeof (struct footer));
+  }
+  
+#ifdef DEBUG
+  fprintf(stderr, "id3_open(%s)\n", fname);
+  fprintf(stderr, "        : file_size = %d\n", (int) id3_tag->stbuf->st_size);
+  fprintf(stderr, "        : tag_size  = %d\n", (int) id3_tag->tag_size);
+#endif
+
+  /*
+   * Get frame headers 
+   */
+  get_frame_headers(id3_tag);
+ 
   return (id3_tag);
 }
 
@@ -142,52 +168,94 @@ void
 id3_frame_header(Frame_header *fh)
 {
   int i;
+  uchar *n_frame;
   
-  printf("ID3 frame header\n");
+  printf("ID3 frame header:\n");
 
   printf("\tID: '");
   for (i = 0; i < 4; i++)
     printf("%c", fh->id[i]);
   printf("'\n");
-  
-  printf("\tSize                    : %d\n", get_size(fh->size));  
+
+  i = get_size(fh->size);
+  printf("\tSize                    : %d\n", i);
+
+  printf("\n");
+  n_frame = (uchar *)fh + i + sizeof (struct frame_header);
 }
 
-int
-id3_analyze(Id3_tag *id3)
+/*
+ * Static functions
+ */
+
+static int
+get_frame_headers(Id3_tag *id3_tag)
 {
-  if (id3->flags & ID3_ANALYZED)
-    return (0);
+  int valid_header;
+  int free_slots;
+  uchar *limit = id3_tag->mmapped + id3_tag->stbuf->st_size;
+  Frame_header *fh;
+  static int frame_allocated = 0;
+
+#ifdef DEBUG
+  printf("get_frame_headers(): called\n");
+#endif
+
+  frame_allocated = sizeof (Frame_header *) * NUM_FRAME_ENTRIES_TO_ALLOCATE;
+  id3_tag->frames = (Frame_header **) malloc(frame_allocated);
+  free_slots = NUM_FRAME_ENTRIES_TO_ALLOCATE;
+
+  fh = (Frame_header *) (id3_tag->mmapped + sizeof (struct header));
+  if (id3_tag->ex_header)
+    fh += sizeof (struct ex_header);
+  valid_header = TRUE;
+
+  while (valid_header &&
+	 ((uchar *)fh < (uchar *) limit)) {
+    /*
+     * Check frame ID
+     */
+    int i;
+    int size;
+    uchar *end_of_frame;
+    
+    for (i = 0; i < 4; i++) 
+      if (!((fh->id[i] >= 'A' && fh->id[i] <= 'Z') ||
+	    (fh->id[i] >= '0' && fh->id[i] <= '9'))) {
+	valid_header = 0;
+	printf("  Invalid first 4 bytes\n");
+	break;
+      }
+    if (!valid_header)
+      break;
+    
+    size = get_size(fh->size);
+#ifdef DEBUG
+    printf("  size of this frame = %d\n", size);
+#endif
+    end_of_frame = (uchar *)fh + sizeof (Frame_header) + size;
+    
+    if (end_of_frame > (uchar *)limit) {
+      valid_header = 0;
+      break;
+    }
+    
+    /*
+     * Ok, this is a valid frame.
+     */
+    if (free_slots == 0) {
+      /*
+       * reallocate memory
+       */
+      free_slots = NUM_FRAME_ENTRIES_TO_ALLOCATE;
+    }
+    id3_tag->frames[id3_tag->num_frames++] = fh;
+    free_slots--;
+    fh = (Frame_header *) end_of_frame;
+  }
   
-  /*
-   * Set id3 information
-   */
-  id3->header = (Header *) id3->mmapped;
-
-  /*
-   * Extended Header ?
-   */
-  if (id3->header->flags & 0x40)
-    id3->ex_header = (Ex_header *) (id3->mmapped + sizeof (struct header));
-  else
-    id3->ex_header = (Ex_header *) NULL;
-
-  /*
-   * Footer ?
-   */
-  if (id3->header->flags & 0x10)
-    id3->footer = (Footer *) (id3->mmapped + id3->stbuf->st_size - sizeof (struct footer));
-  else
-    id3->footer = (Footer *) NULL;
-
-  /*
-   * Padding
-   */
-  
-  /*
-   * Get number of frames
-   */
-
-  id3->flags |= ID3_ANALYZED;
-  return (0);
+#ifdef DEBUG
+  printf("  NUMBER of frames = %d\n", id3_tag->num_frames);
+#endif
+  return (OK);
 }

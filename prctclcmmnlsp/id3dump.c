@@ -9,6 +9,7 @@ main(int argc, char *argv[])
 {
   Id3_tag *id3_tag;
   char *fname;
+  int i;
 
   fname = argv[1];
 
@@ -24,19 +25,14 @@ main(int argc, char *argv[])
    * Open files
    */
   id3_tag = id3_open(fname);
-#ifdef DEBUG
-  dump_memory(id3_tag->mmapped, sizeof (struct header));
-#endif
   
-  /*
-   * Analyze the file
-   */
-
   /*
    * Print out the contents of the file
    */
   id3_header(id3_tag->header);
-  id3_frame_header((Frame_header *) id3_tag->frames);
+
+  for (i = 0; i < id3_tag->num_frames; i++)
+    id3_frame_header((Frame_header *) id3_tag->frames[i]);
 
   /*
    * Close

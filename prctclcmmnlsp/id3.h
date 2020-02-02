@@ -24,10 +24,13 @@ typedef struct frame_header Frame_header;
 /*
  * id3_tag flags
  */
-#define ID3_ANALYZED      0x0001 /* id3_tag analyzed */
-#define ID3_HAS_EX_HEADER 0x0002 /* id3_tag has extended header */
-#define ID3_HAS_FOOTER    0x0004 /* id3_tag has footer */
-#define ID3_HAS_PADDINGS  0x0008 /* id3_tag has padding */
+#define ID3_HAS_EX_HEADER     0x0001 /* id3_tag has extended header */
+#define ID3_HAS_FOOTER        0x0002 /* id3_tag has footer */
+#define ID3_HAS_PADDINGS      0x0004 /* id3_tag has padding */
+#define ID3_UNSYNCHRONISATION 0x8000 /* Unsynchronisation applied */
+#define ID3_EXTENDED_HEADER   0x4000 /* Extended header following the header */
+#define ID3_EXPERIMENTAL      0x2000 /* Experimental indicator on */
+#define ID3_FOOTER            0x1000 /* Has Footer */
 
 /*
  * id3_tag header flags
@@ -57,8 +60,7 @@ struct id3_tag {
   Header *header;
   Ex_header *ex_header;
   int num_frames;
-  uchar **framess;
-  uchar *frames;
+  Frame_header **frames;
   uchar *paddings;
   Footer *footer;
 };
@@ -86,13 +88,17 @@ struct footer {
 struct frame_header {
   char id[4];
   uchar size[4];
-  uchar flags;
+  uchar flags[2];
 };
 
 /*
  *
  */
+#define OK 1
 #define ERROR (-1)
+#define TRUE  1
+#define FALSE 0
+#define NUM_FRAME_ENTRIES_TO_ALLOCATE 5
 
 /*
  * Function prototypes
@@ -103,9 +109,7 @@ void id3_close(Id3_tag *);
 void id3_info(Id3_tag);
 void id3_header(Header *);
 void id3_frame_header(Frame_header *);
-int id3_analyze(Id3_tag *);
 
-int get_number_of_frames(Id3_tag *);
 void dump_memory(uchar *, int);
 int get_size(uchar *);
 int to_unsynchint(uint);
