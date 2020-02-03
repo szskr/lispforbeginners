@@ -98,7 +98,7 @@ struct frame_header {
 #define ERROR (-1)
 #define TRUE  1
 #define FALSE 0
-#define NUM_FRAME_ENTRIES_TO_ALLOCATE 5
+#define NUM_FRAME_ENTRIES_TO_ALLOCATE 16
 
 /*
  * Function prototypes

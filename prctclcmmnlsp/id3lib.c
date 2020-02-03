@@ -196,6 +196,7 @@ get_frame_headers(Id3_tag *id3_tag)
   uchar *limit = id3_tag->mmapped + id3_tag->stbuf->st_size;
   Frame_header *fh;
   static int frame_allocated = 0;
+  Frame_header **fp = 0;
 
 #ifdef DEBUG
   printf("get_frame_headers(): called\n");
@@ -223,7 +224,10 @@ get_frame_headers(Id3_tag *id3_tag)
       if (!((fh->id[i] >= 'A' && fh->id[i] <= 'Z') ||
 	    (fh->id[i] >= '0' && fh->id[i] <= '9'))) {
 	valid_header = 0;
+#ifdef DEBUG
 	printf("  Invalid first 4 bytes\n");
+	dump_memory(fh, 10);
+#endif
 	break;
       }
     if (!valid_header)
@@ -247,6 +251,13 @@ get_frame_headers(Id3_tag *id3_tag)
       /*
        * reallocate memory
        */
+      fprintf(stderr, "    ** realloc!\n");
+      frame_allocated += sizeof (Frame_header *) * NUM_FRAME_ENTRIES_TO_ALLOCATE;
+      fp = (Frame_header **) realloc(id3_tag->frames, frame_allocated);
+      if (fp == NULL) {
+	fprintf(stderr, "Could not allocate memory: realloc():\n");
+	return (ERROR);
+      }
       free_slots = NUM_FRAME_ENTRIES_TO_ALLOCATE;
     }
     id3_tag->frames[id3_tag->num_frames++] = fh;
