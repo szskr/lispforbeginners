@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdarg.h>
 #include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
@@ -114,3 +115,5 @@ void dump_memory(uchar *, int);
 int get_size(uchar *);
 int to_unsynchint(uint);
 int msbtolsb(uchar *);
+
+void d_printf(char *format, ...);

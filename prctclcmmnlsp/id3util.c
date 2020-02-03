@@ -65,3 +65,12 @@ dump_memory(uchar *s, int n)
   }
 }
 
+void
+d_printf(char *format, ...)
+{
+  va_list arg;
+  
+  va_start (arg, format);
+  vfprintf(stderr, format, arg);
+  va_end (arg);
+}
