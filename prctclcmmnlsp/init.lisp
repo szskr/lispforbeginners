@@ -28,11 +28,15 @@
 		 "./x-eval-when.lisp"
 		 "./x-maps.lisp"
 		 "./x-methods.lisp"
-		 "./x-values.lisp")))
+		 "./x-values.lisp"
+		 "./x-io.lisp")))
     (mapcar #'load files)))
 
 (defun run-at ()
   (load "./run-at-compile-time.lisp"))
+
+(defun x-io ()
+  (load "./x-io.lisp"))
 
 (defun x-values ()
   (load "./x-values.lisp"))

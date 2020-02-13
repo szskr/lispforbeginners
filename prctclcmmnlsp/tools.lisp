@@ -79,7 +79,11 @@
   (xx-eval-when)
   (xx-maps)
   (xx-methods)
-  (xx-values))
+  (xx-values)
+  (xx-io))
+
+(defun xx-io()
+  (format t " (x-io)        : I/O experimented~%"))
 
 (defun xx-compile()
   (format t " (x-compile)   : Compile and its family Exploreds~%"))
