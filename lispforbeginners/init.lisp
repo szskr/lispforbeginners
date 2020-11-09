@@ -1,4 +1,3 @@
-
 ;;;
 ;;; Little tools
 ;;;
@@ -13,6 +12,8 @@
 		 "./ch12.lisp"
 		 "./ch13.lisp"
 		 "./tiny-lisp.lisp"
+		 "./notes.lisp"
+		 "./tmp.lisp"
 		 )))
     (mapcar #'load files)))
 
@@ -36,7 +37,13 @@
 
 (defun tiny-lisp ()
   (load "./tiny-lisp.lisp"))
-  
+
+(defun notes()
+  (load "./notes.lisp"))
+
+(defun tmp()
+  (load "./tmp.lisp"))
+
 (defun tools ()
   (load "./tools.lisp"))
 
