@@ -204,5 +204,35 @@
 ;; _variable-value (p.224)
 ;; _loc-val2 (p.224)
 ;; t-apply (p.224)
-;; _t-eval-body-in-new-environment (p.224)
+;; _eval-body-in-new-environment (p.224)
+;; _ev-setq (p.227)
 ;;
+(defun _variable-value (s)
+  (let ((_localv nil)
+	(_globalv nil))
+    (setq _localv (_loc_val2 s t-env))
+    (cond (_localv (cdr _localv))
+	  (t (setq _globalv (t-symbol-value s))
+	     (cond ((neq _globalv 'no-value) _globalv)
+		   (t (error 'unbound-variable s)))))))
+
+(defun t-apply (fn args)
+  (cond ((t-function-symbol-p fn)
+	 (_eval-body-in-new-environment nil fn args))
+	((t-lambda-expression-p fn)
+	 (_eval-body-in-new-environment nil fn args))
+	(t (error 'illegal-function fn))))
+
+(defun _eval-body-in-new-environment (title lambda args)
+  (prog2
+      (push (cons titile (_pairlis (cadr lambda) args)) env)
+      (_ev-progn (cddr lambda))
+    (pop t-env)))
+
+(defun _pairlis (x y)
+  (cond ((and x y)
+	 (cons (cons (car x) (car y))
+	       (_pairlis (cdr x) (cdr y)) ))))
+
+(defun _ev-setq (form)
+  )

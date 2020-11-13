@@ -10,15 +10,18 @@
 		 "./ch10.lisp"
 		 "./ch11.lisp"
 		 "./ch12.lisp"
-		 "./ch13.lisp"
 		 "./tiny-lisp.lisp"
+		 "./ch14.lisp"
 		 "./notes.lisp"
 		 "./tmp.lisp"
 		 )))
     (mapcar #'load files)))
 
-(defun ch13 ()
-  (load "./ch13.lisp"))
+(defun ch14 ()
+  (load "./ch14.lisp"))
+
+(defun tiny-lisp ()
+  (load "./tiny-lisp.lisp"))
 
 (defun ch12 ()
   (load "./ch12.lisp"))
@@ -34,9 +37,6 @@
 
 (defun ch04 ()
   (load "./ch04.lisp"))
-
-(defun tiny-lisp ()
-  (load "./tiny-lisp.lisp"))
 
 (defun notes()
   (load "./notes.lisp"))

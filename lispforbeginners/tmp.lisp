@@ -24,3 +24,8 @@
 
 (defun show1()
   (cons 'lambda (cons (caddr form) (cdddr form))))
+
+;;
+;; Ch14
+;;
+(setq f (open "test.in" :direction :input))
