@@ -1,17 +1,17 @@
 ;;
 ;; Tiny Lisp
-;;  「初めての人のためのLISP」第１３講
-;;   Version 0.0
+;;   Based on「初めての人のためのLISP」第１３講
 ;;
 
 ;;
 ;; Tiny-lisp: APIs
 ;;  t-eval
 ;;  SPECIAL FORMS
-;;    '(t-quote t-cond t-setq t-prog t-progn
-;;	t-prog1 t-prog2 t-go t-let t-let*
-;;	t-if t-do t-do* t-defun t-defmacro
-;;	t-function t-apply)
+;;    '(t-quote t-cond t-setq
+;;      t-prog t-progn
+;;	t-defun t-defmacro
+;;	t-function)
+;;  t-apply
 ;;  t-symbol-value
 ;;  t-makunbound
 ;;  t-symbol-function
@@ -23,16 +23,14 @@
 ;;  t-macro-symbol-p
 ;;  t-macro-function
 ;;
-(setq _special-forms '(t-quote t-cond t-setq t-prog t-progn
-			      t-prog1 t-prog2 t-go t-let t-let*
-			      t-if t-do t-do* t-defun t-defmacro
-
-			      t-function t-apply))
+(setq _special-forms '(t-quote t-cond t-setq
+			      t-prog t-progn
+			      t-defun t-defmacro
+			      t-function))
 ;;
 ;; t-eval (p.214)
 ;;
 (defun t-eval (form)
-  ;;(print "t-eval")
   (cond
     ;; nil, number, string
     ((or (null form) (numberp form) (stringp form)) form)
@@ -46,7 +44,7 @@
 
     ;; function call
     ((and (consp (car form)) ; lambda?
-	  (eq (caar form) 'lambda))
+	  (eq (caar form) 't-lambda))
      (t-apply (car form) (_elvis (cdr form))))
 
     ((t-function-symbol-p (car form)) ; function?
@@ -74,7 +72,6 @@
 
 ;;
 ;; _eval-special-form (p.214)
-;; _ev-cond_v1 (p.215)
 ;; _ev-conv    (p.223)
 ;; _ev-progn (p.215)
 ;;
@@ -84,31 +81,13 @@
 	((eq (car form) 't-setq) (_ev-setq (cdr form)))
 	((eq (car form) 't-prog) (_ev-prog (cdr form)))
 	((eq (car form) 't-progn) (_ev-progn (cdr form)))
-	((eq (car form) 't-go) (_ev-go (cdr form)))
-	((eq (car form) 't-let) (_ev-let (cdr form)))
-	((eq (car form) 't-let*) (_ev-let* (cdr form)))
-	((eq (car form) 't-if) (_ev-if (cdr form)))
-	((eq (car form) 't-do) (_ev-do (cdr form)))
-	((eq (car form) 't-do*) (_ev-do* (cdr form)))
 	((eq (car form) 't-defun)
 	 (t-set-symbol-function
 	  (cadr form)
-	  `(lambda ,(caddr form) ,@(cdddr form))))
+	  `(t- lambda ,(caddr form) ,@(cdddr form))))
 	((eq (car form) 't-demacro) (_ev-defmacro (cdr form)))
 	((eq (car form) 't-function) (_ev-function (cdr form)))
 	((eq (car form) 't-apply) (_ev-apply (cdr form)))))
-
-(defun _ev-cond-v1 (clauses)
-  (cond  
-   ; If no more clauses, then renturn nil
-   ((null clauses) nil)
-
-   ; 
-   ((t-eval (caar clauses))
-    (_ev-progn (cadr clauses)))
-
-   ;
-   (t (_ev-cond-v1 (cdr clauses)))))
 
 (defun _ev-cond (clauses)
   (t-let ((p nil))
@@ -235,4 +214,10 @@
 	       (_pairlis (cdr x) (cdr y)) ))))
 
 (defun _ev-setq (form)
-  )
+  (let (localv)
+    (setq localv (_loc-val2 (car form) t-env))
+    (cond (localv
+	   (rplacd localv))
+	  (t (set-symbol-value
+	      (car form)
+	      (t-eval (cadr form)))))))
