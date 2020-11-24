@@ -12,21 +12,24 @@
 ;;	t-defun t-defmacro
 ;;	t-function)
 ;;  t-apply
-;;  t-symbol-value
-;;  t-makunbound
-;;  t-symbol-function
-;;  t-set-symbol-function
-;;  t-symbol-function-p
-;;  t-set-symbol-function
-;;  t-fmakunbound
-;;  t-function-symbol-p
-;;  t-macro-symbol-p
-;;  t-macro-function
+;;  tiny-symbol-value
+;;  tiny-makunbound
+;;  tiny-symbol-function
+;;  tiny-set-symbol-function
+;;  tiny-symbol-function-p
+;;  tiny-set-symbol-function
+;;  tiny-fmakunbound
+;;  tiny-function-symbol-p
+;;  tiny-macro-symbol-p
+;;  tiny-macro-function
 ;;
-(setq _special-forms '(t-quote t-cond t-setq
-			      t-prog t-progn
-			      t-defun t-defmacro
-			      t-function))
+(setq tiny-data-special-forms '(t-quote
+		       t-cond
+		       t-setq
+		       t-progn
+		       t-defun
+		       t-defmacro
+		       t-function))
 ;;
 ;; t-eval (p.214)
 ;;
@@ -36,24 +39,24 @@
     ((or (null form) (numberp form) (stringp form)) form)
 
     ;; symbol
-    ((symbolp form) (_variable-value form))
+    ((symbolp form) (tiny-variable-value form))
 
     ;; special forms
-    ((member (car form) _special-forms)
-     (_eval-special-form form))
+    ((member (car form) tiny-data-special-forms)
+     (tiny-eval-special-form form))
 
     ;; function call
     ((and (consp (car form)) ; lambda?
 	  (eq (caar form) 't-lambda))
-     (t-apply (car form) (_elvis (cdr form))))
+     (t-apply (car form) (tiny-elvis (cdr form))))
 
-    ((t-function-symbol-p (car form)) ; function?
-     (t-apply (symbol-function (car form))
-	    (_elvis (cdr form))))
+    ((tiny-function-symbol-p (car form)) ; function?
+     (t-apply (tiny-symbol-function (car form))
+	    (tiny-elvis (cdr form))))
 
     ;; macro form
-    ((t-macro-symbol-p (car form))
-     (t-eval (t-apply (t-macro-function (car form)) (cdr from))))
+    ((tiny-macro-symbol-p (car form))
+     (t-eval (t-apply (tiny-macro-function (car form)) (cdr from))))
 
     (t (error 'cannot-evaluate form))
     
@@ -64,42 +67,40 @@
   )
 
 ;;
-;; _elvis (p.214)
+;; tiny-elvis (p.214)
 ;;
-(defun _evlis (args)
+(defun tiny-evlis (args)
   (cond ((null args) nil)
-	(t (cons (t-eval (car args)) (_evlis (cdr args))))))
+	(t (cons (t-eval (car args)) (tiny-evlis (cdr args))))))
 
 ;;
-;; _eval-special-form (p.214)
-;; _ev-conv    (p.223)
-;; _ev-progn (p.215)
+;; tiny-eval-special-form (p.214)
+;; tiny-evcon    (p.223)
+;; tiny-ev-progn (p.215)
 ;;
-(defun _eval-special-form (form)
+(defun tiny-eval-special-form (form)
   (cond ((eq (car form) 't-quote) (cadr form))
-	((eq (car form) 't-cond) (_ev-cond (cdr form)))
-	((eq (car form) 't-setq) (_ev-setq (cdr form)))
-	((eq (car form) 't-prog) (_ev-prog (cdr form)))
-	((eq (car form) 't-progn) (_ev-progn (cdr form)))
+	((eq (car form) 't-cond) (tiny-evcon (cdr form)))
+	((eq (car form) 't-setq) (tiny-evsetq (cdr form)))
+	((eq (car form) 't-progn) (tiny-evprogn (cdr form)))
 	((eq (car form) 't-defun)
-	 (t-set-symbol-function
+	 (tiny-set-symbol-function
 	  (cadr form)
-	  `(t- lambda ,(caddr form) ,@(cdddr form))))
+	  `(t-lambda ,(caddr form) ,@(cdddr form))))
 	((eq (car form) 't-demacro) (_ev-defmacro (cdr form)))
 	((eq (car form) 't-function) (_ev-function (cdr form)))
 	((eq (car form) 't-apply) (_ev-apply (cdr form)))))
 
-(defun _ev-cond (clauses)
-  (t-let ((p nil))
+(defun tiny-evcon (clauses)
+  (let ((p nil))
     (cond ((null clauses) nil)
 	  ((setq p (t-eval (caar clauses)))
 	   (cond ((null (cdar clauses)) p)
-		 (t (_ev-progn (cdar clauses)))))
-	  (t (_ev-cond (cdr clauses))))))
+		 (t (tiny-evprogn (cdar clauses)))))
+	  (t (tiny-evcon (cdr clauses))))))
 
-(defun _ev-progn (forms)
+(defun tiny-evprogn (forms)
   (cond
-   
    ;; if empty forms, return nil
    ((null forms) nil)
 
@@ -107,117 +108,91 @@
    ((null (cdr forms)) (eval (car forms)))
 
    ;; evaluate expressions in the forms sequetially
-   (t (t-eval (car forms)) (_ev-progn (cdr forms)))))
+   (t (t-eval (car forms)) (tiny-evprogn (cdr forms)))))
 
-;;
-;; Note on "environment"
-;;
-;;   1. A dictionary for variables: variable <-> it's value
-;;   2. A dictionary for function/macrco: To check if a symbol represents function/macro or not.
-;;
-;;   a. A-list will be used for 1.
-;;   b. A set  will be used for 2.
-;;
-;;   Internal model for a symbol
-;;
-;;     +--------------+---------------------+
-;;     + symbol name  | attribute list      |
-;;     +--------------+---------------------+
-;;     + global value | function/macro body |
-;;     +--------------+---------------------+
-;;
-
-;;
-;; Functions to be defined
-;;  t-symbol-value (p.218)
-;;  t-makeunbound (p.218)
-;;  t-symbol-function (p.219)
-;;  t-set-symbol-function (p.219)
-;;  t-fmakunbound (p.219)
-;;
-(defun t-symbol-value (s)
+(defun tiny-symbol-value (s)
   (print "Return gloval value of the symbol s"))
 
-(defun t-makunbound (s)
+(defun tiny-makunbound (s)
   (print "set the value of the symbol s to nil"))
 
-(defun t-symbol-function (s)
+(defun tiny--symbol-function (s)
   (print "Return the function definition of the symbol s"))
 
-(defun t-set-symbol-function (s fn)
+(defun tiny-set-symbol-function (s fn)
   (print "Set the value of the symbol s to fn"))
 
-(defun t-fmakunbound (s)
+(defun tiny-fmakunbound (s)
   (print "Set the function defition of the symbol s to nil"))
 
 ;;
-;; t-function-symbol-p (p.220)
-;; t-macro-symbol-p (p.220)
-;; t-macro-function (p.220)
+;; tiny-function-symbol-p (p.220)
+;; tiny-macro-symbol-p (p.220)
+;; tiny-macro-function (p.220)
 ;;
-(defun t-function-symbol-p (s)
-  (let ((fb (and (symbolp s) (t-symbol-function s))))
-    (and fb (eq (car fb) 'lambda))))
+(defun tiny-function-symbol-p (s)
+  (let ((fb (and (symbolp s) (tiny-symbol-function s))))
+    (and fb (eq (car fb) 't-lambda))))
 
-(defun t-macro-symbol-p (s)
-  (let ((fb (and (symbolp s) (t-gosymbol-function s))))
-    (and fb (eq (car fb) 'macro))))
+(defun tiny-macro-symbol-p (s)
+  (let ((fb (and (symbolp s) (tiny-symbol-function s))))
+    (and fb (eq (car fb) 't-macro))))
 
-(defun t-macro-function (s)
-  (and (t-macro-symbol-p s) (t-symbol-function s)))
+(defun tiny-macro-function (s)
+  (and (tiny-macro-symbol-p s) (tiny-symbol-function s)))
 
 ;;
-;; t-local-value (p.222)
-;; _loc-val2 (p.222)
+;; tiny-local-value (p.222)
+;; tiny-loc-val2 (p.222)
 ;;
-(defun t-local-value (s)
-  (let ((sv (_loc-val2 s t-env)))
+(defun tiny-local-value (s)
+  (let ((sv (tiny-loc-val2 s t-env)))
     (conv (sv (cdr sv)) (t 'no-value))))
 
-(defun _loc_val2 (s e)
+(defun tiny-loc_val2 (s e)
   (cond ((null e) nil)
 	((assoc s (car e)) (assoc s (car e)))
-	(t (_loc-val2 s (cdr e))) ))
+	(t (tiny-loc-val2 s (cdr e))) ))
 
 ;;
-;; _variable-value (p.224)
-;; _loc-val2 (p.224)
+;; tiny-variable-value (p.224)
+;; tiny-loc-val2 (p.224)
 ;; t-apply (p.224)
-;; _eval-body-in-new-environment (p.224)
-;; _ev-setq (p.227)
+;; tiny-eval-body-in-new-environment (p.224)
+;; tiny-evsetq (p.227)
 ;;
-(defun _variable-value (s)
+(defun tiny-variable-value (s)
   (let ((_localv nil)
 	(_globalv nil))
-    (setq _localv (_loc_val2 s t-env))
+    (setq _localv (tiny-loc_val2 s t-env))
     (cond (_localv (cdr _localv))
-	  (t (setq _globalv (t-symbol-value s))
+	  (t (setq _globalv (tiny-symbol-value s))
 	     (cond ((neq _globalv 'no-value) _globalv)
 		   (t (error 'unbound-variable s)))))))
 
 (defun t-apply (fn args)
-  (cond ((t-function-symbol-p fn)
-	 (_eval-body-in-new-environment nil fn args))
-	((t-lambda-expression-p fn)
-	 (_eval-body-in-new-environment nil fn args))
+  (cond ((tiny-function-symbol-p fn)
+	 (tiny-eval-body-in-new-environment nil fn args))
+	((tiny-lambda-expression-p fn)
+	 (tiny-eval-body-in-new-environment nil fn args))
 	(t (error 'illegal-function fn))))
 
-(defun _eval-body-in-new-environment (title lambda args)
+(defun tiny-eval-body-in-new-environment (title lambda args)
   (prog2
-      (push (cons titile (_pairlis (cadr lambda) args)) env)
-      (_ev-progn (cddr lambda))
+      (push (cons titile (tiny-pairlis (cadr lambda) args)) env)
+      (tiny-evprogn (cddr lambda))
     (pop t-env)))
 
-(defun _pairlis (x y)
+(defun tiny-pairlis (x y)
   (cond ((and x y)
 	 (cons (cons (car x) (car y))
-	       (_pairlis (cdr x) (cdr y)) ))))
+	       (tiny-pairlis (cdr x) (cdr y)) ))))
 
-(defun _ev-setq (form)
+(defun tiny-evsetq (form)
   (let (localv)
-    (setq localv (_loc-val2 (car form) t-env))
+    (setq localv (tiny-loc-val2 (car form) t-env))
     (cond (localv
 	   (rplacd localv))
 	  (t (set-symbol-value
 	      (car form)
-	      (t-eval (cadr form)))))))
+	      (tiny-eval (cadr form)))))))
