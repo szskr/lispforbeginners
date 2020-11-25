@@ -1,17 +1,18 @@
 ;;
-;; Tiny Lisp
+;; Lisp in Lisp
 ;;   Based on「初めての人のためのLISP」第１３講
 ;;
 
 ;;
 ;; Tiny-lisp: APIs
 ;;  t-eval
+;;  t-apply
 ;;  SPECIAL FORMS
 ;;    '(t-quote t-cond t-setq
-;;      t-prog t-progn
+;;      t-progn
 ;;	t-defun t-defmacro
 ;;	t-function)
-;;  t-apply
+;;
 ;;  tiny-symbol-value
 ;;  tiny-makunbound
 ;;  tiny-symbol-function
@@ -23,13 +24,14 @@
 ;;  tiny-macro-symbol-p
 ;;  tiny-macro-function
 ;;
-(setq tiny-data-special-forms '(t-quote
-		       t-cond
-		       t-setq
-		       t-progn
-		       t-defun
-		       t-defmacro
-		       t-function))
+(setq tiny-data-special-forms
+      '(t-quote
+	t-cond
+	t-setq
+	t-progn
+	t-defun
+	t-defmacro
+	t-function))
 ;;
 ;; t-eval (p.214)
 ;;
@@ -116,7 +118,7 @@
 (defun tiny-makunbound (s)
   (print "set the value of the symbol s to nil"))
 
-(defun tiny--symbol-function (s)
+(defun tiny-symbol-function (s)
   (print "Return the function definition of the symbol s"))
 
 (defun tiny-set-symbol-function (s fn)
