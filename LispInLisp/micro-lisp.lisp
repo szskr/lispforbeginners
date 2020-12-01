@@ -16,7 +16,7 @@
 				(cdr s))
 			environment))))
 
-(defun micro-apply (function args envirnment)
+(defun micro-apply (function args environment)
   (cond ((atom function)
 	 (cond ((equal function 'm-car) (caar args))
 	       ((equal function 'm-cdr) (cdar args))
@@ -34,8 +34,8 @@
 	 (micro-eval (caddr function)
 		     (micro-bind (cadr function) args environment)))))
 
-(defun microp-rep ()
-  (prog (s enviroment)
+(defun micro-rep ()
+  (prog (s environment)
 	loop
 	(setq s (read))
 	(cond ((atom s)
