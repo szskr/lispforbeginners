@@ -8,3 +8,6 @@
 
 (defun micro-lisp ()
   (load "./micro-lisp"))
+
+(defun tmp()
+  (load "./tmp.lisp"))
