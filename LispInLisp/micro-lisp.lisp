@@ -1,6 +1,27 @@
 ;;
-;; MICRO Lisp
+;; Micro Lisp
+;;   (micro-eval     s env)
+;;   (micro-apply    func args env)
+;;   (micro-evalcond clauses env)
+;;   (micro-bind     key-list value-list a-list)
+;;   (micro-value    key a-list)
 ;;
+;;   (micro-rep)
+;;
+;; Basic functions
+;;   m-quote        : micro-eval
+;;   m-cond         : micro-eval
+;;   m-car          : micro-apply
+;;   m-cdr          : micro-apply
+;;   m-cons         : micro-apply
+;;   m-atom         : micro-apply
+;;   m-null         : micro-apply
+;;   m-equal        : micro-apply
+;;   m-defun        : micro-rep
+;;
+;;   m-env          : micro-eval
+;;   m-bye          : micro-rep
+
 (defun micro-eval (s env)
   (cond ((atom s)
 	 (cond ((equal s t) t)
@@ -54,10 +75,12 @@
 (defun micro-rep ()
   (prog (s env)
 	loop
+	(format t ">> ")
+	(force-output nil)
 	(setq s (read))
 	(cond ((atom s)
 	       (print (micro-eval s env)))
-	      ((equal (car s) 'm-env)
+	      ((equal (car s) 'mt-env)
 	       (print env))
 	      ((equal (car s) 'm-defun)
 	       (setq env (cons (list (cadr s)
@@ -65,27 +88,11 @@
 					   (cddr s)))
 			       env))
 	       (print (cadr s)))
-	      ((equal (car s) 'm-bye)
+	      ((equal (car s) 'mt-bye)
 	       (return))
 	      (t (print (micro-eval s env))))
 	(go loop)))
 
-	       
-(defun mm-rep ()
-  (prog (s env)
-	loop
-	(setq s (read))
-	(cond ((atom s)
-	       (print (micro-eval s env)))
-	      ((equal (car s) 'm-env)
-	       (print env))
-	      ((equal (car s) 'm-defun)
-	       (setq env (cons (list (cadr s)
-				     (cons 'm-definition
-					   (cddr s)))
-			       env))
-	       (print (cadr s)))
-	      ((equal (car s) 'm-bye)
-	       (return))
-	      (t (print (micro-eval s env))))
-	(go loop)))
+;;
+;; Expand
+;;
