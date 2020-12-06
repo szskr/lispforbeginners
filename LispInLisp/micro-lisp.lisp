@@ -5,12 +5,14 @@
 ;;   (micro-evalcond clauses env)
 ;;   (micro-bind     key-list value-list a-list)
 ;;   (micro-value    key a-list)
+;;   (micro-setq     variable value a-list)
 ;;
 ;;   (micro-rep)
 ;;
 ;; Basic functions
 ;;   m-quote        : micro-eval
 ;;   m-cond         : micro-eval
+;;   m-setq         : micro-eval
 ;;   m-car          : micro-apply
 ;;   m-cdr          : micro-apply
 ;;   m-cons         : micro-apply
@@ -30,9 +32,10 @@
 	       ((numberp s) s)
 	       (t (micro-value s env))))
 	((equal (car s) 'm-quote) (cadr s))
-	((equal (car s) 'm-env) (print env))
 	((equal (car s) 'm-cond)
 	 (micro-evalcond (cdr s) env))
+	((equal (car s) 'm-setq)
+	 (micro-setq (cadr s) (caddr s) env))
 	(t (micro-apply (car s)
 			(mapcar #'(lambda (x)
 				    (micro-eval x env))
@@ -75,7 +78,18 @@
 
 (defun micro-value (key a-list)
   (progn (print "micro-value    called")
-  (cadr (assoc key a-list))))
+	 (cadr (assoc key a-list))))
+
+(defun micro-setq (variable value a-list)
+  (progn (print "micro-setq     called")
+  (prog (entry)
+	(setq entry (assoc variable a-list))
+	(setq result (micro-eval value a-list))
+	;;(print "   mark1-result") (print result)
+	;;(print "   mark2-entry")  (print entry)
+	(cond (entry (rplaca (cdr entry) result))
+	      (t (rplacd (last a-list) (list (list variable result)))))
+	(return result))))
 
 (defun micro-rep ()
   (prog (s env)
@@ -85,14 +99,14 @@
 	(setq s (read))
 	(cond ((atom s)
 	       (print (micro-eval s env)))
-	      ((equal (car s) 'm-env)
-	       (print env))
 	      ((equal (car s) 'm-defun)
 	       (setq env (cons (list (cadr s)
 				     (cons 'm-definition
 					   (cddr s)))
 			       env))
 	       (print (cadr s)))
+	      ((equal (car s) 'm-env)
+	       (print env))
 	      ((equal (car s) 'm-bye)
 	       (return))
 	      (t (print (micro-eval s env))))
