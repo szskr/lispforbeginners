@@ -72,7 +72,7 @@
 	((equal (car func) 'm-definition)
 	 (micro-eval (caddr func)
 		     (micro-bind (cadr func) args env)))
-	((equal (car s) 'm-closure)
+	((equal (car func) 'm-closure)
 	 (micro-eval (caddr func)
 		     (micro-bind (cadr func) args
 				 (cadddr func)))))))
@@ -86,7 +86,7 @@
 	(t (micro-evalcond (cdr clauses) env)))))
 
 (defun micro-bind (key-list value-list a-list)
-  (progn (print "micro-bind     called")
+  (progn (m_print "micro-bind     called")
   (cond ((or (null key-list) (null value-list)) a-list)
 	(t (cons (list (car key-list) (car value-list))
 		 (micro-bind (cdr key-list)
@@ -102,15 +102,14 @@
   (prog (entry)
 	(setq entry (assoc variable a-list))
 	(setq result (micro-eval value a-list))
-	;;(print "   mark1-result") (print result)
-	;;(print "   mark2-entry")  (print entry)
+	;;(m_print "   mark1-result") (print result)
+	;;(m_print "   mark2-entry")  (print entry)
 	(cond (entry (rplaca (cdr entry) result))
 	      (t (rplacd (last a-list) (list (list variable result)))))
 	(return result))))
 
 (defun micro-rep ()
   (prog (s env)
-	(setq _trace nil)
 	loop
 	(format t ">> ")
 	(force-output nil)
