@@ -3,8 +3,10 @@
 ;;   (micro-eval     s env)
 ;;   (micro-apply    func args env)
 ;;   (micro-evalcond clauses env)
+;;
 ;;   (micro-bind     key-list value-list a-list)
 ;;   (micro-value    key a-list)
+;;
 ;;   (micro-setq     variable value a-list)
 ;;
 ;;   (micro-rep)
@@ -13,19 +15,25 @@
 ;;   m-quote        : micro-eval
 ;;   m-cond         : micro-eval
 ;;   m-setq         : micro-eval
+;;   m-lambda       : micro-eval
 ;;   m-car          : micro-apply
 ;;   m-cdr          : micro-apply
 ;;   m-cons         : micro-apply
 ;;   m-atom         : micro-apply
 ;;   m-null         : micro-apply
 ;;   m-equal        : micro-apply
+;;   m-times        : micro-apply
 ;;   m-defun        : micro-rep
 ;;
-;;   m-env          : micro-eval
+;; Misc Functions
+;;   m-env          : micro-rep
 ;;   m-bye          : micro-rep
+;;
+;;   m_print        : for debugging
+;;
 
 (defun micro-eval (s env)
-  (progn (print "micro-eval     called")
+  (progn (m_print "micro-eval     called")
   (cond ((atom s)
 	 (cond ((equal s t) t)
 	       ((equal s nil) nil)
@@ -36,6 +44,8 @@
 	 (micro-evalcond (cdr s) env))
 	((equal (car s) 'm-setq)
 	 (micro-setq (cadr s) (caddr s) env))
+	((equal (car s) 'm-lambda)
+	 (list 'm-closure (cadr s) (caddr s) env))
 	(t (micro-apply (car s)
 			(mapcar #'(lambda (x)
 				    (micro-eval x env))
@@ -43,7 +53,7 @@
 			env)))))
 
 (defun micro-apply (func args env)
-  (progn (print "micro-apply    called")
+  (progn (m_print "micro-apply    called")
   (cond ((atom func)
 	 (cond ((equal func 'm-car) (caar args))
 	       ((equal func 'm-cdr) (cdar args))
@@ -53,16 +63,23 @@
 	       ((equal func 'm-null) (null (car args)))
 	       ((equal func 'm-equal) (equal (car args)
 					     (cadr args)))
+	       ((equal func 'm-times) (* (car args)
+					     (cadr args)))
 	       (t (micro-apply
 		   (micro-eval func env)
 		   args
 		   env))))
 	((equal (car func) 'm-definition)
 	 (micro-eval (caddr func)
-		     (micro-bind (cadr func) args env))))))
+		     (micro-bind (cadr func) args env)))
+	((equal (car s) 'm-closure)
+	 (micro-eval (caddr func)
+		     (micro-bind (cadr func) args
+				 (cadddr func)))))))
+	 
 
 (defun micro-evalcond (clauses env)
-  (progn (print "micro-evalcond called")
+  (progn (m_print "micro-evalcond called")
   (cond ((null clauses) nil)
 	((micro-eval (caar clauses) env)
 	 (micro-eval (cadar clauses) env))
@@ -77,11 +94,11 @@
 			     a-list))))))
 
 (defun micro-value (key a-list)
-  (progn (print "micro-value    called")
+  (progn (m_print "micro-value    called")
 	 (cadr (assoc key a-list))))
 
 (defun micro-setq (variable value a-list)
-  (progn (print "micro-setq     called")
+  (progn (m_print "micro-setq     called")
   (prog (entry)
 	(setq entry (assoc variable a-list))
 	(setq result (micro-eval value a-list))
@@ -93,6 +110,7 @@
 
 (defun micro-rep ()
   (prog (s env)
+	(setq _trace nil)
 	loop
 	(format t ">> ")
 	(force-output nil)
@@ -113,5 +131,7 @@
 	(go loop)))
 
 ;;
-;; Expand
+;; utilities
 ;;
+(defun m_print (s)
+      (print s))
