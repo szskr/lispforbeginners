@@ -40,6 +40,7 @@
 	       ((numberp s) s)
 	       (t (micro-value s env))))
 	((equal (car s) 'm-quote) (cadr s))
+        ((equal (car s) 'm-print) (print (cadr s)))
 	((equal (car s) 'm-cond)
 	 (micro-evalcond (cdr s) env))
 	((equal (car s) 'm-setq)
@@ -64,7 +65,8 @@
 	       ((equal func 'm-equal) (equal (car args)
 					     (cadr args)))
 	       ((equal func 'm-times) (* (car args)
-					     (cadr args)))
+					 (cadr args)))
+
 	       (t (micro-apply
 		   (micro-eval func env)
 		   args
