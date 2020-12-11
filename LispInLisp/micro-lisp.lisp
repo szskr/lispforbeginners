@@ -104,14 +104,15 @@
   (prog (entry)
 	(setq entry (assoc variable a-list))
 	(setq result (micro-eval value a-list))
-	;;(m_print "   mark1-result") (print result)
-	;;(m_print "   mark2-entry")  (print entry)
+	(m_print "   mark1-result") (print result)
+	(m_print "   mark2-entry")  (print entry)
 	(cond (entry (rplaca (cdr entry) result))
 	      (t (rplacd (last a-list) (list (list variable result)))))
 	(return result))))
 
 (defun micro-rep ()
   (prog (s env)
+	(setq _d_debug nil)
 	loop
 	(format t ">> ")
 	(force-output nil)
@@ -126,6 +127,10 @@
 	       (print (cadr s)))
 	      ((equal (car s) 'm-env)
 	       (print env))
+	      ((equal (car s) 'm-debug-on)
+	       (setq _d_debug t))
+	      ((equal (car s) 'm-debug-off)
+	       (setq _d_debug nil))
 	      ((equal (car s) 'm-bye)
 	       (return))
 	      (t (print (micro-eval s env))))
@@ -135,4 +140,6 @@
 ;; utilities
 ;;
 (defun m_print (s)
-      (print s))
+  (eval-when (:execute)
+      (if (eq _d_debug t)
+	  (print s))))
