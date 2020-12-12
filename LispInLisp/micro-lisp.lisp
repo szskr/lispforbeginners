@@ -113,6 +113,8 @@
 (defun micro-rep ()
   (prog (s env)
 	(setq _micro_debug nil)
+	(setq env (list (list :_dummy_ 100)))
+	
 	loop
 	(format t ">> ")
 	(force-output nil)
