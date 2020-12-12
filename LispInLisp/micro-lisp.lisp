@@ -112,7 +112,7 @@
 
 (defun micro-rep ()
   (prog (s env)
-	(setq _d_debug nil)
+	(setq _micro_debug nil)
 	loop
 	(format t ">> ")
 	(force-output nil)
@@ -128,9 +128,9 @@
 	      ((equal (car s) 'm-env)
 	       (print env))
 	      ((equal (car s) 'm-debug-on)
-	       (setq _d_debug t))
+	       (setq _micro_debug t))
 	      ((equal (car s) 'm-debug-off)
-	       (setq _d_debug nil))
+	       (setq _micro_debug nil))
 	      ((equal (car s) 'm-bye)
 	       (return))
 	      (t (print (micro-eval s env))))
@@ -141,5 +141,5 @@
 ;;
 (defun m_print (s)
   (eval-when (:execute)
-      (if (eq _d_debug t)
+      (if (eq _micro_debug t)
 	  (print s))))
