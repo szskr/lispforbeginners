@@ -1,4 +1,9 @@
 ;;
+;; Based on 「LISP」(1981) by P.H. Winston & B.L.P Horn
+;;           From  Chapter 23: Lisp in Lisp
+;;
+
+;;
 ;; Micro Lisp
 ;;   (micro-eval     s env)
 ;;   (micro-apply    func args env)
@@ -11,7 +16,7 @@
 ;;
 ;;   (micro-rep)
 ;;
-;; Basic functions
+;;  Basic functions
 ;;   m-quote        : micro-eval
 ;;   m-cond         : micro-eval
 ;;   m-setq         : micro-eval
@@ -25,10 +30,13 @@
 ;;   m-times        : micro-apply
 ;;   m-defun        : micro-rep
 ;;
-;; Misc Functions
-;;   m-env          : micro-rep
-;;   m-bye          : micro-rep
+;;  Misc Functions
+;;   env            : micro-rep
+;;   bye            : micro-rep
+;;   debug-on       : micro-rep
+;;   debug-off      : micro-rep
 ;;
+;; Misc functions
 ;;   m_print        : for debugging
 ;;
 
@@ -47,7 +55,8 @@
 	 (micro-setq (cadr s) (caddr s) env))
 	((equal (car s) 'm-lambda)
 	 (list 'm-closure (cadr s) (caddr s) env))
-	(t (micro-apply (car s)
+	(t (m_print "  Calling micro-apply")
+	   (micro-apply (car s)
 			(mapcar #'(lambda (x)
 				    (micro-eval x env))
 				(cdr s))
@@ -127,20 +136,17 @@
 					   (cddr s)))
 			       env))
 	       (print (cadr s)))
-	      ((equal (car s) 'm-env)
+	      ((equal (car s) 'env)
 	       (print env))
-	      ((equal (car s) 'm-debug-on)
+	      ((equal (car s) 'debug-on)
 	       (setq _micro_debug t))
-	      ((equal (car s) 'm-debug-off)
+	      ((equal (car s) 'debug-off)
 	       (setq _micro_debug nil))
-	      ((equal (car s) 'm-bye)
+	      ((equal (car s) 'bye)
 	       (return))
 	      (t (print (micro-eval s env))))
 	(go loop)))
 
-;;
-;; utilities
-;;
 (defun m_print (s)
   (eval-when (:execute)
       (if (eq _micro_debug t)
