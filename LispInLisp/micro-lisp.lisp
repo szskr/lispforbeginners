@@ -4,7 +4,7 @@
 ;;
 
 ;;
-;; Micro Lisp
+;; Micro Lisp Interpreter 
 ;;   (micro-eval     s env)
 ;;   (micro-apply    func args env)
 ;;   (micro-evalcond clauses env)
@@ -38,6 +38,10 @@
 ;;
 ;; Misc functions
 ;;   m_print        : for debugging
+;;
+
+;;
+;; Notes
 ;;
 
 (defun micro-eval (s env)
