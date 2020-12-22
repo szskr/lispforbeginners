@@ -7,20 +7,20 @@
 ;; Micro Lisp Interpreter 
 ;;   (micro-eval     s env)
 ;;   (micro-apply    func args env)
-;;   (micro-evalcond clauses env)
+;;   (micro-rep)
 ;;
+;;   (micro-evalcond clauses env)
 ;;   (micro-bind     key-list value-list a-list)
 ;;   (micro-value    key a-list)
 ;;
 ;;   (micro-setq     variable value a-list)
-;;
-;;   (micro-rep)
 ;;
 ;;  Basic functions
 ;;   m-quote        : micro-eval
 ;;   m-cond         : micro-eval
 ;;   m-setq         : micro-eval
 ;;   m-lambda       : micro-eval
+;;
 ;;   m-car          : micro-apply
 ;;   m-cdr          : micro-apply
 ;;   m-cons         : micro-apply
@@ -28,20 +28,18 @@
 ;;   m-null         : micro-apply
 ;;   m-equal        : micro-apply
 ;;   m-times        : micro-apply
+;;   m-add          :: micro-apply
+;;
 ;;   m-defun        : micro-rep
 ;;
 ;;  Misc Functions
-;;   env            : micro-rep
-;;   bye            : micro-rep
-;;   debug-on       : micro-rep
-;;   debug-off      : micro-rep
+;;   env            :: micro-rep
+;;   bye            :: micro-rep
+;;   debug-on       :: micro-rep
+;;   debug-off      :: micro-rep
 ;;
 ;; Misc functions
-;;   m_print        : for debugging
-;;
-
-;;
-;; Notes
+;;   m_print        :: for debugging
 ;;
 
 (defun micro-eval (s env)
@@ -50,10 +48,10 @@
 	 (cond ((equal s t) t)
 	       ((equal s nil) nil)
 	       ((numberp s) s)
+	       ((stringp s) s)
 	       (t (micro-value s env))))
 	((equal (car s) 'm-quote) (cadr s))
-        ((equal (car s) 'm-print) (print (cadr s)))
-	((equal (car s) 'm-cond)
+     	((equal (car s) 'm-cond)
 	 (micro-evalcond (cdr s) env))
 	((equal (car s) 'm-setq)
 	 (micro-setq (cadr s) (caddr s) env))
@@ -79,6 +77,8 @@
 					     (cadr args)))
 	       ((equal func 'm-times) (* (car args)
 					 (cadr args)))
+	       ((equal func 'm-add) (+ (car args)
+					 (cadr args)))
 
 	       (t (micro-apply
 		   (micro-eval func env)
@@ -90,7 +90,8 @@
 	((equal (car func) 'm-closure)
 	 (micro-eval (caddr func)
 		     (micro-bind (cadr func) args
-				 (cadddr func)))))))
+				 (cadddr func))))
+	(t (m_print "ERROR")))))
 	 
 
 (defun micro-evalcond (clauses env)
@@ -153,5 +154,5 @@
 
 (defun m_print (s)
   (eval-when (:execute)
-      (if (eq _micro_debug t)
-	  (print s))))
+    (if (eq _micro_debug t)
+      (print s))))
