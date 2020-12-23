@@ -12,10 +12,13 @@
 　　　　２３　LISP で書く LISP
 
 　MICRO interpreter 概説
-　MICRO interpreter 簡単なでも
+
+　MICRO interpreter 簡単なdemo
 
 　最後に
-　　来年の趣味LISP予定
+　　来年の趣味LISPでやりたいこと
+     LiSPを半分くらいまで読む.
+     SBCLのsource codeを読む。２つくらい簡単な bug を fix する。(Cで書かれた部分とlispで書かれた部分）
 
 APPENDIX:
 1. 使った source file:
