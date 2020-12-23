@@ -5,8 +5,8 @@
   
 　簡単な本の紹介
 　　「初めての人のためのLISP」by 竹内郁雄
-       第１３講　Lispの解剖 その１
-       第１５講　Lispの解剖　飛んでその２
+       第１３講　Lispの解剖　その１
+       第１５講　Lispの解剖　とんでその２
        　　　　
 　　「LISP」by P.H.ウィンストン・B.K.P.ホーン　（情報処理シリーズ４　培風館　１９８２）
 　　　　２３　LISP で書く LISP
@@ -17,5 +17,10 @@
 　最後に
 　　来年の趣味LISP予定
 
-PS:
+APPENDIX:
+1. 使った source file:
+  https://github.com/szskr/lispforbeginners/blob/master/OnePagers/micro-lisp-20201226.lisp
+
+2. このファイル
+  https://github.com/szskr/lispforbeginners/blob/master/OnePagers/ShibuyaLisp20201223.txt
     
