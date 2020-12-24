@@ -1,2 +1,5 @@
-HackingSBCL
 
+Hacking SBCL
+
+002 Understand build process: Especially the bootstrapping mechanism
+001 Understand source code directory structures
