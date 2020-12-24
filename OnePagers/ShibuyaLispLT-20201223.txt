@@ -18,11 +18,14 @@
 　　来年の趣味LISPでやりたいこと
      LiSPを半分くらいまで読む.
      SBCLのsource codeを読む。２つくらい簡単な bug を fix する。(Cで書かれた部分とlispで書かれた部分）
-
+  
 APPENDIX:
 1. 使った source file:
   https://github.com/szskr/lispforbeginners/blob/master/OnePagers/micro-lisp-20201226.lisp
 
 2. このファイル
   https://github.com/szskr/lispforbeginners/blob/master/OnePagers/ShibuyaLisp20201223.txt
+
+3. Shibuya.lisp meetup No.93 の雑談タイムに思って、次を「来年の趣味LISPでやりたいこと」に追加。
+　LEM: LEM user になって、source code を読み、変更を加えられるようになる
     
