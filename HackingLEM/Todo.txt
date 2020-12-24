@@ -1,1 +1,6 @@
-HackingLEM
+
+Hacking LEM
+
+003 Source code structure: Understand source code file directory structures
+002 Building lem: Understand its build procedure
+001 Be a user
