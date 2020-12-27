@@ -20,8 +20,13 @@
      SBCLのsource codeを読む。２つくらい簡単な bug fix をする。(Cで書かれた部分とlispで書かれた部分）
   
 APPENDIX:
+0. このファイルと次のソース・ファイルは 2020/12/23 Shibuya.lisp lispmeetup #93 の LT で使った。
+
 1. 使った source file:
   https://github.com/szskr/lispforbeginners/blob/master/OnePagers/micro-lisp-20201226.lisp
+  
+　「LISP」の第23章で説明されている MICRO インタプリタ。元はmaclisp(interlispの方言）で書かれてるが、common lisp 用に少し変更した。
+　 micro-rep に、デバッグ用のコマンドを追加してある。
 
 2. このファイル
   https://github.com/szskr/lispforbeginners/blob/master/OnePagers/ShibuyaLisp20201223.txt
