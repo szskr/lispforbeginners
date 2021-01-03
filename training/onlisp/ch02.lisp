@@ -5,7 +5,13 @@
 (nl)
 
 ;;
-;; 
+;; Local Functions
+(comment "02.07 Local Functions")
+(setq _ch02_tval
+    (labels ((inc (x) (+ 1 x))
+	     (a (y) (+ (inc y) 10)))
+	    (a 10)))
+;;
 ;;
 (comment "02.09 Compile")
 (nl)
