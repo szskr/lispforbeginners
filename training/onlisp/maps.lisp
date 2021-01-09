@@ -99,3 +99,46 @@
 ;(setq mmc1 (my-mapc #'+ nums nums))
 (write "Going to my-mapc square")
 (setq mc2 (my-mapc #'(lambda (x) (print (* x x)) (* x x)) nums))
+
+;;
+;; On mapcan
+;;
+(setf mc0 '((a b) (c) (1 2 3)))
+
+(defun numbers-of (l)
+  (mapcan (lambda (e)
+	    (if (numberp e)
+		(list e)
+	      '()))
+	  l))
+
+;;
+;; various
+;;
+(setq a '(a b c d e))
+
+(defun m-mapcar (x)
+  (mapcar (lambda (y) (list y y)) x))
+(setf a1 (m-mapcar a))
+
+(defun m-nconc (x)
+  (apply #'nconc (m-mapcar x)))
+(setf a2 (m-nconc a))
+
+(defun m-mapcan (x)
+  (mapcan (lambda (y) (list y y)) x))
+(setf a3 (m-mapcan a))
+
+(defun m-maplist (x)
+  (maplist (lambda (y) (copy-list y)) x))
+(setf a4 (m-maplist a))
+
+(defun m-nconc2 (x)
+  (apply #'nconc (maplist (lambda (y) (copy-list y)) x)))
+(setf a5 (m-nconc2 a))
+
+(defun m-mapcon (x)
+  (mapcon (lambda (y) (copy-list y)) x))
+(setf a6 (m-mapcon a))
+
+
