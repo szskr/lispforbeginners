@@ -141,4 +141,13 @@
   (mapcon (lambda (y) (copy-list y)) x))
 (setf a6 (m-mapcon a))
 
+;;
+;; misc examples
+;;
+(setq nums '(1 2 3 4 5 6 7 8 9 10))
+(defun m2-mapcar (n)
+  (mapcar (lambda (x) (evenp x)) n))
+
+(defun m2-mapcan (n)
+  (mapcan (lambda (x) (if (evenp x) (list x))) n))
 

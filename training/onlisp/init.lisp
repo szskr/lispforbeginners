@@ -3,8 +3,9 @@
 ;;;
 (defun l ()
   (let ((files '("../libs/tools.lisp"
-		 "./lisp.lisp"
-		 "./maps.lisp"
+		 "./00-lisp.lisp"
+		 "./01-maps.lisp"
+		 "./02-loops.lisp"
 		 "./ch02.lisp"
 		 "./ch03.lisp"
 		 "./ch04.lisp")))
@@ -13,11 +14,17 @@
 (defun tools()
   (load "../libs/tools.lisp"))
 
+(defun init()
+  (load "./init.lisp"))
+
 (defun lisp()
-  (load "./lisp.lisp"))
+  (load "./00-lisp.lisp"))
 
 (defun maps()
-  (load "./maps.lisp"))
+  (load "./01-maps.lisp"))
+
+(defun loops()
+  (load "./02-loops.lisp"))
 
 (defun ch02()
   (load "./ch02.lisp"))
