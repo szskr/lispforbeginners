@@ -8,8 +8,10 @@
 		 "./02-loops.lisp"
 		 "./ch02.lisp"
 		 "./ch03.lisp"
-		 "./ch04.lisp")))
-    (mapcar #'load files)))
+		 "./ch04.lisp"))
+	(figures '("./fig0401.lisp")))
+    (mapcar #'load files)
+    (mapcar #'load figures)))
 
 (defun tools()
   (load "../libs/tools.lisp"))
