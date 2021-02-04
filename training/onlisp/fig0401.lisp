@@ -7,3 +7,6 @@
 
 (defun single (lst)
   (and (consp lst) (not (cdr lst))))
+
+(defun append1 (lst obj)
+  (nconc lst (list obj)))
