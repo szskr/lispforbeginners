@@ -10,3 +10,10 @@
 
 (defun append1 (lst obj)
   (nconc lst (list obj)))
+
+(defun conc1 (lst obj)
+  (nconc lst (list obj)))
+
+(defun mklist (obj)
+  (if (listp obj) obj
+    (list obj)))
