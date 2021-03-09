@@ -1,7 +1,8 @@
 ;;;
 ;;; Little tools
 ;;;
-(setq figures '("./fig0401.lisp"
+(setq figures '("./fig0201.lisp"
+		"./fig0401.lisp"
 		"./fig0402.lisp"))
 
 (defun l ()
