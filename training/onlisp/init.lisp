@@ -2,6 +2,7 @@
 ;;; Little tools
 ;;;
 (setq figures '("./fig0201.lisp"
+		"./fig0301.lisp"
 		"./fig0401.lisp"
 		"./fig0402.lisp"))
 
